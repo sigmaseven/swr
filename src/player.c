@@ -100,7 +100,7 @@ void do_score( CHAR_DATA * ch, char *argument )
 
 
 
-   ch_printf( ch, "CREDITS: %-10d   BANK: %-10d    Pkills: %-5.5d   Mkills: %-5.5d\n\r",
+   ch_printf( ch, "CAPS: %-10d   BANK: %-10d    Pkills: %-5.5d   Mkills: %-5.5d\n\r",
               ch->gold, ch->pcdata->bank, ch->pcdata->pkills, ch->pcdata->mkills );
 
    ch_printf( ch, "Weight: %5.5d (max %7.7d)    Items: %5.5d (max %5.5d)\n\r",
