@@ -1830,7 +1830,7 @@ void do_steal( CHAR_DATA * ch, char *argument )
    if( IS_NPC( victim ) )
       add_kill( ch, victim ); /* makes it harder to steal from same char */
 
-   if( !str_cmp( arg1, "credits" ) || !str_cmp( arg1, "credit" ) || !str_cmp( arg1, "money" ) )
+   if( !str_cmp( arg1, "credits" ) || !str_cmp( arg1, "credit" ) || !str_cmp( arg1, "money" ) || !str_cmp(arg1, "caps") )
    {
       int amount;
 
