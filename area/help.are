@@ -2755,35 +2755,30 @@ See REDIT.
 ~
 
 -1 GREETING~
-.               _________________      ____         __________
- .       .    /                 |    /    \    .  |          \
-     .       /    ______   _____| . /      \      |    ___    |     .   
-             \    \    |   |       /   /\   \     |   |___>   |
-           .  \    \   |   |      /   /__\   \  . |         _/          
- .     ________>    |  |   | .   /            \   |   |\    \_______    
-      |            /   |   |    /    ______    \  |   | \           |
-      |___________/    |___|   /____/      \____\ |___|  \__________|   
-  .     ____    __  . _____   ____      .  __________   .  _________
-       \    \  /  \  /    /  /    \       |          \    /         |      
-        \    \/    \/    /  /      \      |    ___    |  /    ______|  .
-         \              /  /   /\   \ .   |   |___>   |  \    \
-   .      \            /  /   /__\   \    |         _/.   \    \      
-           \    /\    /  /            \   |   |\    \______>    |   .
-            \  /  \  /  /    ______    \  |   | \              /      
- .       .   \/    \/  /____/      \____\ |___|  \____________/  
-
-                                                         *** REALITY ***
-
-SWReality 1.0 by Sean (Durga the Hutt) Cooper - specs@golden.net
-
-Original SMAUG 1.0 written by Thoric (Derek Snider) with help from 
-Altrag, Blodkai, Narn, Haus, Scryn, Swordbearer, Rennard, Tricops and Gorog.
-Original MERC 2.1 code by Hatchet, Furey, and Kahn. Original DikuMUD code by:
-Hans Staerfeldt, Katja Nyboe, Tom Madsen, Michael Seifert && Sebastian Hammer
-Star Wars and Star Wars names are a copyright of Lucasfilm ltd.
-
+ -----------------------------------------------------------------------------
+|     _.-^^---....,,--                                                        |
+| _--                  --_                                                    |
+|<                        >)                                                  |
+||                         |                                                  |
+| \._                   _./                                                   |
+|    ```--. . , ; .--'''       FALLOUT: A Post-nuclear MUD                    |
+|          | |   |                                                            |
+|       .-=||  | |=-.                                                         |
+|       `-=#$%&%$#=-'                                                         |
+|          | ;  :|                                                            |
+| _____.--########--._____                                                    |
+|                                                                             |
+|_____________________________________________________________________________ 
+|Fallout MUD codebase by lolb0t.                                              |
+|SWReality 1.0 by Sean (Durga the Hutt) Cooper - specs@golden.net             |
+|Original SMAUG 1.0 written by Thoric (Derek Snider) with help from           |
+|Altrag, Blodkai, Narn, Haus, Scryn, Swordbearer, Rennard, Tricops and Gorog. |
+|Original MERC 2.1 code by Hatchet, Furey, and Kahn. Original DikuMUD code by:|
+|Hans Staerfeldt, Katja Nyboe, Tom Madsen, Michael Seifert && Sebastian Hammer|
+|Star Wars and Star Wars names are a copyright of Lucasfilm ltd.              |
+ -----------------------------------------------------------------------------
  
-Please enter your name:
+Who are you stranger?
 ~
 
 1 GRENADES~

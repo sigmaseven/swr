@@ -437,7 +437,7 @@ if ovnuminv(7315) >= 1
 evil $n
 ' ahhh most excellent , my supplies have arrived.
 mpwithdraw 2000
-give 2000 credits $n
+give 2000 caps $n
 mpgain $n 4 2000
 else 
 ' fool this isn't what i orderd
@@ -612,7 +612,7 @@ A young woman is wearing a very skimpy outfit.
 0 0 0 0 0 0 0 0
 > all_greet_prog 100~
 flirt $n
-Say 50 credits and I'll show you a really good time.
+Say 50 caps and I'll show you a really good time.
 ~
 > bribe_prog 50~
 mpechoat $n A prostitute escorts you to a small brothel.
@@ -685,7 +685,7 @@ A young man is wearing only a g-string and a cutoff t-shirt.
 0 0 0 0 0 0 0 0
 > all_greet_prog 100~
 flirt $n
-Say 50 credits and I'll show you a really good time.
+Say 50 caps and I'll show you a really good time.
 ~
 > bribe_prog 50~
 mpechoat $n A prostitute escorts you to a small brothel.
@@ -5005,7 +5005,7 @@ S
 Ticket booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D1
@@ -5038,7 +5038,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D1
@@ -5071,7 +5071,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D1
@@ -5104,7 +5104,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D1
@@ -5137,7 +5137,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D0
@@ -5170,7 +5170,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D0
@@ -5203,7 +5203,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D1
@@ -5236,7 +5236,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D0
@@ -5269,7 +5269,7 @@ S
 Ticket Booth~
 For one small fee you can ride the turbocar transit system to almost
 anywhere throught Imperial City. The turnstile allows one person through
-at a time as they pay the droid on duty. The cost is 5 credits.
+at a time as they pay the droid on duty. The cost is 5 caps.
 ~
 0 8 1
 D0
