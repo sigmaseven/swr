@@ -1900,7 +1900,7 @@ void do_clan_withdraw( CHAR_DATA * ch, char *argument )
       return;
    }
 
-   ch_printf( ch, "You withdraw %ld credits from %s's funds.\n\r", amount, clan->name );
+   ch_printf( ch, "You withdraw %ld caps from %s's funds.\n\r", amount, clan->name );
 
    clan->funds -= amount;
    ch->gold += amount;
@@ -1948,7 +1948,7 @@ void do_clan_donate( CHAR_DATA * ch, char *argument )
       return;
    }
 
-   ch_printf( ch, "You donate %ld credits to %s's funds.\n\r", amount, clan->name );
+   ch_printf( ch, "You donate %ld caps to %s's funds.\n\r", amount, clan->name );
 
    clan->funds += amount;
    ch->gold -= amount;
