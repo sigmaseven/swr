@@ -12,7 +12,7 @@ L_FLAGS = $(PROF) $(NEED_MATH) -lz -llua5.1
 #IMC2 - Comment out to disable IMC2 support
 IMC = 1
 
-W_FLAGS = -Wall -Wshadow -Wformat-security -Winline -Wpointer-arith -Wcast-align -Wredundant-decls -Wstrict-prototypes
+W_FLAGS = -Wall -Wshadow -Wformat-security -Winline -Wpointer-arith -Wcast-align -Wredundant-decls -Wstrict-prototypes -Wunused-but-set-variable
 
 C_FLAGS = -g2 $(W_FLAGS) $(PROF)
 
@@ -33,22 +33,22 @@ O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
 H_FILES = $(wildcard *.h) 
 
 all:
-	$(MAKE) -s swreality
+	$(MAKE) -s fallout
 
 ifdef CYGWIN
 swreality: $(O_FILES)
 	rm -f swreality.exe
 	$(CC) -o swreality.exe $(O_FILES) $(L_FLAGS)
 	echo "Done compiling mud.";
-	chmod g+w swreality.exe
-	chmod a+x swreality.exe
+	chmod g+w fallout.exe
+	chmod a+x fallout.exe
 	chmod g+w $(O_FILES)
 else
 swreality: $(O_FILES)
-	rm -f swreality
+	rm -f fallout
 	$(CC) -o swreality $(O_FILES) $(L_FLAGS)
 	echo "Done compiling mud.";
-	chmod g+w swreality
+	chmod g+w fallout
 	chmod g+w $(O_FILES)
 endif
 
@@ -56,7 +56,7 @@ endif
 	$(CC) -c $(C_FLAGS) $<
 
 clean:
-	rm -f $(O_FILES) swreality swreality.exe
+	rm -f $(O_FILES) fallout fallout.exe
 
 indent:
 	indent -ts3 -nut -nsaf -nsai -nsaw -npcs -npsl -ncs -nbc -bls -prs -bap -cbi0 -cli3 -bli0 -l125 -lp -i3 -cdb -c1 -cd1 -sc -pmt $(C_FILES)
