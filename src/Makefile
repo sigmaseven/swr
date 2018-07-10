@@ -36,7 +36,7 @@ all:
 	$(MAKE) -s fallout
 
 ifdef CYGWIN
-swreality: $(O_FILES)
+fallout: $(O_FILES)
 	rm -f fallout.exe
 	$(CC) -o fallout.exe $(O_FILES) $(L_FLAGS)
 	echo "Done compiling mud.";
@@ -44,7 +44,7 @@ swreality: $(O_FILES)
 	chmod a+x fallout.exe
 	chmod g+w $(O_FILES)
 else
-swreality: $(O_FILES)
+fallout: $(O_FILES)
 	rm -f fallout
 	$(CC) -o swreality $(O_FILES) $(L_FLAGS)
 	echo "Done compiling mud.";
