@@ -192,7 +192,7 @@ typedef ch_ret SPELL_FUN args( ( int sn, int level, CHAR_DATA * ch, void *vo ) )
 
 #define MAX_REXITS		   20 /* Maximum exits allowed in 1 room */
 #define MAX_SKILL		  276
-#define MAX_ABILITY		    8
+#define MAX_ABILITY		   18
 #define MAX_RACE		   17
 #define MAX_NPC_RACE		   91
 #define MAX_LEVEL		  105
@@ -3898,24 +3898,24 @@ DECLARE_SPELL_FUN( spell_cure_addiction );
  *   so players can go ahead and telnet to all the other descriptors.
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
-#define PLAYER_DIR	"../player/"   /* Player files         */
-#define BACKUP_DIR	"../backup/"   /* Backup Player files    */
-#define GOD_DIR		"../gods/"  /* God Info Dir         */
-#define BOARD_DIR	"../boards/"   /* Board data dir    */
-#define CLAN_DIR	"../clans/" /* Clan data dir     */
-#define SHIP_DIR        "../space/"
-#define SPACE_DIR       "../space/"
-#define PLANET_DIR      "../planets/"
-#define GUARD_DIR       "../planets/"
-#define GUILD_DIR       "../guilds/"   /* Guild data dir               */
-#define BUILD_DIR       "../building/" /* Online building save dir     */
-#define SYSTEM_DIR	"../system/"   /* Main system files    */
-#define PROG_DIR	"../mudprogs/" /* MUDProg files     */
-#define CORPSE_DIR	"../corpses/"  /* Corpses        */
+#define PLAYER_DIR	"./player/"   /* Player files         */
+#define BACKUP_DIR	"./backup/"   /* Backup Player files    */
+#define GOD_DIR		"./gods/"  /* God Info Dir         */
+#define BOARD_DIR	"./boards/"   /* Board data dir    */
+#define CLAN_DIR	"./clans/" /* Clan data dir     */
+#define SHIP_DIR        "./space/"
+#define SPACE_DIR       "./space/"
+#define PLANET_DIR      "./planets/"
+#define GUARD_DIR       "./planets/"
+#define GUILD_DIR       "./guilds/"   /* Guild data dir               */
+#define BUILD_DIR       "./building/" /* Online building save dir     */
+#define SYSTEM_DIR	"./system/"   /* Main system files    */
+#define PROG_DIR	"./mudprogs/" /* MUDProg files     */
+#define CORPSE_DIR	"./corpses/"  /* Corpses        */
 
-#define LUA_DIR         "../lua/"   /* Where Lua source files are kept */
+#define LUA_DIR         "./lua/"   /* Where Lua source files are kept */
 
-#define AREA_LIST	"area.lst"  /* List of areas     */
+#define AREA_LIST	"./area.lst"  /* List of areas     */
 #define BAN_LIST        "ban.lst"   /* List of bans                 */
 #define CLAN_LIST	"clan.lst"  /* List of clans     */
 #define SHIP_LIST       "ship.lst"

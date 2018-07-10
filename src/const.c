@@ -43,7 +43,14 @@ const struct race_type race_table[MAX_RACE] = {
    {
     "Human", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_COMMON},
    {
-    "Wookiee", 0, 8, -1, -3, 0, 2, -2, 0, 0, 3, 0, 0, 0, 0, LANG_WOOKIEE},
+    "Ghoul", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_COMMON},
+   {
+    "Super Mutant", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_COMMON},
+   {
+    "Synthetic Lifeform", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_COMMON}
+   /*
+   {
+   "Wookiee", 0, 8, -1, -3, 0, 2, -2, 0, 0, 3, 0, 0, 0, 0, LANG_WOOKIEE},
    {
     "Twi'lek", 0, 0, 2, 2, 2, -1, -1, 0, 0, 0, 0, 0, 0, 0, LANG_TWI_LEK},
    {
@@ -74,7 +81,7 @@ const struct race_type race_table[MAX_RACE] = {
     "Quarren", AFF_AQUA_BREATH + AFF_INFRARED, -1, +1, 0, +1, -1, 0, 0, 0, 0, 0, 0, 0, 0, LANG_MON_CALAMARI},
    {
     "Duinuogwuin", AFF_FLYING, 0, -1, +3, 0, +8, +1, 0, 0, 0, +10, 0, 0, 0, LANG_DUINUOGWUIN}
-
+   */
 };
 
 
@@ -95,8 +102,11 @@ char *const npc_race[MAX_NPC_RACE] = {
 
 
 char *const ability_name[MAX_ABILITY] = {
-   "combat", "piloting", "engineering", "bounty hunting", "smuggling", "diplomacy",
-   "leadership", "force"
+   /*"combat", "piloting", "engineering", "bounty hunting", "smuggling", "diplomacy",
+   "leadership", "force" */
+   "Small Guns", "Big Guns", "Energy Weapons", "Unarmed", "Melee Weapons", "Throwing",
+   "First Aid", "Doctor", "Sneak", "Lockpick", "Steal", "Traps", "Science", "Repair",
+   "Speech", "Barter", "Gambling", "Outdoorsman"
 };
 
 

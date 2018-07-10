@@ -624,14 +624,16 @@ void boot_db( bool fCopyOver )
 
       for( ;; )
       {
-         strcpy( strArea, fread_word( fpList ) );
+         strncpy( strArea, fread_word(fpList), MAX_INPUT_LENGTH );
          if( strArea[0] == '$' )
             break;
 
          load_area_file( last_area, strArea );
 
       }
+      log_string("closing list");
       fclose( fpList );
+      log_string("Area files successfully loaded.");
    }
 
    /*
@@ -5102,7 +5104,7 @@ void load_area_file( AREA_DATA * tarea, char *filename )
     is printed when an error occurs during loading the area..
     (bug uses fpArea)
       --TRI  */
-
+   //log_string(strncat("Loading area file: ", filename, strnlen(filename, 128)));
    if( fBootDb )
       tarea = last_area;
    if( !fBootDb && !tarea )

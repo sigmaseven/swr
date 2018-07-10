@@ -46,15 +46,19 @@ char *const planet_flags[] = {
    "p25", "p26", "p27", "p28", "p29", "p30", "p31"
 };
 
-char *const weapon_table[13] = {
-   "none",
+char *const weapon_table[11] = {
+   /*"none",
    "vibro-axe", "vibro-blade", "lightsaber", "whip", "claw",
    "blaster", "w7", "bludgeon", "bowcaster", "w10",
    "force pike", "w12"
+   */
+   "none",
+   "shiv", "knife", "throwing knife", "sword", "bludgeon",
+   "revolver", "pistol", "sub-machine gun", "rifle", "heavy weapons"
 };
 
 char *const spice_table[] = {
-   "glitterstim", "carsanum", "ryll", "andris", "s4", "s5", "s6", "s7", "s8", "s9"
+   "psycho", "jet", "buff-out", "med-x", "s4", "s5", "s6", "s7", "s8", "s9"
 };
 
 char *const crystal_table[8] = {

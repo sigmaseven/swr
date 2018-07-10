@@ -1805,7 +1805,7 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
                      buf[0] = '\0';
                   }
                   else
-                     strcat( buf, " " );
+                     strcat( buf, " | " );
                }
                strcat( buf, race_table[iRace].race_name );
             }
