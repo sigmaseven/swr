@@ -169,7 +169,7 @@ void disintigration( CHAR_DATA * ch, CHAR_DATA * victim, long amount )
    bounty->amount = bounty->amount + amount;
    save_disintigrations(  );
 
-   sprintf( buf, "%s has added %ld credits to the bounty on %s.", ch->name, amount, victim->name );
+   sprintf( buf, "%s has added %ld caps to the bounty on %s.", ch->name, amount, victim->name );
    echo_to_all( AT_RED, buf, 0 );
 
 }
@@ -211,9 +211,9 @@ void do_addbounty( CHAR_DATA * ch, char *argument )
    else
       amount = atoi( argument );
 
-   if( amount < 5000 )
+   if( amount < 1000 )
    {
-      send_to_char( "A bounty should be at least 5000 credits.\n\r", ch );
+      send_to_char( "A bounty should be at least 1000 caps.\n\r", ch );
       return;
    }
 
