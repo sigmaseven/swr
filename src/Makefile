@@ -46,7 +46,7 @@ fallout: $(O_FILES)
 else
 fallout: $(O_FILES)
 	rm -f fallout
-	$(CC) -o swreality $(O_FILES) $(L_FLAGS)
+	$(CC) -o fallout $(O_FILES) $(L_FLAGS)
 	echo "Done compiling mud.";
 	chmod g+w fallout
 	chmod g+w $(O_FILES)
