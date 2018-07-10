@@ -33,7 +33,7 @@ char *tiny_affect_loc_name( int location );
 void do_gold( CHAR_DATA * ch, char *argument )
 {
    set_char_color( AT_GOLD, ch );
-   ch_printf( ch, "You have %d credits.\n\r", ch->gold );
+   ch_printf( ch, "You have %d caps.\n\r", ch->gold );
    return;
 }
 
