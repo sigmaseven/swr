@@ -842,7 +842,7 @@ void do_give( CHAR_DATA * ch, char *argument )
       int amount;
 
       amount = atoi( arg1 );
-      if( amount <= 0 || ( str_cmp( arg2, "credits" ) && str_cmp( arg2, "credit" ) ) )
+      if( amount <= 0 || ( str_cmp( arg2, "caps" ) && str_cmp( arg2, "cap" ) ) )
       {
          send_to_char( "Sorry, you can't do that.\n\r", ch );
          return;
@@ -865,7 +865,7 @@ void do_give( CHAR_DATA * ch, char *argument )
 
       if( ch->gold < amount )
       {
-         send_to_char( "Very generous of you, but you haven't got that many credits.\n\r", ch );
+         send_to_char( "Very generous of you, but you haven't got that many caps.\n\r", ch );
          return;
       }
 
@@ -873,11 +873,11 @@ void do_give( CHAR_DATA * ch, char *argument )
       victim->gold += amount;
       strcpy( buf, "$n gives you " );
       strcat( buf, arg1 );
-      strcat( buf, ( amount > 1 ) ? " credits." : " credit." );
+      strcat( buf, ( amount > 1 ) ? " caps." : " caps." );
 
       act( AT_ACTION, buf, ch, NULL, victim, TO_VICT );
-      act( AT_ACTION, "$n gives $N some credits.", ch, NULL, victim, TO_NOTVICT );
-      act( AT_ACTION, "You give $N some credits.", ch, NULL, victim, TO_CHAR );
+      act( AT_ACTION, "$n gives $N some caps.", ch, NULL, victim, TO_NOTVICT );
+      act( AT_ACTION, "You give $N some caps.", ch, NULL, victim, TO_CHAR );
       send_to_char( "OK.\n\r", ch );
       mprog_bribe_trigger( victim, ch, amount );
       
