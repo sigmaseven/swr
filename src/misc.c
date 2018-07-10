@@ -65,7 +65,7 @@ void do_buyhome( CHAR_DATA * ch, char *argument )
 
    if( ch->gold < 100000 )
    {
-      send_to_char( "&RThis room costs 100000 credits you don't have enough!\n\r&w", ch );
+      send_to_char( "&RThis room costs 100000 caps. You don't have enough!\n\r&w", ch );
       return;
    }
 
@@ -114,14 +114,14 @@ void do_clone( CHAR_DATA * ch, char *argument )
 
    if( ch->gold < ch->top_level * 200 )
    {
-      ch_printf( ch, "You don't have enough credits... You need %d.\n\r", ch->top_level * 200 );
+      ch_printf( ch, "You don't have enough caps. You need %d.\n\r", ch->top_level * 200 );
       return;
    }
    else
    {
       ch->gold -= ch->top_level * 200;
 
-      ch_printf( ch, "You pay %d credits for cloning.\n\r", ch->top_level * 200 );
+      ch_printf( ch, "You pay %d caps for cloning.\n\r", ch->top_level * 200 );
       ch_printf( ch, "You are escorted into a small room.\n\r\n\r" );
    }
 
@@ -275,7 +275,7 @@ void do_ammo( CHAR_DATA * ch, char *argument )
 
       if( !checkammo )
       {
-         send_to_char( "&RYou don't seem to have any ammo to reload your blaster with.\n\r&w", ch );
+         send_to_char( "&RYou don't seem to have any ammo to reload with.\n\r&w", ch );
          return;
       }
 
