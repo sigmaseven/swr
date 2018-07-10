@@ -443,7 +443,7 @@ void do_buy( CHAR_DATA * ch, char *argument )
       {
          boost_economy( keeper->in_room->area, keeper->gold - maxgold / 2 );
          keeper->gold = maxgold / 2;
-         act( AT_ACTION, "$n puts some credits into a large safe.", keeper, NULL, NULL, TO_ROOM );
+         act( AT_ACTION, "$n puts some caps into a large safe.", keeper, NULL, NULL, TO_ROOM );
       }
 
       call_lua_mob_num (ch, "buy", obj->pIndexData->vnum, noi);
@@ -755,7 +755,7 @@ void repair_one_obj( CHAR_DATA * ch, CHAR_DATA * keeper, OBJ_DATA * obj,
       {
          boost_economy( keeper->in_room->area, keeper->gold - maxgold / 2 );
          keeper->gold = maxgold / 2;
-         act( AT_ACTION, "$n puts some credits into a large safe.", keeper, NULL, NULL, TO_ROOM );
+         act( AT_ACTION, "$n puts some caps into a large safe.", keeper, NULL, NULL, TO_ROOM );
       }
 
       switch ( obj->item_type )
