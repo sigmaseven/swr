@@ -37,8 +37,8 @@ all:
 
 ifdef CYGWIN
 swreality: $(O_FILES)
-	rm -f swreality.exe
-	$(CC) -o swreality.exe $(O_FILES) $(L_FLAGS)
+	rm -f fallout.exe
+	$(CC) -o fallout.exe $(O_FILES) $(L_FLAGS)
 	echo "Done compiling mud.";
 	chmod g+w fallout.exe
 	chmod a+x fallout.exe
