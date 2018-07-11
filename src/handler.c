@@ -218,7 +218,7 @@ int get_exp_worth( CHAR_DATA * ch )
 {
    int wexp;
 
-   wexp = ch->skill_level[COMBAT_ABILITY] * ch->top_level * 50;
+   wexp = ch->skill_level[MELEE_WEAPONS_ABILITY] * ch->top_level * 50;
    wexp += ch->max_hit * 2;
    wexp -= ( ch->armor - 50 ) * 2;
    wexp += ( ch->barenumdie * ch->baresizedie + GET_DAMROLL( ch ) ) * 50;
@@ -759,9 +759,9 @@ void affect_modify( CHAR_DATA * ch, AFFECT_DATA * paf, bool fAdd )
 
          mod = abs( mod );
          if( IS_VALID_SN( mod ) && ( skill = skill_table[mod] ) != NULL && skill->type == SKILL_SPELL )
-            if( ( retcode = ( *skill->spell_fun ) ( mod, ch->skill_level[FORCE_ABILITY], ch, ch ) ) == rCHAR_DIED
-                || char_died( ch ) )
-               return;
+            //if( ( retcode = ( *skill->spell_fun ) ( mod, ch->skill_level[FORCE_ABILITY], ch, ch ) ) == rCHAR_DIED
+            //    || char_died( ch ) )
+            //   return;
          break;
 
 
@@ -2432,8 +2432,8 @@ bool can_see( CHAR_DATA * ch, CHAR_DATA * victim )
       if( IS_AFFECTED( victim, AFF_HIDE ) && !IS_AFFECTED( ch, AFF_DETECT_HIDDEN ) && !victim->fighting )
          return FALSE;
 
-      if( ch->race == RACE_DEFEL && victim->race == RACE_DEFEL )
-         return TRUE;
+      //if( ch->race == RACE_DEFEL && victim->race == RACE_DEFEL )
+      //   return TRUE;
 
       if( IS_AFFECTED( victim, AFF_INVISIBLE ) && !IS_AFFECTED( ch, AFF_DETECT_INVIS ) )
          return FALSE;
@@ -3926,7 +3926,7 @@ void add_kill( CHAR_DATA * ch, CHAR_DATA * mob )
    call_lua_num (ch, "killed_mob", vnum);
    call_mud_lua_char_num ("killed_mob", ch->name, vnum);
    
-   track = URANGE( 2, ( ( ch->skill_level[COMBAT_ABILITY] + 3 ) * MAX_KILLTRACK ) / LEVEL_AVATAR, MAX_KILLTRACK );
+   track = URANGE( 2, ( ( ch->skill_level[MELEE_WEAPONS_ABILITY] + 3 ) * MAX_KILLTRACK ) / LEVEL_AVATAR, MAX_KILLTRACK );
    for( x = 0; x < track; x++ )
       if( ch->pcdata->killed[x].vnum == vnum )
       {
@@ -3960,7 +3960,7 @@ int times_killed( CHAR_DATA * ch, CHAR_DATA * mob )
       return 0;
 
    vnum = mob->pIndexData->vnum;
-   track = URANGE( 2, ( ( ch->skill_level[COMBAT_ABILITY] + 3 ) * MAX_KILLTRACK ) / LEVEL_AVATAR, MAX_KILLTRACK );
+   track = URANGE( 2, ( ( ch->skill_level[MELEE_WEAPONS_ABILITY] + 3 ) * MAX_KILLTRACK ) / LEVEL_AVATAR, MAX_KILLTRACK );
    for( x = 0; x < track; x++ )
       if( ch->pcdata->killed[x].vnum == vnum )
          return ch->pcdata->killed[x].count;

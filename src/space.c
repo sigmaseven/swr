@@ -4170,9 +4170,9 @@ void damage_ship_ch( SHIP_DATA * ship, int min, int max, CHAR_DATA * ch )
 
    sdamage = number_range( min, max );
 
-   xp = ( exp_level( ch->skill_level[PILOTING_ABILITY] + 1 ) - exp_level( ch->skill_level[PILOTING_ABILITY] ) ) / 25;
+   xp = ( exp_level( ch->top_level + 1 ) - exp_level( ch->top_level ) ) / 25;
    xp = UMIN( get_ship_value( ship ) / 100, xp );
-   gain_exp( ch, xp, PILOTING_ABILITY );
+   gain_exp( ch, xp, ch->top_level );
 
    if( ship->shield > 0 )
    {
@@ -4223,9 +4223,9 @@ void damage_ship_ch( SHIP_DATA * ship, int min, int max, CHAR_DATA * ch )
    {
       destroy_ship( ship, ch );
 
-      xp = ( exp_level( ch->skill_level[PILOTING_ABILITY] + 1 ) - exp_level( ch->skill_level[PILOTING_ABILITY] ) );
+      xp = ( exp_level( ch->top_level + 1 ) - exp_level( ch->top_level ) );
       xp = UMIN( get_ship_value( ship ), xp );
-      gain_exp( ch, xp, PILOTING_ABILITY );
+      //gain_exp( ch, xp,  );
       ch_printf( ch, "&WYou gain %ld piloting experience!\n\r", xp );
       return;
    }
@@ -4999,13 +4999,13 @@ void do_land( CHAR_DATA * ch, char *argument )
          learn_from_success( ch, gsn_starfighters );
       if( ship->class == MIDSIZE_SHIP )
          learn_from_success( ch, gsn_midships );
-      if( starsystem_from_vnum( ship->lastdoc ) != ship->starsystem )
-      {
-         int xp = ( exp_level( ch->skill_level[PILOTING_ABILITY] + 1 ) - exp_level( ch->skill_level[PILOTING_ABILITY] ) );
-         xp = UMIN( get_ship_value( ship ), xp );
-         gain_exp( ch, xp, PILOTING_ABILITY );
-         ch_printf( ch, "&WYou gain %ld points of flight experience!\n\r", UMIN( get_ship_value( ship ), xp ) );
-      }
+      //if( starsystem_from_vnum( ship->lastdoc ) != ship->starsystem )
+      //{
+      //   int xp = ( exp_level( ch->skill_level[PILOTING_ABILITY] + 1 ) - exp_level( ch->skill_level[PILOTING_ABILITY] ) );
+      //   xp = UMIN( get_ship_value( ship ), xp );
+      //   gain_exp( ch, xp, PILOTING_ABILITY );
+      //   ch_printf( ch, "&WYou gain %ld points of flight experience!\n\r", UMIN( get_ship_value( ship ), xp ) );
+      //}
       return;
    }
    send_to_char( "You fail to work the controls properly.\n\r", ch );

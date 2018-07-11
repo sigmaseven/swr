@@ -429,7 +429,7 @@ ch_ret multi_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
 
    if( get_eq_char( ch, WEAR_DUAL_WIELD ) )
    {
-      dual_bonus = IS_NPC( ch ) ? ( ch->skill_level[COMBAT_ABILITY] / 10 ) : ( ch->pcdata->learned[gsn_dual_wield] / 10 );
+      dual_bonus = IS_NPC( ch ) ? ( ch->skill_level[MELEE_WEAPONS_ABILITY] / 10 ) : ( ch->pcdata->learned[gsn_dual_wield] / 10 );
       schance = IS_NPC( ch ) ? ch->top_level : ch->pcdata->learned[gsn_dual_wield];
       if( number_percent(  ) < schance )
       {
@@ -583,16 +583,16 @@ short off_shld_lvl( CHAR_DATA * ch, CHAR_DATA * victim )
 
    if( !IS_NPC( ch ) )  /* players get much less effect */
    {
-      lvl = UMAX( 1, ( ch->skill_level[FORCE_ABILITY] ) );
-      if( number_percent(  ) + ( victim->skill_level[COMBAT_ABILITY] - lvl ) < 35 )
-         return lvl;
+      //lvl = UMAX( 1, ( ch->skill_level[FORCE_ABILITY] ) );
+      if( number_percent(  ) + ( victim->skill_level[MELEE_WEAPONS_ABILITY]) < 35 )
+         return 1;
       else
          return 0;
    }
    else
    {
       lvl = ch->top_level;
-      if( number_percent(  ) + ( victim->skill_level[COMBAT_ABILITY] - lvl ) < 70 )
+      if( number_percent(  ) + ( victim->skill_level[MELEE_WEAPONS_ABILITY]) < 70 )
          return lvl;
       else
          return 0;
@@ -715,7 +715,7 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
     */
    thac0_00 = 20;
    thac0_32 = 10;
-   thac0 = interpolate( ch->skill_level[COMBAT_ABILITY], thac0_00, thac0_32 ) - GET_HITROLL( ch );
+   thac0 = interpolate( ch->skill_level[MELEE_WEAPONS_ABILITY], thac0_00, thac0_32 ) - GET_HITROLL( ch );
    victim_ac = ( int )( GET_AC( victim ) / 10 );
 
    /*
@@ -726,8 +726,8 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
    if( !can_see( ch, victim ) )
       victim_ac -= 4;
 
-   if( ch->race == RACE_DEFEL )
-      victim_ac += 2;
+   //if( ch->race == RACE_DEFEL )
+   //   victim_ac += 2;
 
    if( !IS_AWAKE( victim ) )
       victim_ac += 5;
@@ -784,10 +784,10 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
    if( !IS_AWAKE( victim ) )
       dam *= 2;
    if( dt == gsn_backstab )
-      dam *= ( 2 + URANGE( 2, ch->skill_level[HUNTING_ABILITY] - ( victim->skill_level[COMBAT_ABILITY] / 4 ), 30 ) / 8 );
+      dam *= ( 2 + URANGE( 2, ch->skill_level[SNEAK_ABILITY] - ( victim->skill_level[MELEE_WEAPONS_ABILITY] / 4 ), 30 ) / 8 );
 
    if( dt == gsn_circle )
-      dam *= ( 2 + URANGE( 2, ch->skill_level[HUNTING_ABILITY] - ( victim->skill_level[COMBAT_ABILITY] / 4 ), 30 ) / 16 );
+      dam *= ( 2 + URANGE( 2, ch->skill_level[SNEAK_ABILITY] - ( victim->skill_level[MELEE_WEAPONS_ABILITY] / 4 ), 30 ) / 16 );
 
    plusris = 0;
 
@@ -855,8 +855,8 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
     * race modifier 
     */
 
-   if( victim->race == RACE_DUINUOGWUIN )
-      dam /= 5;
+   //if( victim->race == RACE_DUINUOGWUIN )
+   //   dam /= 5;
 
    /*
     * check to see if weapon is charged 
@@ -893,7 +893,7 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
          dam /= 10;
          wield->value[4] -= 3;
          fail = FALSE;
-         schance = ris_save( victim, ch->skill_level[COMBAT_ABILITY], RIS_PARALYSIS );
+         schance = ris_save( victim, ch->skill_level[SMALL_GUNS_ABILITY], RIS_PARALYSIS );
          if( schance == 1000 )
             fail = TRUE;
          else
@@ -903,7 +903,7 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
             fail = TRUE;
             victim->was_stunned--;
          }
-         schance = 100 - get_curr_con( victim ) - victim->skill_level[COMBAT_ABILITY] / 2;
+         schance = 100 - get_curr_con( victim ) - victim->skill_level[SMALL_GUNS_ABILITY] / 2;
          /*
           * harder for player to stun another player 
           */
@@ -1304,13 +1304,13 @@ ch_ret damage( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
       /*
        * Inviso attacks ... not.
        */
-      if( IS_AFFECTED( ch, AFF_INVISIBLE ) && ch->race != RACE_DEFEL )
-      {
-         affect_strip( ch, gsn_invis );
-         affect_strip( ch, gsn_mass_invis );
-         REMOVE_BIT( ch->affected_by, AFF_INVISIBLE );
-         act( AT_MAGIC, "$n fades into existence.", ch, NULL, NULL, TO_ROOM );
-      }
+      //if( IS_AFFECTED( ch, AFF_INVISIBLE ) && ch->race != RACE_DEFEL )
+      //{
+      //   affect_strip( ch, gsn_invis );
+      //   affect_strip( ch, gsn_mass_invis );
+      //   REMOVE_BIT( ch->affected_by, AFF_INVISIBLE );
+      //   act( AT_MAGIC, "$n fades into existence.", ch, NULL, NULL, TO_ROOM );
+      //}
 
       /*
        * Take away Hide 
@@ -1334,10 +1334,10 @@ ch_ret damage( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
        */
       if( dt >= TYPE_HIT )
       {
-         if( IS_NPC( ch ) && IS_SET( ch->attacks, DFND_DISARM ) && number_percent(  ) < ch->skill_level[COMBAT_ABILITY] / 2 )
+         if( IS_NPC( ch ) && IS_SET( ch->attacks, DFND_DISARM ) && number_percent(  ) < ch->skill_level[MELEE_WEAPONS_ABILITY] / 2 )
             disarm( ch, victim );
 
-         if( IS_NPC( ch ) && IS_SET( ch->attacks, ATCK_TRIP ) && number_percent(  ) < ch->skill_level[COMBAT_ABILITY] )
+         if( IS_NPC( ch ) && IS_SET( ch->attacks, ATCK_TRIP ) && number_percent(  ) < ch->skill_level[UNARMED_ABILITY] )
             trip( ch, victim );
 
          if( check_parry( ch, victim ) )
@@ -1409,7 +1409,7 @@ ch_ret damage( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
    if( dam && ch != victim && !IS_NPC( ch ) && ch->fighting && ch->fighting->xp )
    {
       xp_gain = ( int )( xp_compute( ch, victim ) * 0.1 * dam ) / victim->max_hit;
-      gain_exp( ch, xp_gain, COMBAT_ABILITY );
+      gain_exp( ch, xp_gain, MELEE_WEAPONS_ABILITY );
    }
 
    if( !IS_NPC( victim ) && victim->top_level >= LEVEL_IMMORTAL && victim->hit < 1 )
@@ -1425,7 +1425,7 @@ ch_ret damage( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
    if( dam > 0 && dt > TYPE_HIT
        && !IS_AFFECTED( victim, AFF_POISON )
        && is_wielding_poisoned( ch )
-       && !IS_SET( victim->immune, RIS_POISON ) && !saves_poison_death( ch->skill_level[COMBAT_ABILITY], victim ) )
+       && !IS_SET( victim->immune, RIS_POISON ) && !saves_poison_death( ch->skill_level[UNARMED_ABILITY], victim ) )
    {
       AFFECT_DATA af;
 
@@ -1564,9 +1564,9 @@ ch_ret damage( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
       if( IS_NPC( ch ) && !IS_NPC( victim ) )
       {
          long lose_exp;
-         lose_exp = UMAX( ( victim->experience[COMBAT_ABILITY] - exp_level( victim->skill_level[COMBAT_ABILITY] ) ), 0 );
+         lose_exp = UMAX( ( victim->experience[MELEE_WEAPONS_ABILITY] - exp_level( victim->skill_level[MELEE_WEAPONS_ABILITY] ) ), 0 );
          ch_printf( victim, "You lose %ld experience.\n\r", lose_exp );
-         victim->experience[COMBAT_ABILITY] -= lose_exp;
+         victim->experience[MELEE_WEAPONS_ABILITY] -= lose_exp;
       }
 
       add_timer( victim, TIMER_RECENTFIGHT, 100, NULL, 0 );
@@ -2295,17 +2295,17 @@ void group_gain( CHAR_DATA * ch, CHAR_DATA * victim )
          send_to_char( buf, gch );
       }
 
-      gain_exp( gch, xp, COMBAT_ABILITY );
+      gain_exp( gch, xp, MELEE_WEAPONS_ABILITY );
 
       if( lch == gch && members > 1 )
       {
          xp =
             URANGE( members, xp * members,
-                    ( exp_level( gch->skill_level[LEADERSHIP_ABILITY] + 1 ) -
-                      exp_level( gch->skill_level[LEADERSHIP_ABILITY] ) / 10 ) );
+                    ( exp_level( gch->skill_level[SPEECH_ABILITY] + 1 ) -
+                      exp_level( gch->skill_level[SPEECH_ABILITY] ) / 10 ) );
          sprintf( buf, "You get %d leadership experience for leading your group to victory.\n\r", xp );
          send_to_char( buf, gch );
-         gain_exp( gch, xp, LEADERSHIP_ABILITY );
+         gain_exp( gch, xp, SPEECH_ABILITY );
       }
 
 
@@ -2371,7 +2371,7 @@ int xp_compute( CHAR_DATA * gch, CHAR_DATA * victim )
    int xp;
 
    xp = ( get_exp_worth( victim )
-          * URANGE( 1, ( victim->skill_level[COMBAT_ABILITY] - gch->skill_level[COMBAT_ABILITY] ) + 10, 20 ) ) / 10;
+          * URANGE( 1, ( victim->skill_level[MELEE_WEAPONS_ABILITY] - gch->skill_level[MELEE_WEAPONS_ABILITY] ) + 10, 20 ) ) / 10;
    align = gch->alignment - victim->alignment;
 
    /*
@@ -2406,7 +2406,7 @@ int xp_compute( CHAR_DATA * gch, CHAR_DATA * victim )
     */
 
    return URANGE( 1, xp,
-                  ( exp_level( gch->skill_level[COMBAT_ABILITY] + 1 ) - exp_level( gch->skill_level[COMBAT_ABILITY] ) ) );
+                  ( exp_level( gch->skill_level[MELEE_WEAPONS_ABILITY] + 1 ) - exp_level( gch->skill_level[MELEE_WEAPONS_ABILITY] ) ) );
 }
 
 
@@ -2631,8 +2631,8 @@ void dam_message( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
       sprintf( buf3, "$n's %s %s you%c", attack, vp, punct );
    }
 
-   if( ch->skill_level[COMBAT_ABILITY] >= 100 )
-      sprintf( buf2, "%s You do %d points of damage.", buf2, dam );
+   //if( ch->skill_level[COMBAT_ABILITY] >= 100 )
+   //   sprintf( buf2, "%s You do %d points of damage.", buf2, dam );
 
    act( AT_ACTION, buf1, ch, NULL, victim, TO_NOTVICT );
    if( !gcflag )

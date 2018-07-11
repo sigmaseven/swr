@@ -156,8 +156,19 @@ char *const room_sents[SECT_MAX][25] = {
 int wherehome( CHAR_DATA * ch )
 {
    if( ch->plr_home )
-      return ch->plr_home->vnum;
+     return ch->plr_home->vnum;
 
+   if( get_trust( ch ) >= LEVEL_IMMORTAL )
+     return ROOM_START_IMMORTAL;
+   if( ch->race == RACE_HUMAN )
+     return ROOM_START_HUMAN;
+   if( ch->race == RACE_GHOUL )
+     return ROOM_START_HUMAN;
+   if( ch->race == RACE_SUPER_MUTANT )
+     return ROOM_START_HUMAN;
+   if( ch->race == RACE_SYNTH )
+     return ROOM_START_HUMAN;
+/*
    if( get_trust( ch ) >= LEVEL_IMMORTAL )
       return ROOM_START_IMMORTAL;
    if( ch->race == RACE_HUMAN )
@@ -194,7 +205,7 @@ int wherehome( CHAR_DATA * ch )
       return ROOM_START_DUINUOGWUIN;
    if( ch->race == RACE_NOGHRI )
       return ROOM_START_NOGHRI;
-
+*/
    return ROOM_VNUM_TEMPLE;
 }
 

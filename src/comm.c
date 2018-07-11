@@ -2116,10 +2116,10 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
             ch->perm_lck += race_table[ch->race].lck_plus;
             ch->perm_frc += race_table[ch->race].frc_plus;
 
-            if( ch->race == RACE_DUINUOGWUIN || ch->main_ability == FORCE_ABILITY )
-               ch->perm_frc = URANGE( 1, ch->perm_frc, 20 );
-            else
-               ch->perm_frc = URANGE( 0, ch->perm_frc, 20 );
+            //if( ch->race == RACE_DUINUOGWUIN || ch->main_ability == FORCE_ABILITY )
+            //   ch->perm_frc = URANGE( 1, ch->perm_frc, 20 );
+            //else
+            //   ch->perm_frc = URANGE( 0, ch->perm_frc, 20 );
 
             /*
              * took out automaticly knowing common
@@ -2142,13 +2142,13 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
                {
                   ch->pcdata->learned[iLang] = 100;
                   ch->speaking = race_table[ch->race].language;
-                  if( ch->race == RACE_QUARREN && ( iLang = skill_lookup( "quarren" ) ) >= 0 )
-                  {
-                     ch->pcdata->learned[iLang] = 100;
-                     SET_BIT( ch->speaks, LANG_QUARREN );
-                  }
-                  if( ch->race == RACE_MON_CALAMARI && ( iLang = skill_lookup( "common" ) ) >= 0 )
-                     ch->pcdata->learned[iLang] = 100;
+                  //if( ch->race == RACE_QUARREN && ( iLang = skill_lookup( "quarren" ) ) >= 0 )
+                  //{
+                  //   ch->pcdata->learned[iLang] = 100;
+                  //   SET_BIT( ch->speaks, LANG_QUARREN );
+                  //}
+                  // if( ch->race == RACE_MON_CALAMARI && ( iLang = skill_lookup( "common" ) ) >= 0 )
+                  //   ch->pcdata->learned[iLang] = 100;
 
                }
             }
@@ -2907,8 +2907,8 @@ char *default_prompt( CHAR_DATA * ch )
 {
    static char buf[MAX_STRING_LENGTH];
    strcpy( buf, "" );
-   if( ch->skill_level[FORCE_ABILITY] > 1 || get_trust( ch ) >= LEVEL_IMMORTAL )
-      strcat( buf, "&pForce:&P%m/&p%M  &pAlign:&P%a\n\r" );
+   //if( ch->skill_level[FORCE_ABILITY] > 1 || get_trust( ch ) >= LEVEL_IMMORTAL )
+   //   strcat( buf, "&pForce:&P%m/&p%M  &pAlign:&P%a\n\r" );
    strcat( buf, "&BHealth:&C%h&B/%H  &BMovement:&C%v&B/%V" );
    strcat( buf, "&C >&w" );
    return buf;
@@ -3004,13 +3004,13 @@ void display_prompt( DESCRIPTOR_DATA * d )
                   pstat = ch->max_hit;
                   break;
                case 'm':
-                  if( IS_IMMORTAL( ch ) || ch->skill_level[FORCE_ABILITY] > 1 )
+                  if( IS_IMMORTAL( ch ) )
                      pstat = ch->mana;
                   else
                      pstat = 0;
                   break;
                case 'M':
-                  if( IS_IMMORTAL( ch ) || ch->skill_level[FORCE_ABILITY] > 1 )
+                  if( IS_IMMORTAL( ch ) )
                      pstat = ch->max_mana;
                   else
                      pstat = 0;

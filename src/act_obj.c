@@ -1184,44 +1184,22 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
 
    if( 1 << bit == ITEM_WIELD || 1 << bit == ITEM_HOLD || obj->item_type == ITEM_LIGHT || 1 << bit == ITEM_WEAR_SHIELD )
       check_size = FALSE;
+   /*
    else if( ch->race == RACE_DEFEL || ch->race == RACE_DUINUOGWUIN )
-      check_size = TRUE;
+      check_size = TRUE;*/
    else if( !IS_NPC( ch ) )
       switch ( ch->race )
       {
          default:
-         case RACE_TRANDOSHAN:
-         case RACE_VERPINE:
          case RACE_HUMAN:
-         case RACE_ADARIAN:
-         case RACE_RODIAN:
-         case RACE_TWI_LEK:
-
+	 case RACE_GHOUL:
+	 case RACE_SYNTH:
             if( !IS_OBJ_STAT( obj, ITEM_HUMAN_SIZE ) )
                check_size = TRUE;
             break;
-
-         case RACE_HUTT:
-
-            if( !IS_OBJ_STAT( obj, ITEM_HUTT_SIZE ) )
-               check_size = TRUE;
-            break;
-
-         case RACE_GAMORREAN:
-         case RACE_MON_CALAMARI:
-         case RACE_QUARREN:
-         case RACE_WOOKIEE:
+         case RACE_SUPER_MUTANT:
 
             if( !IS_OBJ_STAT( obj, ITEM_LARGE_SIZE ) )
-               check_size = TRUE;
-            break;
-
-         case RACE_CHADRA_FAN:
-         case RACE_EWOK:
-         case RACE_NOGHRI:
-         case RACE_JAWA:
-
-            if( !IS_OBJ_STAT( obj, ITEM_SMALL_SIZE ) )
                check_size = TRUE;
             break;
 
@@ -1231,7 +1209,7 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
     * this seems redundant but it enables both multiple sized objects to be 
     * used as well as objects with no size flags at all 
     */
-
+   /*
    if( check_size )
    {
       if( ch->race == RACE_DUINUOGWUIN )
@@ -1270,7 +1248,7 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
          return;
       }
    }
-
+  */
    /*
     * currently cannot have a light in non-light position 
     */
@@ -1421,11 +1399,6 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
          return;
 
       case ITEM_WEAR_HEAD:
-         if( ch->race == RACE_VERPINE || ch->race == RACE_TWI_LEK )
-         {
-            send_to_char( "You cant wear anything on your head.\n\r", ch );
-            return;
-         }
          if( !remove_obj( ch, WEAR_HEAD, fReplace ) )
             return;
          if( !oprog_use_trigger( ch, obj, NULL, NULL, NULL ) )
@@ -1460,7 +1433,7 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
          return;
 
       case ITEM_WEAR_EARS:
-         if( ch->race == RACE_VERPINE )
+         if( ch->race == RACE_GHOUL )
          {
             send_to_char( "What ears?.\n\r", ch );
             return;
@@ -1486,11 +1459,6 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
 	    if ( !remove_obj( ch, WEAR_LEGS, fReplace ) )
 	      return;
 */
-         if( ch->race == RACE_HUTT )
-         {
-            send_to_char( "Hutts don't have legs.\n\r", ch );
-            return;
-         }
          if( !can_layer( ch, obj, WEAR_LEGS ) )
          {
             send_to_char( "It won't fit overtop of what you're already wearing.\n\r", ch );
@@ -1515,11 +1483,6 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
 	    if ( !remove_obj( ch, WEAR_FEET, fReplace ) )
 	      return;
 */
-         if( ch->race == RACE_HUTT )
-         {
-            send_to_char( "Hutts don't have feet!\n\r", ch );
-            return;
-         }
          if( !can_layer( ch, obj, WEAR_FEET ) )
          {
             send_to_char( "It won't fit overtop of what you're already wearing.\n\r", ch );

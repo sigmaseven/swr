@@ -1839,9 +1839,9 @@ void do_resign( CHAR_DATA * ch, char *argument )
    sprintf( buf, "%s has quit %s!", ch->name, clan->name );
    echo_to_all( AT_MAGIC, buf, ECHOTAR_ALL );
 
-   lose_exp = UMAX( ch->experience[DIPLOMACY_ABILITY] - exp_level( ch->skill_level[DIPLOMACY_ABILITY] ), 0 );
+   lose_exp = UMAX( ch->experience[SPEECH_ABILITY] - exp_level( ch->skill_level[SPEECH_ABILITY] ), 0 );
    ch_printf( ch, "You lose %ld diplomacy experience.\n\r", lose_exp );
-   ch->experience[DIPLOMACY_ABILITY] -= lose_exp;
+   ch->experience[SPEECH_ABILITY] -= lose_exp;
 
    DISPOSE( ch->pcdata->bestowments );
    ch->pcdata->bestowments = str_dup( "" );

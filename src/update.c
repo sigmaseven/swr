@@ -89,52 +89,52 @@ int max_level( CHAR_DATA * ch, int ability )
    if( IS_IMMORTAL( ch ) )
       return 200;
 
-   if( ability == COMBAT_ABILITY )
-   {
-      if( ch->main_ability == COMBAT_ABILITY )
-         level = 100;
-      if( ch->main_ability == FORCE_ABILITY )
-         level = 25;
-      if( ch->main_ability == HUNTING_ABILITY )
-         level = 25;
-      if( ch->race == RACE_WOOKIEE )
-         level += 30;
-      if( ch->race == RACE_NOGHRI )
-         level += 50;
-      if( ch->race == RACE_GAMORREAN )
-         level += 30;
-      if( ch->race == RACE_DEFEL )
-         level += 25;
-      if( ch->race == RACE_TRANDOSHAN )
-         level += 20;
-      if( ch->race == RACE_DUINUOGWUIN )
-         level += 20;
-      level += ch->perm_con + ch->perm_dex + ch->perm_str;
-   }
+   //if( ability == MELEE_WEAPONS_ABILITY )
+   //{
+   //   if( ch->main_ability == COMBAT_ABILITY )
+   //      level = 100;
+      //if( ch->main_ability == FORCE_ABILITY )
+      //   level = 25;
+      //if( ch->main_ability == HUNTING_ABILITY )
+      //   level = 25;
+      //if( ch->race == RACE_WOOKIEE )
+      //   level += 30;
+      //if( ch->race == RACE_NOGHRI )
+      //   level += 50;
+      //if( ch->race == RACE_GAMORREAN )
+      //   level += 30;
+      //if( ch->race == RACE_DEFEL )
+      //   level += 25;
+      //if( ch->race == RACE_TRANDOSHAN )
+      //   level += 20;
+      //if( ch->race == RACE_DUINUOGWUIN )
+      //   level += 20;
+   //   level += ch->perm_con + ch->perm_dex + ch->perm_str;
+   //}
 
-   if( ability == PILOTING_ABILITY )
-   {
-      if( ch->main_ability == ability )
-         level = 100;
-      if( ch->main_ability == ENGINEERING_ABILITY )
-         level = 25;
-      if( ch->main_ability == HUNTING_ABILITY )
-         level = 25;
-      if( ch->main_ability == SMUGGLING_ABILITY )
-         level = 50;
-      if( ch->main_ability == FORCE_ABILITY )
-         level = 25;
-      if( ch->race == RACE_HUTT )
-         level -= 10;
-      if( ch->race == RACE_GAMORREAN )
-         level -= 10;
-      if( ch->race == RACE_QUARREN )
-         level += 10;
-      if( ch->race == RACE_DUINUOGWUIN )
-         level -= 30;
-      level += ch->perm_dex * 2;
-   }
-
+   //if( ability == PILOTING_ABILITY )
+   //{
+   //   if( ch->main_ability == ability )
+   //      level = 100;
+   //   if( ch->main_ability == ENGINEERING_ABILITY )
+   //      level = 25;
+   //   if( ch->main_ability == HUNTING_ABILITY )
+   //      level = 25;
+   //   if( ch->main_ability == SMUGGLING_ABILITY )
+   //      level = 50;
+   //   if( ch->main_ability == FORCE_ABILITY )
+   //      level = 25;
+   //   if( ch->race == RACE_HUTT )
+   //      level -= 10;
+   //   if( ch->race == RACE_GAMORREAN )
+   //      level -= 10;
+   //   if( ch->race == RACE_QUARREN )
+   //      level += 10;
+   //   if( ch->race == RACE_DUINUOGWUIN )
+   //      level -= 30;
+   //   level += ch->perm_dex * 2;
+   //}
+/*
    if( ability == ENGINEERING_ABILITY )
    {
       if( ch->main_ability == ability )
@@ -290,7 +290,7 @@ int max_level( CHAR_DATA * ch, int ability )
       level += ch->perm_frc * 5;
    }
 
-   return level;
+   return level;*/
 }
 
 void advance_level( CHAR_DATA * ch, int ability )
@@ -402,8 +402,8 @@ int hit_gain( CHAR_DATA * ch )
    else if( get_age( ch ) > 300 )
       gain /= 2;
 
-   if( ch->race == RACE_TRANDOSHAN )
-      gain *= 2;
+   //if( ch->race == RACE_TRANDOSHAN )
+   //   gain *= 2;
 
    return UMIN( gain, ch->max_hit - ch->hit );
 }
@@ -413,7 +413,7 @@ int hit_gain( CHAR_DATA * ch )
 int mana_gain( CHAR_DATA * ch )
 {
    int gain;
-
+/*
    if( IS_NPC( ch ) )
    {
       gain = ch->top_level;
@@ -447,8 +447,8 @@ int mana_gain( CHAR_DATA * ch )
 
    if( IS_AFFECTED( ch, AFF_POISON ) )
       gain /= 4;
-
-   return UMIN( gain, ch->max_mana - ch->mana );
+*/
+   return UMIN( 1, ch->max_mana - ch->mana );
 }
 
 
@@ -1275,8 +1275,8 @@ void char_update( void )
          if( ch->hit < ch->max_hit )
             ch->hit += hit_gain( ch );
 
-         if( ch->mana < ch->max_mana || ch->skill_level[FORCE_ABILITY] == 1 )
-            ch->mana += mana_gain( ch );
+         //if( ch->mana < ch->max_mana || ch->skill_level[FORCE_ABILITY] == 1 )
+         //   ch->mana += mana_gain( ch );
 
          if( ch->move < ch->max_move )
             ch->move += move_gain( ch );

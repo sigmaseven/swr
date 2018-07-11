@@ -2374,9 +2374,9 @@ void do_advance( CHAR_DATA * ch, char *argument )
       send_to_char( "Cursed and forsaken! The gods have lowered your level.\n\r", victim );
       victim->experience[ability] = 0;
       victim->skill_level[ability] = 1;
-      if( ability == COMBAT_ABILITY )
+      //if( ability == COMBAT_ABILITY )
          victim->max_hit = 500;
-      if( ability == FORCE_ABILITY )
+      //if( ability == FORCE_ABILITY )
          victim->max_mana = 0;
    }
    else

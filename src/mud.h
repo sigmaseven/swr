@@ -503,17 +503,26 @@ struct frc_app_type
 /* ability classes */
 
 #define ABILITY_NONE		-1
-#define COMBAT_ABILITY 		0
-#define PILOTING_ABILITY	1
-#define ENGINEERING_ABILITY	2
-#define HUNTING_ABILITY		3
-#define SMUGGLING_ABILITY	4
-#define DIPLOMACY_ABILITY	5
-#define LEADERSHIP_ABILITY	6
-#define FORCE_ABILITY		7
+#define SMALL_GUNS_ABILITY 	0
+#define BIG_GUNS_ABILITY	1
+#define ENERGY_WEAPONS_ABILITY	2
+#define UNARMED_ABILITY		3
+#define MELEE_WEAPONS_ABILITY	4
+#define THROWING_ABILITY	5
+#define FIRST_AID_ABILITY	6
+#define DOCTOR_ABILITY		7
+#define SNEAK_ABILITY		8
+#define LOCKPICK_ABILITY	9
+#define STEAL_ABILITY		10
+#define TRAPS_ABILITY		11
+#define SCIENCE_ABILITY		12
+#define REPAIR_ABILITY		13
+#define SPEECH_ABILITY		14
+#define BARTER_ABILITY		15
+#define GAMBLING_ABILITY	16
+#define OUTDOORSMAN_ABILITY	17
 
-
-/* the races */
+/* the races 
 #define RACE_HUMAN	    0
 #define RACE_WOOKIEE		1
 #define RACE_TWI_LEK		2
@@ -529,10 +538,14 @@ struct frc_app_type
 #define RACE_DEFEL             12
 #define RACE_TRANDOSHAN        13
 #define RACE_CHADRA_FAN        14
-#define RACE_DUINUOGWUIN       16   /* big mistake was causing mass chaos */
+#define RACE_DUINUOGWUIN       16 
 #define RACE_QUARREN           15
+*/
 
-
+#define RACE_HUMAN		0
+#define RACE_GHOUL		1
+#define RACE_SUPER_MUTANT	2
+#define RACE_SYNTH		3
 /*
  * Languages -- Altrag
  */
@@ -3011,8 +3024,7 @@ do								\
 #define IS_NEUTRAL(ch)		(!IS_GOOD(ch) && !IS_EVIL(ch))
 
 #define IS_AWAKE(ch)		((ch)->position > POS_SLEEPING)
-#define GET_AC(ch)		( (ch)->armor + ( IS_AWAKE(ch) ? dex_app[get_curr_dex(ch)].defensive : 0 ) \
-				- ( (ch)->race == RACE_DEFEL ? (ch)->skill_level[COMBAT_ABILITY]*2+5 : (ch)->skill_level[COMBAT_ABILITY]/2 ) )
+#define GET_AC(ch)		( (ch)->armor + ( IS_AWAKE(ch) ? dex_app[get_curr_dex(ch)].defensive : 0 ) ) 
 #define GET_HITROLL(ch)		((ch)->hitroll				    \
 				    +str_app[get_curr_str(ch)].tohit	    \
 				    +(2-(abs((ch)->mental_state)/10)))
@@ -3187,7 +3199,7 @@ extern char *const o_types[];
 extern char *const a_types[];
 extern char *const act_flags[];
 extern char *const planet_flags[];
-extern char *const weapon_table[13];
+extern char *const weapon_table[11];
 extern char *const spice_table[];
 extern char *const plr_flags[];
 extern char *const pc_flags[];

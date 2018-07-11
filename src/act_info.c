@@ -719,11 +719,7 @@ void show_char_to_char( CHAR_DATA * list, CHAR_DATA * ch )
       {
          show_char_to_char_0( rch, ch );
       }
-      else if( rch->race == RACE_DEFEL )
-      {
-         set_char_color( AT_BLOOD, ch );
-         send_to_char( "You see a pair of red eyes staring back at you.\n\r", ch );
-      }
+
       else if( room_is_dark( ch->in_room ) && IS_AFFECTED( ch, AFF_INFRARED ) )
       {
          set_char_color( AT_BLOOD, ch );
@@ -3623,8 +3619,8 @@ void do_slist( CHAR_DATA * ch, char *argument )
 
    for( ability = -1; ability < MAX_ABILITY; ability++ )
    {
-      if( ability == FORCE_ABILITY )
-         continue;
+     // if( ability == FORCE_ABILITY )
+     //    continue;
 
       if( ability >= 0 )
          sprintf( skn, "\n\r%s\n\r", ability_name[ability] );

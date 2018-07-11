@@ -1486,8 +1486,8 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                   hitgain = ( ( int )( current_time - lastplayed ) / 60 );
                   ch->hit = URANGE( 1, ch->hit + hitgain, ch->max_hit );
                   ch->move = URANGE( 1, ch->move + hitgain, ch->max_move );
-                  if( ch->skill_level[FORCE_ABILITY] > 1 )
-                     ch->mana = URANGE( 0, ch->mana + hitgain, ch->max_mana );
+                  //if( ch->skill_level[FORCE_ABILITY] > 1 )
+                  //   ch->mana = URANGE( 0, ch->mana + hitgain, ch->max_mana );
                   better_mental_state( ch, hitgain );
                }
                for( sn = 0; sn < top_sn; sn++ )

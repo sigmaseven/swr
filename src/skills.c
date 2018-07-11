@@ -1192,8 +1192,8 @@ void learn_from_success( CHAR_DATA * ch, int sn )
    if( IS_NPC( ch ) || ch->pcdata->learned[sn] == 0 )
       return;
 
-   if( sn == skill_lookup( "meditate" ) && ch->skill_level[FORCE_ABILITY] < 2 )
-      gain_exp( ch, 25, FORCE_ABILITY );
+   //if( sn == skill_lookup( "meditate" ) && ch->skill_level[FORCE_ABILITY] < 2 )
+   //   gain_exp( ch, 25, FORCE_ABILITY );
 
    sklvl = skill_table[sn]->min_level;
 
@@ -1278,7 +1278,7 @@ void do_gouge( CHAR_DATA * ch, char *argument )
 
    if( IS_NPC( ch ) || percent < ch->pcdata->learned[gsn_gouge] )
    {
-      dam = number_range( 1, ch->skill_level[COMBAT_ABILITY] );
+      dam = number_range( 1, ch->skill_level[UNARMED_ABILITY] );
       global_retcode = damage( ch, victim, dam, gsn_gouge );
       if( global_retcode == rNONE )
       {
@@ -1287,7 +1287,7 @@ void do_gouge( CHAR_DATA * ch, char *argument )
             af.type = gsn_blindness;
             af.location = APPLY_HITROLL;
             af.modifier = -6;
-            af.duration = 3 + ( ch->skill_level[COMBAT_ABILITY] / 20 );
+            af.duration = 3 + ( ch->skill_level[UNARMED_ABILITY] / 20 );
             af.bitvector = AFF_BLIND;
             affect_to_char( victim, &af );
             act( AT_SKILL, "You can't see a thing!", victim, NULL, NULL, TO_CHAR );
@@ -1419,7 +1419,7 @@ void do_detrap( CHAR_DATA * ch, char *argument )
       return;
    }
 
-   percent = number_percent(  ) - ( ch->skill_level[SMUGGLING_ABILITY] / 20 ) - ( get_curr_lck( ch ) - 16 );
+   percent = number_percent(  ) - ( ch->skill_level[TRAPS_ABILITY] / 20 ) - ( get_curr_lck( ch ) - 16 );
 
    separate_obj( obj );
    if( !IS_NPC( ch ) || percent > ch->pcdata->learned[gsn_detrap] )
@@ -1850,11 +1850,11 @@ void do_steal( CHAR_DATA * ch, char *argument )
       {
          xp =
             UMIN( amount * 10,
-                  ( exp_level( ch->skill_level[SMUGGLING_ABILITY] + 1 ) -
-                    exp_level( ch->skill_level[SMUGGLING_ABILITY] ) ) / 35 );
+                  ( exp_level( ch->skill_level[STEAL_ABILITY] + 1 ) -
+                    exp_level( ch->skill_level[STEAL_ABILITY] ) ) / 35 );
          xp = UMIN( xp, xp_compute( ch, victim ) );
-         gain_exp( ch, xp, SMUGGLING_ABILITY );
-         ch_printf( ch, "&WYou gain %ld smuggling experience!\n\r", xp );
+         gain_exp( ch, xp, STEAL_ABILITY );
+         ch_printf( ch, "&WYou gain %ld experience!\n\r", xp );
       }
       return;
    }
@@ -1909,10 +1909,10 @@ void do_steal( CHAR_DATA * ch, char *argument )
    {
       xp =
          UMIN( obj->cost * 10,
-               ( exp_level( ch->skill_level[SMUGGLING_ABILITY] + 1 ) -
-                 exp_level( ch->skill_level[SMUGGLING_ABILITY] ) ) / 10 );
+               ( exp_level( ch->skill_level[STEAL_ABILITY] + 1 ) -
+                 exp_level( ch->skill_level[STEAL_ABILITY] ) ) / 10 );
       xp = UMIN( xp, xp_compute( ch, victim ) );
-      gain_exp( ch, xp, SMUGGLING_ABILITY );
+      gain_exp( ch, xp, STEAL_ABILITY );
       ch_printf( ch, "&WYou gain %ld smuggling experience!\n\r", xp );
    }
    separate_obj( obj );
@@ -2115,7 +2115,7 @@ void do_kick( CHAR_DATA * ch, char *argument )
    if( IS_NPC( ch ) || number_percent(  ) < ch->pcdata->learned[gsn_kick] )
    {
       learn_from_success( ch, gsn_kick );
-      global_retcode = damage( ch, victim, number_range( 1, ch->skill_level[COMBAT_ABILITY] ), gsn_kick );
+      global_retcode = damage( ch, victim, number_range( 1, ch->skill_level[UNARMED_ABILITY] ), gsn_kick );
    }
    else
    {
@@ -2151,7 +2151,7 @@ void do_punch( CHAR_DATA * ch, char *argument )
    if( IS_NPC( ch ) || number_percent(  ) < ch->pcdata->learned[gsn_punch] )
    {
       learn_from_success( ch, gsn_punch );
-      global_retcode = damage( ch, victim, number_range( 1, ch->skill_level[COMBAT_ABILITY] ), gsn_punch );
+      global_retcode = damage( ch, victim, number_range( 1, ch->skill_level[UNARMED_ABILITY] ), gsn_punch );
    }
    else
    {
@@ -2221,7 +2221,7 @@ void do_bash( CHAR_DATA * ch, char *argument )
       WAIT_STATE( ch, 2 * PULSE_VIOLENCE );
       WAIT_STATE( victim, 2 * PULSE_VIOLENCE );
       victim->position = POS_SITTING;
-      global_retcode = damage( ch, victim, number_range( 1, ch->skill_level[COMBAT_ABILITY] ), gsn_bash );
+      global_retcode = damage( ch, victim, number_range( 1, ch->skill_level[UNARMED_ABILITY] ), gsn_bash );
    }
    else
    {
@@ -2267,7 +2267,7 @@ void do_stun( CHAR_DATA * ch, char *argument )
 
    WAIT_STATE( ch, skill_table[gsn_stun]->beats );
    fail = FALSE;
-   schance = ris_save( victim, ch->skill_level[COMBAT_ABILITY], RIS_PARALYSIS );
+   schance = ris_save( victim, ch->skill_level[UNARMED_ABILITY], RIS_PARALYSIS );
    if( schance == 1000 )
       fail = TRUE;
    else
@@ -2410,7 +2410,7 @@ void do_disarm( CHAR_DATA * ch, char *argument )
    }
 
    WAIT_STATE( ch, skill_table[gsn_disarm]->beats );
-   percent = number_percent(  ) + victim->skill_level[COMBAT_ABILITY] - ch->skill_level[COMBAT_ABILITY]
+   percent = number_percent(  ) + victim->skill_level[MELEE_WEAPONS_ABILITY] - ch->skill_level[MELEE_WEAPONS_ABILITY]
       - ( get_curr_lck( ch ) - 15 ) + ( get_curr_lck( victim ) - 15 );
    if( !can_see_obj( ch, obj ) )
       percent += 10;
@@ -2500,7 +2500,7 @@ void do_pick( CHAR_DATA * ch, char *argument )
     */
    for( gch = ch->in_room->first_person; gch; gch = gch->next_in_room )
    {
-      if( IS_NPC( gch ) && IS_AWAKE( gch ) && ch->skill_level[SMUGGLING_ABILITY] < gch->top_level )
+      if( IS_NPC( gch ) && IS_AWAKE( gch ) && ch->skill_level[STEAL_ABILITY] < gch->top_level )
       {
          act( AT_PLAIN, "$N is standing too close to the lock.", ch, NULL, gch, TO_CHAR );
          return;
@@ -2677,7 +2677,7 @@ void do_sneak( CHAR_DATA * ch, char *argument )
    if( IS_NPC( ch ) || number_percent(  ) < ch->pcdata->learned[gsn_sneak] )
    {
       af.type = gsn_sneak;
-      af.duration = ch->skill_level[SMUGGLING_ABILITY] * DUR_CONV;
+      af.duration = ch->skill_level[STEAL_ABILITY] * DUR_CONV;
       af.location = APPLY_NONE;
       af.modifier = 0;
       af.bitvector = AFF_SNEAK;
@@ -2732,10 +2732,10 @@ void do_visible( CHAR_DATA * ch, char *argument )
    affect_strip( ch, gsn_mass_invis );
    affect_strip( ch, gsn_sneak );
    REMOVE_BIT( ch->affected_by, AFF_HIDE );
-   if( ch->race != RACE_DEFEL )  /* Defel has perm invis */
-      REMOVE_BIT( ch->affected_by, AFF_INVISIBLE );
-   if( ch->race != RACE_NOGHRI ) /* Noghri has perm sneak */
-      REMOVE_BIT( ch->affected_by, AFF_SNEAK );
+   //if( ch->race != RACE_DEFEL )  /* Defel has perm invis */
+   //   REMOVE_BIT( ch->affected_by, AFF_INVISIBLE );
+   //if( ch->race != RACE_NOGHRI ) /* Noghri has perm sneak */
+   //   REMOVE_BIT( ch->affected_by, AFF_SNEAK );
    send_to_char( "Ok.\n\r", ch );
    return;
 }
@@ -3019,7 +3019,7 @@ bool check_parry( CHAR_DATA * ch, CHAR_DATA * victim )
       /*
        * Tuan was here.  :)   *** so was Durga :p *** 
        */
-      chances = UMIN( 60, victim->skill_level[COMBAT_ABILITY] );
+      chances = UMIN( 60, victim->skill_level[MELEE_WEAPONS_ABILITY] );
    }
    else
    {
@@ -3176,7 +3176,7 @@ void do_poison_weapon( CHAR_DATA * ch, char *argument )
       set_char_color( AT_RED, ch );
       send_to_char( "You failed and spill some on yourself.  Ouch!\n\r", ch );
       set_char_color( AT_GREY, ch );
-      damage( ch, ch, ch->skill_level[HUNTING_ABILITY], gsn_poison_weapon );
+      damage( ch, ch, ch->skill_level[OUTDOORSMAN_ABILITY], gsn_poison_weapon );
       act( AT_RED, "$n spills the poison all over!", ch, NULL, NULL, TO_ROOM );
       extract_obj( pobj );
       extract_obj( wobj );
@@ -3192,11 +3192,11 @@ void do_poison_weapon( CHAR_DATA * ch, char *argument )
    act( AT_GREEN, "You pour the poison over $p, which glistens wickedly!", ch, obj, NULL, TO_CHAR );
    act( AT_GREEN, "$n pours the poison over $p, which glistens wickedly!", ch, obj, NULL, TO_ROOM );
    SET_BIT( obj->extra_flags, ITEM_POISONED );
-   obj->cost *= ch->skill_level[HUNTING_ABILITY] / 2;
+   obj->cost *= ch->skill_level[OUTDOORSMAN_ABILITY] / 2;
    /*
     * Set an object timer.  Don't want proliferation of poisoned weapons 
     */
-   obj->timer = 10 + ch->skill_level[HUNTING_ABILITY];
+   obj->timer = 10 + ch->skill_level[OUTDOORSMAN_ABILITY];
 
    if( IS_OBJ_STAT( obj, ITEM_BLESS ) )
       obj->timer *= 2;
@@ -3323,7 +3323,7 @@ void do_circle( CHAR_DATA * ch, char *argument )
    percent = number_percent(  ) - ( get_curr_lck( ch ) - 16 ) + ( get_curr_lck( victim ) - 13 );
 
    WAIT_STATE( ch, skill_table[gsn_circle]->beats );
-   if( percent < ( IS_NPC( ch ) ? ( ch->skill_level[HUNTING_ABILITY] * 1.5 ) : ch->pcdata->learned[gsn_circle] ) )
+   if( percent < ( IS_NPC( ch ) ? ( ch->skill_level[OUTDOORSMAN_ABILITY] * 1.5 ) : ch->pcdata->learned[gsn_circle] ) )
    {
       learn_from_success( ch, gsn_circle );
       global_retcode = multi_hit( ch, victim, gsn_circle );
@@ -3410,7 +3410,7 @@ void do_hitall( CHAR_DATA * ch, char *argument )
       vch_next = vch->next_in_room;
       if( is_same_group( ch, vch ) || !is_legal_kill( ch, vch ) || !can_see( ch, vch ) || is_safe( ch, vch ) )
          continue;
-      if( ++nvict > ch->skill_level[COMBAT_ABILITY] / 5 )
+      if( ++nvict > ch->skill_level[MELEE_WEAPONS_ABILITY] / 5 )
          break;
       if( chance( ch, percent ) )
       {

@@ -2278,6 +2278,7 @@ void do_speak( CHAR_DATA * ch, char *argument )
       send_to_char( "Now speaking all languages.\n\r", ch );
       return;
    }
+/*
    if( !str_prefix( arg, "common" ) && ch->race == RACE_WOOKIEE )
    {
       set_char_color( AT_SAY, ch );
@@ -2290,6 +2291,7 @@ void do_speak( CHAR_DATA * ch, char *argument )
       send_to_char( "To speak the Twi'lek language requires body parts that you don't have.\n\r", ch );
       return;
    }
+*/
    for( langs = 0; lang_array[langs] != LANG_UNKNOWN; langs++ )
       if( !str_prefix( arg, lang_names[langs] ) )
          if( knows_language( ch, lang_array[langs], ch ) )

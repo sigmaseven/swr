@@ -1386,7 +1386,7 @@ void do_cast( CHAR_DATA * ch, char *argument )
       else
       {
          start_timer( &time_used );
-         retcode = ( *skill->spell_fun ) ( sn, ch->skill_level[FORCE_ABILITY], ch, vo );
+         retcode = ( *skill->spell_fun ) ( sn, ch->top_level, ch, vo );
          end_timer( &time_used );
          update_userec( &time_used, &skill->userec );
       }
@@ -1401,10 +1401,10 @@ void do_cast( CHAR_DATA * ch, char *argument )
       force_exp = skill->min_level * skill->min_level * 10;
       force_exp =
          URANGE( 0, force_exp,
-                 ( exp_level( ch->skill_level[FORCE_ABILITY] + 1 ) - exp_level( ch->skill_level[FORCE_ABILITY] ) ) / 35 );
+                 ( exp_level( ch->top_level + 1 ) - exp_level( ch->top_level ) ) / 35 );
       if( !ch->fighting )
          ch_printf( ch, "You gain %d force experience.\n\r", force_exp );
-      gain_exp( ch, force_exp, FORCE_ABILITY );
+      gain_exp( ch, force_exp, ch->top_level );
       learn_from_success( ch, sn );
    }
    else
@@ -2494,10 +2494,10 @@ ch_ret spell_faerie_fog( int sn, int level, CHAR_DATA * ch, void *vo )
       affect_strip( ich, gsn_mass_invis );
       affect_strip( ich, gsn_sneak );
       REMOVE_BIT( ich->affected_by, AFF_HIDE );
-      if( ich->race != RACE_DEFEL )
-         REMOVE_BIT( ich->affected_by, AFF_INVISIBLE );
-      if( ich->race != RACE_NOGHRI )
-         REMOVE_BIT( ich->affected_by, AFF_SNEAK );
+      //if( ich->race != RACE_DEFEL )
+      //   REMOVE_BIT( ich->affected_by, AFF_INVISIBLE );
+      //if( ich->race != RACE_NOGHRI )
+      //   REMOVE_BIT( ich->affected_by, AFF_SNEAK );
       act( AT_MAGIC, "$n is revealed!", ich, NULL, NULL, TO_ROOM );
       act( AT_MAGIC, "You are revealed!", ich, NULL, NULL, TO_CHAR );
    }
@@ -3643,7 +3643,7 @@ ch_ret spell_recharge( int sn, int level, CHAR_DATA * ch, void *vo )
          extract_obj( obj );
          return rSPELL_FAILED;
       }
-      else if( chance( ch, 50 - ( ch->skill_level[FORCE_ABILITY] ) ) )
+      else if( chance( ch, 50 - ( ch->top_level ) ) )
       {
          send_to_char( "Nothing happens.\n\r", ch );
          return rSPELL_FAILED;
@@ -3727,8 +3727,8 @@ ch_ret spell_remove_invis( int sn, int level, CHAR_DATA * ch, void *vo )
             return rSPELL_FAILED;
          }
 
-         if( victim->race == RACE_DEFEL )
-            return rSPELL_FAILED;
+         //if( victim->race == RACE_DEFEL )
+         //   return rSPELL_FAILED;
 
          if( !IS_AFFECTED( victim, AFF_INVISIBLE ) )
          {
@@ -3749,7 +3749,7 @@ ch_ret spell_remove_invis( int sn, int level, CHAR_DATA * ch, void *vo )
          }
          if( !IS_NPC( victim ) )
          {
-            if( chance( ch, 50 ) && ch->skill_level[FORCE_ABILITY] < victim->top_level )
+            if( chance( ch, 50 ) && ch->top_level < victim->top_level )
             {
                failed_casting( skill, ch, victim, NULL );
                return rSPELL_FAILED;
@@ -3758,7 +3758,7 @@ ch_ret spell_remove_invis( int sn, int level, CHAR_DATA * ch, void *vo )
          }
          else
          {
-            if( chance( ch, 50 ) && ch->skill_level[FORCE_ABILITY] + 15 < victim->top_level )
+            if( chance( ch, 50 ) && ch->top_level + 15 < victim->top_level )
             {
                failed_casting( skill, ch, victim, NULL );
                return rSPELL_FAILED;
@@ -3959,7 +3959,7 @@ ch_ret spell_possess( int sn, int level, CHAR_DATA * ch, void *vo )
 
 
    af.type = sn;
-   af.duration = 20 + ( ch->skill_level[FORCE_ABILITY] - victim->top_level ) / 2;
+   af.duration = 20 + ( ch->top_level - victim->top_level ) / 2;
    af.location = 0;
    af.modifier = 0;
    af.bitvector = AFF_POSSESS;
@@ -4796,31 +4796,31 @@ ch_ret spell_obj_inv( int sn, int level, CHAR_DATA * ch, void *vo )
 
             default:
             case SP_NONE:
-               if( obj->cost > ch->skill_level[FORCE_ABILITY] * get_curr_int( ch ) * get_curr_wis( ch ) )
+               if( obj->cost > ch->top_level * get_curr_int( ch ) * get_curr_wis( ch ) )
                {
                   failed_casting( skill, ch, NULL, obj );
                   return rNONE;
                }
                break;
             case SP_MINOR:
-               if( ch->skill_level[FORCE_ABILITY] - obj->level < 20
-                   || obj->cost > ch->skill_level[FORCE_ABILITY] * get_curr_int( ch ) / 5 )
+               if( ch->top_level - obj->level < 20
+                   || obj->cost > ch->top_level * get_curr_int( ch ) / 5 )
                {
                   failed_casting( skill, ch, NULL, obj );
                   return rNONE;
                }
                break;
             case SP_GREATER:
-               if( ch->skill_level[FORCE_ABILITY] - obj->level < 5
-                   || obj->cost > ch->skill_level[FORCE_ABILITY] * 10 * get_curr_int( ch ) * get_curr_wis( ch ) )
+               if( ch->top_level - obj->level < 5
+                   || obj->cost > ch->top_level * 10 * get_curr_int( ch ) * get_curr_wis( ch ) )
                {
                   failed_casting( skill, ch, NULL, obj );
                   return rNONE;
                }
                break;
             case SP_MAJOR:
-               if( ch->skill_level[FORCE_ABILITY] - obj->level < 0
-                   || obj->cost > ch->skill_level[FORCE_ABILITY] * 50 * get_curr_int( ch ) * get_curr_wis( ch ) )
+               if( ch->top_level - obj->level < 0
+                   || obj->cost > ch->top_level * 50 * get_curr_int( ch ) * get_curr_wis( ch ) )
                {
                   failed_casting( skill, ch, NULL, obj );
                   return rNONE;
