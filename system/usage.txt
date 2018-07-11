@@ -92,3 +92,11 @@ Tue Jul 10 17:00:00 2018: 1 players
 Tue Jul 10 17:30:00 2018: 1 players
 Tue Jul 10 18:00:00 2018: 1 players
 Tue Jul 10 18:30:00 2018: 1 players
+Tue Jul 10 19:30:00 2018: 0 players
+Tue Jul 10 20:00:00 2018: 0 players
+Tue Jul 10 20:30:00 2018: 0 players
+Tue Jul 10 21:00:00 2018: 0 players
+Tue Jul 10 21:30:00 2018: 0 players
+Tue Jul 10 22:00:00 2018: 1 players
+Tue Jul 10 22:30:00 2018: 1 players
+Tue Jul 10 23:00:00 2018: 1 players
