@@ -75,6 +75,32 @@ int count_room_mobs(ROOM_INDEX_DATA *room)
 	return count;
 }
 
+int count_room_players(ROOM_INDEX_DATA *room)
+{
+	int count = 0;
+	CHAR_DATA *ch;
+	for(ch = room->first_person; ch; ch = ch->next_in_room)
+	{
+		if(!IS_NPC(ch))
+		{
+			count++;
+		}
+	}
+	return count;
+}
+
+int count_area_rooms(AREA_DATA *area)
+{
+	ROOM_INDEX_DATA *room;
+	int count = 0;
+
+	for(room = area->first_room; room; room = room->next_aroom)
+	{
+		count++;
+	}
+
+	return count;
+}
 int count_area_mobs(AREA_DATA *area)
 {
 	ROOM_INDEX_DATA *room;
@@ -93,6 +119,17 @@ int count_area_objects(AREA_DATA *area)
 	for(room = area->first_room; room; room = room->next_aroom)
 	{
 		count += count_room_objects(room);
+	}
+	return count;
+}
+
+int count_area_players(AREA_DATA *area)
+{
+	ROOM_INDEX_DATA *room;
+	int count = 0;
+	for(room = area->first_room; room; room = room->next_aroom)
+	{
+		count += count_room_players(room);
 	}
 	return count;
 }
@@ -119,6 +156,35 @@ void generate_random_loot(ROOM_INDEX_DATA *room)
 //				case 19:
 //				case 20:
 //			}
+		}
+	}
+}
+
+int get_area_low_mob_vnum(AREA_DATA *area)
+{
+	return area->low_m_vnum;
+}
+
+int get_area_high_mob_vnum(AREA_DATA *area)
+{
+	return area->hi_m_vnum;
+}
+
+void generate_random_mobs(AREA_DATA *area)
+{
+	int low_vnum  = get_area_low_mob_vnum(area);
+	int high_vnum = get_area_high_mob_vnum(area);
+	int num_mobs  = number_range(0, 2);
+	int x;
+	ROOM_INDEX_DATA *room;
+
+	for(room = area->first_room; room; room = room->next_aroom)
+	{
+
+		for(x = 0; x < num_mobs; x++)
+		{
+			int roll = number_range(low_vnum, high_vnum);
+			printf("got vnum %d", roll);
 		}
 	}
 }

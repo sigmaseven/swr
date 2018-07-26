@@ -876,8 +876,11 @@ void reset_area( AREA_DATA *area )
       reset_room( room );
       generate_random_loot(room);
    }
-   printf("%d items counted in %s\n", count_area_objects(area), area->name);
-   printf("%d mobs counted in %s\n", count_area_mobs(area), area->name);
+   printf("%d usable rooms found in %s\n", count_area_rooms(area), area->name);
+   printf("%d items found in %s\n", count_area_objects(area), area->name);
+   printf("%d mobs found in %s\n", count_area_mobs(area), area->name);
+   printf("%d players found in %s\n", count_area_players(area), area->name);
+   generate_random_mobs(area);
 }
 
 /* Setup put nesting levels, regardless of whether or not the resets will
