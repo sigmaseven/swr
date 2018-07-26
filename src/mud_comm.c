@@ -145,7 +145,7 @@ void do_mpstat( CHAR_DATA * ch, char *argument )
 
    ch_printf( ch,
               "Lv: %d.  Align: %d.  AC: %d.  Credits: %d.\n\r",
-              victim->top_level, victim->alignment, GET_AC( victim ), victim->gold );
+              victim->top_level, victim->alignment, get_character_defence( victim ), victim->gold );
 
    for( mprg = victim->pIndexData->mudprogs; mprg; mprg = mprg->next )
       ch_printf( ch, "%s>%s %s\n\r%s\n\r", ( mprg->fileprog ? "(FILEPROG) " : "" ),
@@ -1221,7 +1221,7 @@ void do_mpgain( CHAR_DATA * ch, char *argument )
    gexp = URANGE( 1, gexp, ( exp_level( victim->skill_level[ability] + 1 ) - exp_level( victim->skill_level[ability] ) ) );
 
    ch_printf( victim, "You gain %ld %s experience.\n\r", gexp, ability_name[ability] );
-   gain_exp( victim, gexp, ability );
+   gain_exp( victim, gexp);
    return;
 }
 

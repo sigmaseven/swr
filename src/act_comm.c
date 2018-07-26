@@ -2231,7 +2231,7 @@ bool can_learn_lang( CHAR_DATA * ch, int language )
    return FALSE;
 }
 
-int const lang_array[] = { LANG_COMMON, LANG_WOOKIEE, LANG_TWI_LEK, LANG_RODIAN,
+int const lang_array[] = { LANG_COMMON, LANG_NATIVE, LANG_TWI_LEK, LANG_RODIAN,
    LANG_HUTT, LANG_MON_CALAMARI, LANG_NOGHRI, LANG_EWOK,
    LANG_ITHORIAN, LANG_GOTAL, LANG_DEVARONIAN,
    LANG_DROID, LANG_SPIRITUAL, LANG_MAGICAL,
@@ -2257,13 +2257,13 @@ int countlangs( int languages )
    return numlangs;
 }
 
-char *const lang_names[] = { "common", "wookiee", "twilek", "rodian", "hutt",
-   "mon calamari", "noghri", "ewok", "ithorian",
+char *const lang_names[] = { "common", "native" };
+/*   "mon calamari", "noghri", "ewok", "ithorian",
    "gotal", "devaronian", "droid", "spiritual",
    "magical", "gamorrean", "god", "ancient",
    "jawa", "clan", "adarian", "verpine", "defel",
    "trandoshan", "chadra-fan", "quarren", "duinuogwuin", ""
-};
+};*/
 void do_speak( CHAR_DATA * ch, char *argument )
 {
    int langs;

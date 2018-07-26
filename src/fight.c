@@ -716,7 +716,7 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
    thac0_00 = 20;
    thac0_32 = 10;
    thac0 = interpolate( ch->skill_level[MELEE_WEAPONS_ABILITY], thac0_00, thac0_32 ) - GET_HITROLL( ch );
-   victim_ac = ( int )( GET_AC( victim ) / 10 );
+   victim_ac = (int)(get_character_defence(victim));
 
    /*
     * if you can't see what's coming... 
@@ -735,14 +735,15 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
    /*
     * Weapon proficiency bonus 
     */
-   victim_ac += prof_bonus / 20;
+   //victim_ac += prof_bonus / 20;
 
    /*
     * The moment of excitement!
     */
    diceroll = number_range( 1, 20 );
+   int agi_bonus = get_stat_bonus(ch->perm_agi);
 
-   if( diceroll == 1 || ( diceroll < 20 && diceroll < thac0 - victim_ac ) )
+   if( diceroll == 1 || ( diceroll + agi_bonus < victim_ac ) )
    {
       /*
        * Miss. 
@@ -1409,7 +1410,7 @@ ch_ret damage( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
    if( dam && ch != victim && !IS_NPC( ch ) && ch->fighting && ch->fighting->xp )
    {
       xp_gain = ( int )( xp_compute( ch, victim ) * 0.1 * dam ) / victim->max_hit;
-      gain_exp( ch, xp_gain, MELEE_WEAPONS_ABILITY );
+      gain_exp( ch, xp_gain);
    }
 
    if( !IS_NPC( victim ) && victim->top_level >= LEVEL_IMMORTAL && victim->hit < 1 )
@@ -2295,7 +2296,7 @@ void group_gain( CHAR_DATA * ch, CHAR_DATA * victim )
          send_to_char( buf, gch );
       }
 
-      gain_exp( gch, xp, MELEE_WEAPONS_ABILITY );
+      gain_exp( gch, xp);
 
       if( lch == gch && members > 1 )
       {
@@ -2305,7 +2306,7 @@ void group_gain( CHAR_DATA * ch, CHAR_DATA * victim )
                       exp_level( gch->skill_level[SPEECH_ABILITY] ) / 10 ) );
          sprintf( buf, "You get %d leadership experience for leading your group to victory.\n\r", xp );
          send_to_char( buf, gch );
-         gain_exp( gch, xp, SPEECH_ABILITY );
+         gain_exp( gch, xp);
       }
 
 
@@ -2576,9 +2577,9 @@ void dam_message( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
          attack = attack_table[0];
       }
 
-      sprintf( buf1, "$n's poisoned %s %s $N%c", attack, vp, punct );
-      sprintf( buf2, "Your poisoned %s %s $N%c", attack, vp, punct );
-      sprintf( buf3, "$n's poisoned %s %s you%c", attack, vp, punct );
+      sprintf( buf1, "%s$n's poisoned %s %s $N%c%s", ANSI_YELLOW, attack, vp, punct, ANSI_WHITE);
+      sprintf( buf2, "%sYour poisoned %s %s $N%c%s", ANSI_YELLOW, attack, vp, punct, ANSI_WHITE);
+      sprintf( buf3, "%s$n's poisoned %s %s you%c%s", ANSI_YELLOW, attack, vp, punct, ANSI_WHITE );
    }
    else
    {
@@ -2626,9 +2627,9 @@ void dam_message( CHAR_DATA * ch, CHAR_DATA * victim, int dam, int dt )
          attack = attack_table[0];
       }
 
-      sprintf( buf1, "$n's %s %s $N%c", attack, vp, punct );
-      sprintf( buf2, "Your %s %s $N%c", attack, vp, punct );
-      sprintf( buf3, "$n's %s %s you%c", attack, vp, punct );
+      sprintf( buf1, "%s$n's %s %s $N%c%s", ANSI_RED, attack, vp, punct, ANSI_WHITE );
+      sprintf( buf2, "%sYour %s %s $N%c%s", ANSI_RED, attack, vp, punct, ANSI_WHITE );
+      sprintf( buf3, "%s$n's %s %s you%c%s", ANSI_RED, attack, vp, punct, ANSI_WHITE );
    }
 
    //if( ch->skill_level[COMBAT_ABILITY] >= 100 )

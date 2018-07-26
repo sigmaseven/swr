@@ -323,6 +323,10 @@ void fwrite_char( CHAR_DATA * ch, FILE * fp )
    fprintf( fp, "MainAbility  %d\n", ch->main_ability );
    fprintf( fp, "Languages    %d %d\n", ch->speaks, ch->speaking );
    fprintf( fp, "Toplevel     %d\n", ch->top_level );
+   fprintf( fp, "CharLevel    %d\n", ch->character_level );
+   fprintf( fp, "CharExp      %d\n", ch->character_experience );
+   fprintf( fp, "UsedStats    %d\n", ch->used_stat_points );
+   fprintf( fp, "UnusedStats  %d\n", ch->unused_stat_points );
    if( ch->trust )
       fprintf( fp, "Trust        %d\n", ch->trust );
    fprintf( fp, "Played       %d\n", ch->played + ( int )( current_time - ch->logon ) );
@@ -441,7 +445,7 @@ void fwrite_char( CHAR_DATA * ch, FILE * fp )
       if( ch->pcdata->illegal_pk )
          fprintf( fp, "IllegalPK    %d\n", ch->pcdata->illegal_pk );
       fprintf( fp, "AttrPerm     %d %d %d %d %d %d %d\n",
-               ch->perm_str, ch->perm_int, ch->perm_wis, ch->perm_dex, ch->perm_con, ch->perm_cha, ch->perm_lck );
+               ch->perm_str, ch->perm_int, ch->perm_per, ch->perm_agi, ch->perm_end, ch->perm_cha, ch->perm_lck );
 
       fprintf( fp, "AttrMod      %d %d %d %d %d %d %d\n",
                ch->mod_str, ch->mod_int, ch->mod_wis, ch->mod_dex, ch->mod_con, ch->mod_cha, ch->mod_lck );
@@ -716,9 +720,9 @@ bool load_char_obj( DESCRIPTOR_DATA * d, char *name, bool preload, bool copyover
    ch->act = PLR_BLANK | PLR_COMBINE | PLR_PROMPT;
    ch->perm_str = 10;
    ch->perm_int = 10;
-   ch->perm_wis = 10;
-   ch->perm_dex = 10;
-   ch->perm_con = 10;
+   ch->perm_per = 10;
+   ch->perm_agi = 10;
+   ch->perm_end = 10;
    ch->perm_cha = 10;
    ch->perm_lck = 10;
    ch->pcdata->condition[COND_THIRST] = 48;
@@ -743,6 +747,7 @@ bool load_char_obj( DESCRIPTOR_DATA * d, char *name, bool preload, bool copyover
    ch->plr_home = NULL;
    ch->pcdata->hotboot = FALSE;  /* Never changed except when PC is saved during hotboot save */
    ch->L = NULL;  /* no Lua state yet */
+   //ch->character_level = level_from_exp(ch);
 #ifdef IMC
    imc_initchar( ch );
 #endif
@@ -1027,9 +1032,9 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                sscanf( line, "%d %d %d %d %d %d %d", &x1, &x2, &x3, &x4, &x5, &x6, &x7 );
                ch->perm_str = x1;
                ch->perm_int = x2;
-               ch->perm_wis = x3;
-               ch->perm_dex = x4;
-               ch->perm_con = x5;
+               ch->perm_per = x3;
+               ch->perm_agi = x4;
+               ch->perm_end = x5;
                ch->perm_cha = x6;
                ch->perm_lck = x7;
                if( !x7 || x7 == 0 )
@@ -1049,6 +1054,8 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
             break;
 
          case 'C':
+            KEY( "CharLevel", ch->character_level, fread_number( fp ) );
+            KEY( "CharExp", ch->character_experience, fread_number(fp));
             if( !str_cmp( word, "Clan" ) )
             {
                ch->pcdata->clan_name = fread_string( fp );
@@ -1330,7 +1337,9 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                fMatch = TRUE;
             }
             break;
-
+	 case 'U':
+	    KEY( "UnusedStats", ch->unused_stat_points, fread_number(fp) );
+	    KEY( "UsedStats", ch->used_stat_points, fread_number(fp) );
          case 'S':
             KEY( "Sex", ch->sex, fread_number( fp ) );
             KEY( "ShortDescr", ch->short_descr, fread_string( fp ) );

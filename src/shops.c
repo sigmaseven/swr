@@ -648,7 +648,7 @@ void do_sell( CHAR_DATA * ch, char *argument )
                ( exp_level( ch->skill_level[SNEAK_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[SNEAK_ABILITY] ) ) / 10 );
       ch_printf( ch, "You receive %ld smuggling experience for unloading your contraband.\n\r ", ch_exp );
-      gain_exp( ch, ch_exp, SNEAK_ABILITY );
+      gain_exp( ch, ch_exp);
       if( obj->item_type == ITEM_SPICE || obj->item_type == ITEM_RAWSPICE )
          extract_obj( obj );
       else

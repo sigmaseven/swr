@@ -336,7 +336,7 @@ bool spec_customs_smut( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You lose %ld experience.\n\r ", ch_exp );
-               gain_exp( victim, 0 - ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, 0 - ch_exp);
                return TRUE;
             }
             else if( can_see( ch, victim ) && !IS_SET( obj->extra_flags, ITEM_CONTRABAND ) )
@@ -346,7 +346,7 @@ bool spec_customs_smut( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You receive %ld experience for smuggling %s.\n\r ", ch_exp, obj->short_descr );
-               gain_exp( victim, ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, ch_exp);
 
                act( AT_ACTION, "$n looks at $N suspiciously.", ch, NULL, victim, TO_NOTVICT );
                act( AT_ACTION, "$n look at you suspiciously.", ch, NULL, victim, TO_VICT );
@@ -361,7 +361,7 @@ bool spec_customs_smut( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You receive %ld experience for smuggling %s.\n\r ", ch_exp, obj->short_descr );
-               gain_exp( victim, ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, ch_exp );
 
                SET_BIT( obj->extra_flags, ITEM_CONTRABAND );
                return TRUE;
@@ -379,7 +379,7 @@ bool spec_customs_smut( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You receive %ld experience for smuggling %s.\n\r ", ch_exp, content->short_descr );
-                  gain_exp( victim, ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, ch_exp );
                   SET_BIT( content->extra_flags, ITEM_CONTRABAND );
                   return TRUE;
                }
@@ -435,7 +435,7 @@ bool spec_customs_weapons( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You lose %ld experience.\n\r ", ch_exp );
-               gain_exp( victim, 0 - ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, 0 - ch_exp );
                return TRUE;
             }
             else if( can_see( ch, victim ) && !IS_SET( obj->extra_flags, ITEM_CONTRABAND ) )
@@ -445,7 +445,7 @@ bool spec_customs_weapons( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You receive %ld experience for smuggling %d.\n\r ", ch_exp, obj->short_descr );
-               gain_exp( victim, ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, ch_exp );
 
                act( AT_ACTION, "$n looks at $N suspiciously.", ch, NULL, victim, TO_NOTVICT );
                act( AT_ACTION, "$n look at you suspiciously.", ch, NULL, victim, TO_VICT );
@@ -459,7 +459,7 @@ bool spec_customs_weapons( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You receive %ld experience for smuggling %s.\n\r ", ch_exp, obj->short_descr );
-               gain_exp( victim, ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, ch_exp );
 
                SET_BIT( obj->extra_flags, ITEM_CONTRABAND );
                return TRUE;
@@ -477,7 +477,7 @@ bool spec_customs_weapons( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You receive %ld experience for smuggling %s.\n\r ", ch_exp, content->short_descr );
-                  gain_exp( victim, ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, ch_exp );
                   SET_BIT( content->extra_flags, ITEM_CONTRABAND );
                   return TRUE;
                }
@@ -535,7 +535,7 @@ bool spec_customs_alcohol( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You lose %ld experience. \n\r", ch_exp );
-                  gain_exp( victim, 0 - ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, 0 - ch_exp );
                   return TRUE;
                }
                else if( can_see( ch, victim ) && !IS_SET( obj->extra_flags, ITEM_CONTRABAND ) )
@@ -545,7 +545,7 @@ bool spec_customs_alcohol( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You receive %ld experience for smuggling %d. \n\r", ch_exp, obj->short_descr );
-                  gain_exp( victim, ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, ch_exp );
 
                   act( AT_ACTION, "$n looks at $N suspiciously.", ch, NULL, victim, TO_NOTVICT );
                   act( AT_ACTION, "$n look at you suspiciously.", ch, NULL, victim, TO_VICT );
@@ -559,7 +559,7 @@ bool spec_customs_alcohol( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You receive %ld experience for smuggling %d. \n\r", ch_exp, obj->short_descr );
-                  gain_exp( victim, ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, ch_exp );
 
                   SET_BIT( obj->extra_flags, ITEM_CONTRABAND );
                   return TRUE;
@@ -582,7 +582,7 @@ bool spec_customs_alcohol( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You receive %ld experience for smuggling %d.\n\r ", ch_exp, content->short_descr );
-                  gain_exp( victim, ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, ch_exp );
                   SET_BIT( content->extra_flags, ITEM_CONTRABAND );
                   return TRUE;
                }
@@ -634,7 +634,7 @@ bool spec_customs_spice( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You lose %ld experience. \n\r", ch_exp );
-               gain_exp( victim, 0 - ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, 0 - ch_exp );
                return TRUE;
             }
             else if( can_see( ch, victim ) && !IS_SET( obj->extra_flags, ITEM_CONTRABAND ) )
@@ -644,7 +644,7 @@ bool spec_customs_spice( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You receive %ld experience for smuggling %s. \n\r", ch_exp, obj->short_descr );
-               gain_exp( victim, ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, ch_exp );
 
                act( AT_ACTION, "$n looks at $N suspiciously.", ch, NULL, victim, TO_NOTVICT );
                act( AT_ACTION, "$n look at you suspiciously.", ch, NULL, victim, TO_VICT );
@@ -658,7 +658,7 @@ bool spec_customs_spice( CHAR_DATA * ch )
                         ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                           exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                ch_printf( victim, "You receive %ld experience for smuggling %s. \n\r", ch_exp, obj->short_descr );
-               gain_exp( victim, ch_exp, SNEAK_ABILITY );
+               gain_exp( victim, ch_exp );
 
                SET_BIT( obj->extra_flags, ITEM_CONTRABAND );
                return TRUE;
@@ -676,7 +676,7 @@ bool spec_customs_spice( CHAR_DATA * ch )
                            ( exp_level( victim->skill_level[SNEAK_ABILITY] + 1 ) -
                              exp_level( victim->skill_level[SNEAK_ABILITY] ) ) );
                   ch_printf( victim, "You receive %ld experience for smuggling %s.\n\r ", ch_exp, content->short_descr );
-                  gain_exp( victim, ch_exp, SNEAK_ABILITY );
+                  gain_exp( victim, ch_exp);
                   SET_BIT( content->extra_flags, ITEM_CONTRABAND );
                   return TRUE;
                }

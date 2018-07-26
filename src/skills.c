@@ -1234,7 +1234,7 @@ void learn_from_success( CHAR_DATA * ch, int sn )
             ch_printf( ch, "You gain %d experience points from your success!\n\r", gain );
          }
       }
-      gain_exp( ch, gain, skill_table[sn]->guild );
+      gain_exp( ch, gain);
    }
 }
 
@@ -1853,7 +1853,7 @@ void do_steal( CHAR_DATA * ch, char *argument )
                   ( exp_level( ch->skill_level[STEAL_ABILITY] + 1 ) -
                     exp_level( ch->skill_level[STEAL_ABILITY] ) ) / 35 );
          xp = UMIN( xp, xp_compute( ch, victim ) );
-         gain_exp( ch, xp, STEAL_ABILITY );
+         gain_exp( ch, xp);
          ch_printf( ch, "&WYou gain %ld experience!\n\r", xp );
       }
       return;
@@ -1912,7 +1912,7 @@ void do_steal( CHAR_DATA * ch, char *argument )
                ( exp_level( ch->skill_level[STEAL_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[STEAL_ABILITY] ) ) / 10 );
       xp = UMIN( xp, xp_compute( ch, victim ) );
-      gain_exp( ch, xp, STEAL_ABILITY );
+      gain_exp( ch, xp);
       ch_printf( ch, "&WYou gain %ld smuggling experience!\n\r", xp );
    }
    separate_obj( obj );
@@ -3572,4 +3572,21 @@ void do_scan( CHAR_DATA * ch, char *argument )
 
 void do_slice( CHAR_DATA * ch, char *argument )
 {
+}
+
+void do_upgrade( CHAR_DATA *ch, char *argument )
+{
+  ch_printf(ch, "Peforming stat point upgrade.");
+  int i;
+  for(i = 0; i < MAX_ABILITY; i++)
+  {
+     ch_printf(ch, "%s\n", ability_name[i]);
+     if(!str_prefix(argument, ability_name[i]))
+     {
+       ch_printf(ch, "%s matches.\n", ability_name[i]);
+       ch->unused_stat_points--;
+       ch->used_stat_points++;
+       ch->skill_level[i]++;
+     }
+  }
 }

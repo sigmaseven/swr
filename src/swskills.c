@@ -242,7 +242,7 @@ void do_makeblade( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 200,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain);
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
 
@@ -508,7 +508,7 @@ void do_makeblaster( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 50,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makeblaster );
@@ -937,7 +937,7 @@ void do_makespice( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 50,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
 
@@ -1150,7 +1150,7 @@ void do_makegrenade( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 50,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makegrenade );
@@ -1361,7 +1361,7 @@ void do_makelandmine( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 50,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makelandmine );
@@ -1567,7 +1567,7 @@ void do_makelight( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 100,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makelight );
@@ -1771,7 +1771,7 @@ void do_makejewelry( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 100,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makejewelry );
@@ -1949,7 +1949,7 @@ void do_makearmor( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 100,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makearmor );
@@ -2136,7 +2136,7 @@ void do_makecomlink( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 100,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makecomlink );
@@ -2350,7 +2350,7 @@ void do_makeshield( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 50,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makeshield );
@@ -2537,7 +2537,7 @@ void do_makecontainer( CHAR_DATA * ch, char *argument )
          UMIN( obj->cost * 100,
                ( exp_level( ch->skill_level[REPAIR_ABILITY] + 1 ) -
                  exp_level( ch->skill_level[REPAIR_ABILITY] ) ) );
-      gain_exp( ch, xpgain, REPAIR_ABILITY );
+      gain_exp( ch, xpgain );
       ch_printf( ch, "You gain %d engineering experience.", xpgain );
    }
    learn_from_success( ch, gsn_makecontainer );
@@ -3714,7 +3714,7 @@ void do_beg( CHAR_DATA * ch, char *argument )
       UMIN( amount * 10,
             ( exp_level( ch->skill_level[SNEAK_ABILITY] + 1 ) - exp_level( ch->skill_level[SNEAK_ABILITY] ) ) );
    xp = UMIN( xp, xp_compute( ch, victim ) );
-   gain_exp( ch, xp, SNEAK_ABILITY );
+   gain_exp( ch, xp );
    ch_printf( ch, "&WYou gain %ld smuggling experience points!\n\r", xp );
    act( AT_ACTION, "$N gives $n some money.\n\r", ch, NULL, victim, TO_NOTVICT );
    act( AT_ACTION, "You give $n some money.\n\r", ch, NULL, victim, TO_VICT );
@@ -4076,7 +4076,7 @@ void do_smalltalk( CHAR_DATA * ch, char *argument )
    planet->pop_support += 0.2;
    send_to_char( "Popular support for your organization increases slightly.\n\r", ch );
 
-   gain_exp( ch, victim->top_level * 10, SPEECH_ABILITY );
+   gain_exp( ch, victim->top_level * 10 );
    ch_printf( ch, "You gain %d diplomacy experience.\n\r", victim->top_level * 10 );
 
    learn_from_success( ch, gsn_smalltalk );
@@ -4201,7 +4201,7 @@ void do_propeganda( CHAR_DATA * ch, char *argument )
       send_to_char( "Popular support for the current government decreases.\n\r", ch );
    }
 
-   gain_exp( ch, victim->top_level * 100, SPEECH_ABILITY );
+   gain_exp( ch, victim->top_level * 100 );
    ch_printf( ch, "You gain %d diplomacy experience.\n\r", victim->top_level * 100 );
 
    learn_from_success( ch, gsn_propeganda );
@@ -4334,7 +4334,7 @@ void do_bribe( CHAR_DATA * ch, char *argument )
          UMIN( amount,
                ( exp_level( ch->skill_level[SPEECH_ABILITY] + 1 ) - exp_level( ch->skill_level[SPEECH_ABILITY] ) ) );
 
-      gain_exp( ch, amount, SPEECH_ABILITY );
+      gain_exp( ch, amount );
       ch_printf( ch, "You gain %d diplomacy experience.\n\r", amount );
 
       learn_from_success( ch, gsn_bribe );

@@ -4172,7 +4172,7 @@ void damage_ship_ch( SHIP_DATA * ship, int min, int max, CHAR_DATA * ch )
 
    xp = ( exp_level( ch->top_level + 1 ) - exp_level( ch->top_level ) ) / 25;
    xp = UMIN( get_ship_value( ship ) / 100, xp );
-   gain_exp( ch, xp, ch->top_level );
+   gain_exp( ch, xp);
 
    if( ship->shield > 0 )
    {
@@ -6297,7 +6297,7 @@ void do_fire( CHAR_DATA * ch, char *argument )
 
 
    schance = IS_NPC( ch ) ? ch->top_level
-      : ( int )( ch->perm_dex * 2 + ch->pcdata->learned[gsn_spacecombat] / 3
+      : ( int )( ch->perm_agi * 2 + ch->pcdata->learned[gsn_spacecombat] / 3
                  + ch->pcdata->learned[gsn_spacecombat2] / 3 + ch->pcdata->learned[gsn_spacecombat3] / 3 );
 
    if( ch->in_room->vnum == ship->gunseat && !str_prefix( argument, "lasers" ) )

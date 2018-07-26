@@ -1233,7 +1233,7 @@ void do_mstat( CHAR_DATA * ch, char *argument )
    }
    ch_printf( ch,
               "Top Level: %d     Race: %d  Align: %d  AC: %d  Gold: %d\n\r",
-              victim->top_level, victim->race, victim->alignment, GET_AC( victim ), victim->gold );
+              victim->top_level, victim->race, victim->alignment, get_character_defence( victim ), victim->gold );
    if( victim->race < MAX_NPC_RACE && victim->race >= 0 )
       ch_printf( ch, "Race: %s\n\r", npc_race[victim->race] );
    ch_printf( ch, "Hitroll: %d   Damroll: %d   Position: %d   Wimpy: %d \n\r",
@@ -2388,7 +2388,7 @@ void do_advance( CHAR_DATA * ch, char *argument )
    for( iLevel = victim->skill_level[ability]; iLevel < level; iLevel++ )
    {
       victim->experience[ability] = exp_level( iLevel + 1 );
-      gain_exp( victim, 0, ability );
+      gain_exp( victim, 0);
    }
    return;
 }

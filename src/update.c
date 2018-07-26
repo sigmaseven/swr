@@ -311,33 +311,52 @@ void advance_level( CHAR_DATA * ch, int ability )
    return;
 }
 
+void advance_character_level( CHAR_DATA *ch )
+{
+  if(ch->character_level < 100)
+  {
+    ch->character_level++;
+    advance_stat_points(ch);
+  }
+  if( !IS_NPC(ch))
+    REMOVE_BIT(ch->act, PLR_BOUGHT_PET );
 
+  return;
+}
 
-void gain_exp( CHAR_DATA * ch, int gain, int ability )
+void advance_stat_points( CHAR_DATA *ch)
+{
+  ch_printf(ch, "You have received %d stat points.\n\r", (short)ch->perm_int);
+  ch->unused_stat_points += (short)ch->perm_int;
+}
+
+void gain_exp( CHAR_DATA * ch, int gain)
 {
 
    if( IS_NPC( ch ) )
       return;
 
-   ch->experience[ability] = UMAX( 0, ch->experience[ability] + gain );
+   //ch->character_experience = UMAX( 0, ch->character_experience + gain );
+   ch->character_experience += gain;
+   ch_printf(ch, "%sYou gain %d experience.%s\n\r", ANSI_WHITE, gain, ANSI_GREY);
 
-   if( NOT_AUTHED( ch ) && ch->experience[ability] >= exp_level( ch->skill_level[ability] + 1 ) )
-   {
-      send_to_char( "You can not ascend to a higher level until you are authorized.\n\r", ch );
-      ch->experience[ability] = ( exp_level( ch->skill_level[ability] + 1 ) - 1 );
-      return;
-   }
+   //if( NOT_AUTHED( ch ) )
+   //{
+   //   send_to_char( "You can not ascend to a higher level until you are authorized.\n\r", ch );
+      //ch->character_experience = ( exp_level( ch->character_level + 1 ) - 1 );
+   //   return;
+   //}
 
-   while( ch->experience[ability] >= exp_level( ch->skill_level[ability] + 1 ) )
+   while( ch->character_experience >= exp_level( ch->character_level + 1 ) )
    {
-      if( ch->skill_level[ability] >= max_level( ch, ability ) )
+      if( ch->character_level >= 100 )
       {
-         ch->experience[ability] = ( exp_level( ch->skill_level[ability] + 1 ) - 1 );
+         ch->character_experience = ( exp_level( ch->character_level + 1 ) - 1 );
          return;
       }
       set_char_color( AT_WHITE + AT_BLINK, ch );
-      ch_printf( ch, "You have now obtained %s level %d!\n\r", ability_name[ability], ++ch->skill_level[ability] );
-      advance_level( ch, ability );
+      ch_printf( ch, "You have now obtained level %d!\n\r", ++ch->character_level );
+      advance_character_level( ch );
    }
 
    return;

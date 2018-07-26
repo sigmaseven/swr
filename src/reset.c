@@ -502,6 +502,7 @@ void reset_room( ROOM_INDEX_DATA *room )
    mob = NULL;
    obj = NULL;
    lastobj = NULL;
+
    if( !room->first_reset )
       return;
    level = 0;
@@ -865,13 +866,18 @@ void reset_area( AREA_DATA *area )
 
    if( !area->first_room )
       return;
-      
+
    /* see if Lua script will handle it */
    if (call_mud_lua ("reset_area", area->filename))
      return;
 
    for( room = area->first_room; room; room = room->next_aroom )
+   {
       reset_room( room );
+      generate_random_loot(room);
+   }
+   printf("%d items counted in %s\n", count_area_objects(area), area->name);
+   printf("%d mobs counted in %s\n", count_area_mobs(area), area->name);
 }
 
 /* Setup put nesting levels, regardless of whether or not the resets will

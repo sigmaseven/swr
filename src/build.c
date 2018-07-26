@@ -124,7 +124,7 @@ char *const o_types[] = {
 };
 
 char *const a_types[] = {
-   "none", "strength", "dexterity", "intelligence", "wisdom", "constitution",
+   "none", "strength", "agility", "intelligence", "perception", "endurance",
    "sex", "null", "level", "age", "height", "weight", "force", "hit", "move",
    "credits", "experience", "armor", "hitroll", "damroll", "save_poison", "save_rod",
    "save_para", "save_breath", "save_spell", "charisma", "affected", "resistant",
@@ -1024,7 +1024,7 @@ void do_mset( CHAR_DATA * ch, char *argument )
          send_to_char( "Syntax: mset <victim> <field>  <value>\n\r", ch );
       send_to_char( "\n\r", ch );
       send_to_char( "Field being one of:\n\r", ch );
-      send_to_char( "  str int wis dex con cha lck frc sex\n\r", ch );
+      send_to_char( "  str int per agi end cha lck frc sex\n\r", ch );
       send_to_char( "  credits hp force move align race\n\r", ch );
       send_to_char( "  hitroll damroll armor affected level\n\r", ch );
       send_to_char( "  thirst drunk full blood flags\n\r", ch );
@@ -1141,48 +1141,48 @@ void do_mset( CHAR_DATA * ch, char *argument )
       return;
    }
 
-   if( !str_cmp( arg2, "wis" ) )
+   if( !str_cmp( arg2, "per" ) )
    {
       if( !can_mmodify( ch, victim ) )
          return;
       if( value < minattr || value > maxattr )
       {
-         ch_printf( ch, "Wisdom range is %d to %d.\n\r", minattr, maxattr );
+         ch_printf( ch, "Perception range is %d to %d.\n\r", minattr, maxattr );
          return;
       }
-      victim->perm_wis = value;
+      victim->perm_per = value;
       if( IS_NPC( victim ) && IS_SET( victim->act, ACT_PROTOTYPE ) )
-         victim->pIndexData->perm_wis = value;
+         victim->pIndexData->perm_per = value;
       return;
    }
 
-   if( !str_cmp( arg2, "dex" ) )
+   if( !str_cmp( arg2, "agi" ) )
    {
       if( !can_mmodify( ch, victim ) )
          return;
       if( value < minattr || value > maxattr )
       {
-         ch_printf( ch, "Dexterity range is %d to %d.\n\r", minattr, maxattr );
+         ch_printf( ch, "Agility range is %d to %d.\n\r", minattr, maxattr );
          return;
       }
-      victim->perm_dex = value;
+      victim->perm_agi = value;
       if( IS_NPC( victim ) && IS_SET( victim->act, ACT_PROTOTYPE ) )
-         victim->pIndexData->perm_dex = value;
+         victim->pIndexData->perm_agi = value;
       return;
    }
 
-   if( !str_cmp( arg2, "con" ) )
+   if( !str_cmp( arg2, "end" ) )
    {
       if( !can_mmodify( ch, victim ) )
          return;
       if( value < minattr || value > maxattr )
       {
-         ch_printf( ch, "Constitution range is %d to %d.\n\r", minattr, maxattr );
+         ch_printf( ch, "Endurance range is %d to %d.\n\r", minattr, maxattr );
          return;
       }
-      victim->perm_con = value;
+      victim->perm_end = value;
       if( IS_NPC( victim ) && IS_SET( victim->act, ACT_PROTOTYPE ) )
-         victim->pIndexData->perm_con = value;
+         victim->pIndexData->perm_end = value;
       return;
    }
 
@@ -3225,7 +3225,7 @@ void do_oset( CHAR_DATA * ch, char *argument )
       {
          send_to_char( "Usage: oset <object> affect <field> <value>\n\r", ch );
          send_to_char( "Affect Fields:\n\r", ch );
-         send_to_char( "none        strength    dexterity   intelligence  wisdom       constitution\n\r", ch );
+         send_to_char( "none        strength    agiliity    intelligence  perception   endurance\n\r", ch );
          send_to_char( "sex         level       age         height        weight       force\n\r", ch );
          send_to_char( "hit         move        credits     experience    armor        hitroll\n\r", ch );
          send_to_char( "damroll     save_para   save_rod    save_poison   save_breath  save_power\n\r", ch );
@@ -5423,8 +5423,8 @@ void fold_area( AREA_DATA * tarea, char *filename, bool install )
       if( install )
          REMOVE_BIT( pMobIndex->act, ACT_PROTOTYPE );
       if( pMobIndex->perm_str != 13 || pMobIndex->perm_int != 13
-          || pMobIndex->perm_wis != 13 || pMobIndex->perm_dex != 13
-          || pMobIndex->perm_con != 13 || pMobIndex->perm_cha != 13
+          || pMobIndex->perm_per != 13 || pMobIndex->perm_agi != 13
+          || pMobIndex->perm_end != 13 || pMobIndex->perm_cha != 13
           || pMobIndex->perm_lck != 13
           || pMobIndex->hitroll != 0 || pMobIndex->damroll != 0
           || pMobIndex->race != 0
@@ -5456,7 +5456,7 @@ void fold_area( AREA_DATA * tarea, char *filename, bool install )
          fprintf( fpout, "%d %d %d %d %d %d %d\n",
                   pMobIndex->perm_str,
                   pMobIndex->perm_int,
-                  pMobIndex->perm_wis, pMobIndex->perm_dex, pMobIndex->perm_con, pMobIndex->perm_cha, pMobIndex->perm_lck );
+                  pMobIndex->perm_per, pMobIndex->perm_agi, pMobIndex->perm_end, pMobIndex->perm_cha, pMobIndex->perm_lck );
          fprintf( fpout, "%d %d %d %d %d\n",
                   pMobIndex->saving_poison_death,
                   pMobIndex->saving_wand,

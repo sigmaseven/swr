@@ -1485,6 +1485,15 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
    BAN_DATA *pban;
 /*    int iLang;*/
    bool fOld, chk;
+   short remaining_stats = 40;
+   int base_str;
+   int base_per;
+   int base_end;
+   int base_cha;
+   int base_int;
+   int base_agi;
+   int base_lck;
+   int total_base_stats;
 
    while( isspace( *argument ) )
       argument++;
@@ -1629,7 +1638,7 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
          }
          else
          {
-            write_to_buffer( d, "\n\rI don't recognize your name, you must be new here.\n\r\n\r", 0 );
+            write_to_buffer( d, "\n\rNever heard of you, you must be new to these parts.\n\r\n\r", 0 );
             sprintf( buf, "Did I get that right, %s (Y/N)? ", argument );
             write_to_buffer( d, buf, 0 );
             d->connected = CON_CONFIRM_NEW_NAME;
@@ -1892,28 +1901,60 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
          }
 
          write_to_buffer( d, "\n\rRolling stats....\n\r", 0 );
+         //sprintf(buf, "Remaining stat points: %d\n\r", remaining_stats);
+         //write_to_buffer( d, buf, 0);
+         //write_to_buffer( d, "Strength (1-10): ", 0);
+         remaining_stats = 40;
+         base_str = number_range(1,5);
+         base_per = number_range(1,5);
+         base_end = number_range(1,5);
+         base_cha = number_range(1,5);
+         base_int = number_range(1,5);
+         base_agi = number_range(1,5);
+         base_lck = number_range(1,5);
+         total_base_stats = base_str + base_per + base_end + base_cha + base_int + base_agi + base_lck;
 
-      case CON_ROLL_STATS:
+	 while(total_base_stats < 40)
+         {
+           int stat_roll = number_range(1,7);
+           switch(stat_roll)
+	   {
+	      case 1:
+		 base_str++;
+		 break;
+	      case 2:
+                 base_per++;
+		 break;
+	      case 3:
+		 base_end++;
+		 break;
+	      case 4:
+		 base_cha++;
+		 break;
+	      case 5:
+		 base_int++;
+		 break;
+	      case 6:
+		 base_agi++;
+		 break;
+	      case 7:
+		 base_lck++;
+		 break;
+	   }
+	   total_base_stats++;
+         }
+         ch->perm_str = base_str;
+         ch->perm_per = base_per;
+         ch->perm_end = base_end;
+         ch->perm_cha = base_cha;
+	 ch->perm_int = base_int;
+	 ch->perm_agi = base_agi;
+	 ch->perm_lck = base_lck;
 
-         ch->perm_str = number_range( 1, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-         ch->perm_int = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-         ch->perm_wis = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-         ch->perm_dex = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-         ch->perm_con = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-         ch->perm_cha = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-
-         ch->perm_str += race_table[ch->race].str_plus;
-         ch->perm_int += race_table[ch->race].int_plus;
-         ch->perm_wis += race_table[ch->race].wis_plus;
-         ch->perm_dex += race_table[ch->race].dex_plus;
-         ch->perm_con += race_table[ch->race].con_plus;
-         ch->perm_cha += race_table[ch->race].cha_plus;
-
-         sprintf( buf, "\n\rSTR: %d  INT: %d  WIS: %d  DEX: %d  CON: %d  CHA: %d\n\r",
-                  ch->perm_str, ch->perm_int, ch->perm_wis, ch->perm_dex, ch->perm_con, ch->perm_cha );
-
-         write_to_buffer( d, buf, 0 );
-         write_to_buffer( d, "\n\rAre these stats OK?. ", 0 );
+	 sprintf( buf, "\n\rSTR: %d  PER: %d  END: %d  CHA: %d  INT: %d  AGI: %d  LCK: %d\n\r",
+		  ch->perm_str, ch->perm_per, ch->perm_end, ch->perm_cha, ch->perm_int, ch->perm_agi, ch->perm_lck);
+	 write_to_buffer( d, buf, 0 );
+         write_to_buffer( d, "\n\rAccept this stat roll? (y/n) ", 0);
          d->connected = CON_STATS_OK;
          break;
 
@@ -1926,26 +1967,59 @@ void nanny( DESCRIPTOR_DATA * d, char *argument )
                break;
             case 'n':
             case 'N':
-               ch->perm_str = number_range( 1, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-               ch->perm_int = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-               ch->perm_wis = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-               ch->perm_dex = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-               ch->perm_con = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-               ch->perm_cha = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
+               base_str = number_range(1,5);
+               base_per = number_range(1,5);
+               base_end = number_range(1,5);
+               base_cha = number_range(1,5);
+               base_int = number_range(1,5);
+               base_agi = number_range(1,5);
+               base_lck = number_range(1,5);
+               total_base_stats = base_str + base_per + base_end + base_cha + base_int + base_agi + base_lck;
 
-               ch->perm_str += race_table[ch->race].str_plus;
-               ch->perm_int += race_table[ch->race].int_plus;
-               ch->perm_wis += race_table[ch->race].wis_plus;
-               ch->perm_dex += race_table[ch->race].dex_plus;
-               ch->perm_con += race_table[ch->race].con_plus;
-               ch->perm_cha += race_table[ch->race].cha_plus;
+               while(total_base_stats < 40)
+               {
+                 int stat_roll = number_range(1,7);
+                 switch(stat_roll)
+                 {
+                    case 1:
+                       base_str++;
+                       break;
+                    case 2:
+                       base_per++;
+                       break;
+                    case 3:
+                       base_end++;
+                       break;
+                    case 4:
+                       base_cha++;
+                       break;
+                    case 5:
+                       base_int++;
+                       break;
+                    case 6:
+                       base_agi++;
+                       break;
+                    case 7:
+                       base_lck++;
+                       break;
+                 }
+                 total_base_stats++;
+               }
+               ch->perm_str = base_str;
+               ch->perm_per = base_per;
+               ch->perm_end = base_end;
+               ch->perm_cha = base_cha;
+               ch->perm_int = base_int;
+               ch->perm_agi = base_agi;
+               ch->perm_lck = base_lck;
 
-               sprintf( buf, "\n\rSTR: %d  INT: %d  WIS: %d  DEX: %d  CON: %d  CHA: %d\n\r",
-                        ch->perm_str, ch->perm_int, ch->perm_wis, ch->perm_dex, ch->perm_con, ch->perm_cha );
-
+               sprintf( buf, "\n\rSTR: %d  PER: %d  END: %d  CHA: %d  INT: %d  AGI: %d LCK: %d\n\r",
+                        ch->perm_str, ch->perm_per, ch->perm_end, ch->perm_cha, ch->perm_int, ch->perm_agi, ch->perm_lck);
                write_to_buffer( d, buf, 0 );
-               write_to_buffer( d, "\n\rOK?. ", 0 );
+               write_to_buffer( d, "\n\rAccept this stat roll? (y/n) ", 0);
+
                return;
+
             default:
                write_to_buffer( d, "Invalid selection.\n\rYES or NO? ", 0 );
                return;

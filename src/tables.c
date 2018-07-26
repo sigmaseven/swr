@@ -1164,6 +1164,8 @@ DO_FUN *skill_function( char *name )
             return do_unsilence;
          if( !str_cmp( name, "do_up" ) )
             return do_up;
+         if( !str_cmp( name, "do_upgrade" ) )
+            return do_upgrade;
          if( !str_cmp( name, "do_use" ) )
             return do_use;
          if( !str_cmp( name, "do_users" ) )
@@ -2306,6 +2308,8 @@ char *skill_name( DO_FUN * skill )
       return "do_unsilence";
    if( skill == do_up )
       return "do_up";
+   if( skill == do_upgrade )
+      return "do_upgrade";
    if( skill == do_users )
       return "do_users";
    if( skill == do_value )

@@ -286,7 +286,7 @@ void claim_disintigration( CHAR_DATA * ch, CHAR_DATA * victim )
          gexp =
             URANGE( 1, xp_compute( ch, victim ),
                     ( exp_level( ch->skill_level[OUTDOORSMAN_ABILITY] + 1 ) - exp_level( ch->skill_level[OUTDOORSMAN_ABILITY] ) ) );
-         gain_exp( ch, gexp, OUTDOORSMAN_ABILITY );
+         gain_exp( ch, gexp);
          set_char_color( AT_BLOOD, ch );
          ch_printf( ch, "You receive %ld hunting experience for executing a wanted killer.\n\r", gexp );
       }
@@ -306,7 +306,7 @@ void claim_disintigration( CHAR_DATA * ch, CHAR_DATA * victim )
    gexp =
       URANGE( 1, bounty->amount + xp_compute( ch, victim ),
               ( exp_level( ch->skill_level[OUTDOORSMAN_ABILITY] + 1 ) - exp_level( ch->skill_level[OUTDOORSMAN_ABILITY] ) ) );
-   gain_exp( ch, gexp, OUTDOORSMAN_ABILITY );
+   gain_exp( ch, gexp);
 
    set_char_color( AT_BLOOD, ch );
    ch_printf( ch, "You receive %ld experience and %ld credits,\n\r from the bounty on %s\n\r", gexp, bounty->amount,

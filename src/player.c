@@ -65,7 +65,7 @@ void do_score( CHAR_DATA * ch, char *argument )
               get_age( ch ), capitalize( get_race( ch ) ), ctime( &( ch->logon ) ) );
 
    ch_printf( ch, "Hitroll: %-2.2d  Damroll: %-2.2d   Armor: %-4d        Saved:  %s\r",
-              GET_HITROLL( ch ), GET_DAMROLL( ch ), GET_AC( ch ), ch->save_time ? ctime( &( ch->save_time ) ) : "no\n" );
+              GET_HITROLL( ch ), GET_DAMROLL( ch ), get_character_defence( ch ), ch->save_time ? ctime( &( ch->save_time ) ) : "no\n" );
 
    ch_printf( ch, "Align: %-5d    Wimpy: %-3d                    Time:   %s\r",
               ch->alignment, ch->wimpy, ctime( &current_time ) );
@@ -80,20 +80,19 @@ void do_score( CHAR_DATA * ch, char *argument )
               get_curr_str( ch ), get_curr_dex( ch ), get_curr_con( ch ), get_curr_int( ch ), get_curr_wis( ch ),
               get_curr_cha( ch ) );
 
-
+   ch_printf( ch, "Character Level: %d\tExperience: %d\t Next Level: %d\n\r", ch->character_level, ch->character_experience, exp_level(ch->character_level+1) );
+   ch_printf( ch, "Used Stat Points: %d\tRemaining Stat Points: %d\n\r", ch->used_stat_points, ch->unused_stat_points);
    send_to_char( "----------------------------------------------------------------------------\n\r", ch );
-
    {
       int ability;
 
       for( ability = 0; ability < MAX_ABILITY; ability++ )
          //if( ability != FORCE_ABILITY || ch->skill_level[FORCE_ABILITY] > 1 )
-         //   ch_printf( ch, "%-15s   Level: %-3d   Max: %-3d   Exp: %-10ld   Next: %-10ld\n\r",
-         //              ability_name[ability], ch->skill_level[ability], max_level( ch, ability ), ch->experience[ability],
-         //              exp_level( ch->skill_level[ability] + 1 ) );
+            ch_printf( ch, "%-15s   Level: %-3d   Max: 100\n\r",
+                       ability_name[ability], ch->skill_level[ability] );
          //else
-            ch_printf( ch, "%-15s   Level: %-3d   Max: ???   Exp: ???          Next: ???\n\r",
-                       ability_name[ability], ch->skill_level[ability], ch->experience[ability] );
+         //   ch_printf( ch, "%-15s   Level: %-3d   Max: ???   Exp: ???          Next: ???\n\r",
+         //              ability_name[ability], ch->skill_level[ability], ch->experience[ability] );
    }
 
    send_to_char( "----------------------------------------------------------------------------\n\r", ch );
@@ -651,30 +650,30 @@ void do_oldscore( CHAR_DATA * ch, char *argument )
    }
 
    if( ch->top_level >= 25 )
-      ch_printf( ch, "AC: %d.  ", GET_AC( ch ) );
+      ch_printf( ch, "AC: %d.  ", get_character_defence( ch ) );
 
    send_to_char( "You are ", ch );
-   if( GET_AC( ch ) >= 101 )
+   if( get_character_defence( ch ) >= 101 )
       send_to_char( "WORSE than naked!\n\r", ch );
-   else if( GET_AC( ch ) >= 80 )
+   else if( get_character_defence( ch ) >= 80 )
       send_to_char( "naked.\n\r", ch );
-   else if( GET_AC( ch ) >= 60 )
+   else if( get_character_defence( ch ) >= 60 )
       send_to_char( "wearing clothes.\n\r", ch );
-   else if( GET_AC( ch ) >= 40 )
+   else if( get_character_defence( ch ) >= 40 )
       send_to_char( "slightly armored.\n\r", ch );
-   else if( GET_AC( ch ) >= 20 )
+   else if( get_character_defence( ch ) >= 20 )
       send_to_char( "somewhat armored.\n\r", ch );
-   else if( GET_AC( ch ) >= 0 )
+   else if( get_character_defence( ch ) >= 0 )
       send_to_char( "armored.\n\r", ch );
-   else if( GET_AC( ch ) >= -20 )
+   else if( get_character_defence( ch ) >= -20 )
       send_to_char( "well armored.\n\r", ch );
-   else if( GET_AC( ch ) >= -40 )
+   else if( get_character_defence( ch ) >= -40 )
       send_to_char( "strongly armored.\n\r", ch );
-   else if( GET_AC( ch ) >= -60 )
+   else if( get_character_defence( ch ) >= -60 )
       send_to_char( "heavily armored.\n\r", ch );
-   else if( GET_AC( ch ) >= -80 )
+   else if( get_character_defence( ch ) >= -80 )
       send_to_char( "superbly armored.\n\r", ch );
-   else if( GET_AC( ch ) >= -100 )
+   else if( get_character_defence( ch ) >= -100 )
       send_to_char( "divinely armored.\n\r", ch );
    else
       send_to_char( "invincible!\n\r", ch );

@@ -590,7 +590,7 @@ void boot_db( bool fCopyOver )
       ASSIGN_GSN( gsn_sleep, "sleep" );
       ASSIGN_GSN( gsn_possess, "possess" );
       ASSIGN_GSN( gsn_common, "common" );
-      ASSIGN_GSN( gsn_wookiee, "wookiee" );
+      ASSIGN_GSN( gsn_wookiee, "native" );
       ASSIGN_GSN( gsn_twilek, "twilek" );
       ASSIGN_GSN( gsn_rodian, "rodian" );
       ASSIGN_GSN( gsn_hutt, "hutt" );
@@ -1041,9 +1041,9 @@ void load_mobiles( AREA_DATA * tarea, FILE * fp )
       {
          pMobIndex->perm_str = fread_number( fp );
          pMobIndex->perm_int = fread_number( fp );
-         pMobIndex->perm_wis = fread_number( fp );
-         pMobIndex->perm_dex = fread_number( fp );
-         pMobIndex->perm_con = fread_number( fp );
+         pMobIndex->perm_per = fread_number( fp );
+         pMobIndex->perm_agi = fread_number( fp );
+         pMobIndex->perm_end = fread_number( fp );
          pMobIndex->perm_cha = fread_number( fp );
          pMobIndex->perm_lck = fread_number( fp );
          pMobIndex->saving_poison_death = fread_number( fp );
@@ -1080,11 +1080,11 @@ void load_mobiles( AREA_DATA * tarea, FILE * fp )
       else
       {
          pMobIndex->perm_str = 10;
-         pMobIndex->perm_dex = 10;
+         pMobIndex->perm_agi = 10;
          pMobIndex->perm_int = 10;
-         pMobIndex->perm_wis = 10;
+         pMobIndex->perm_per = 10;
          pMobIndex->perm_cha = 10;
-         pMobIndex->perm_con = 10;
+         pMobIndex->perm_end = 10;
          pMobIndex->perm_lck = 10;
          pMobIndex->race = 0;
          pMobIndex->xflags = 0;
@@ -2304,10 +2304,10 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA * pMobIndex )
    mob->damplus = pMobIndex->damplus;
 
    mob->perm_str = pMobIndex->perm_str;
-   mob->perm_dex = pMobIndex->perm_dex;
-   mob->perm_wis = pMobIndex->perm_wis;
+   mob->perm_agi = pMobIndex->perm_agi;
+   mob->perm_per = pMobIndex->perm_per;
    mob->perm_int = pMobIndex->perm_int;
-   mob->perm_con = pMobIndex->perm_con;
+   mob->perm_end = pMobIndex->perm_end;
    mob->perm_cha = pMobIndex->perm_cha;
    mob->perm_lck = pMobIndex->perm_lck;
    mob->hitroll = pMobIndex->hitroll;
@@ -2567,7 +2567,7 @@ void clear_char( CHAR_DATA * ch )
    ch->mount = NULL;
    ch->affected_by = 0;
    ch->logon = current_time;
-   ch->armor = 100;
+   ch->armor = 0;
    ch->position = POS_STANDING;
    ch->hit = 500;
    ch->max_hit = 500;
@@ -2585,13 +2585,13 @@ void clear_char( CHAR_DATA * ch )
    ch->baresizedie = 4;
    ch->substate = 0;
    ch->tempnum = 0;
-   ch->perm_str = 10;
-   ch->perm_dex = 10;
-   ch->perm_int = 10;
-   ch->perm_wis = 10;
-   ch->perm_cha = 10;
-   ch->perm_con = 10;
-   ch->perm_lck = 10;
+   ch->perm_str = 5;
+   ch->perm_agi = 5;
+   ch->perm_int = 5;
+   ch->perm_per = 5;
+   ch->perm_cha = 5;
+   ch->perm_end = 5;
+   ch->perm_lck = 5;
    ch->mod_str = 0;
    ch->mod_dex = 0;
    ch->mod_int = 0;
@@ -2600,6 +2600,11 @@ void clear_char( CHAR_DATA * ch )
    ch->mod_con = 0;
    ch->mod_lck = 0;
    ch->plr_home = NULL;
+   // Fallout MUD additions
+   ch->character_level = 1;
+   ch->character_experience = 0;
+   ch->used_stat_points = 0;
+   ch->unused_stat_points = 0;
    return;
 }
 
@@ -4922,11 +4927,11 @@ MOB_INDEX_DATA *make_mobile( int vnum, int cvnum, char *name )
       pMobIndex->defposition = 8;
       pMobIndex->sex = 0;
       pMobIndex->perm_str = 10;
-      pMobIndex->perm_dex = 10;
+      pMobIndex->perm_agi = 10;
       pMobIndex->perm_int = 10;
-      pMobIndex->perm_wis = 10;
+      pMobIndex->perm_per = 10;
       pMobIndex->perm_cha = 10;
-      pMobIndex->perm_con = 10;
+      pMobIndex->perm_end = 10;
       pMobIndex->perm_lck = 10;
       pMobIndex->race = 0;
       pMobIndex->xflags = 0;
@@ -4966,11 +4971,11 @@ MOB_INDEX_DATA *make_mobile( int vnum, int cvnum, char *name )
       pMobIndex->defposition = cMobIndex->defposition;
       pMobIndex->sex = cMobIndex->sex;
       pMobIndex->perm_str = cMobIndex->perm_str;
-      pMobIndex->perm_dex = cMobIndex->perm_dex;
+      pMobIndex->perm_agi = cMobIndex->perm_agi;
       pMobIndex->perm_int = cMobIndex->perm_int;
-      pMobIndex->perm_wis = cMobIndex->perm_wis;
+      pMobIndex->perm_per = cMobIndex->perm_per;
       pMobIndex->perm_cha = cMobIndex->perm_cha;
-      pMobIndex->perm_con = cMobIndex->perm_con;
+      pMobIndex->perm_end = cMobIndex->perm_end;
       pMobIndex->perm_lck = cMobIndex->perm_lck;
       pMobIndex->race = cMobIndex->race;
       pMobIndex->xflags = cMobIndex->xflags;

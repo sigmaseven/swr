@@ -780,7 +780,7 @@ void jedi_bonus( CHAR_DATA * ch )
    {
       ch->max_mana++;
       send_to_char( "&YYou are wise in your use of the force.\n\r", ch );
-      send_to_char( "You feel a little stronger in your wisdom.&w\n\r", ch );
+      send_to_char( "You feel a little stronger in your perception.&w\n\r", ch );
    }
 }
 
@@ -2472,7 +2472,7 @@ void do_train( CHAR_DATA * ch, char *argument )
          if( arg[0] == '\0' )
          {
             send_to_char( "Train what?\n\r", ch );
-            send_to_char( "\n\rChoices: strength, intelligence, wisdom, dexterity, constitution or charisma\n\r", ch );
+            send_to_char( "\n\rChoices: strength, intelligence, perception, agility, endurance or charisma\n\r", ch );
             return;
          }
 
@@ -2518,7 +2518,7 @@ void do_train( CHAR_DATA * ch, char *argument )
          }
          if( !str_cmp( arg, "dex" ) || !str_cmp( arg, "dexterity" ) )
          {
-            if( mob->perm_dex <= ch->perm_dex || ch->perm_dex >= 20 + race_table[ch->race].dex_plus || ch->perm_dex >= 25 )
+            if( mob->perm_agi <= ch->perm_agi || ch->perm_agi >= 20 + race_table[ch->race].dex_plus || ch->perm_agi >= 25 )
             {
                act( AT_TELL, "$n tells you 'I cannot help you... you are already more dextrous than I.'",
                     mob, NULL, ch, TO_VICT );
@@ -2538,7 +2538,7 @@ void do_train( CHAR_DATA * ch, char *argument )
          }
          if( !str_cmp( arg, "wis" ) || !str_cmp( arg, "wisdom" ) )
          {
-            if( mob->perm_wis <= ch->perm_wis || ch->perm_wis >= 20 + race_table[ch->race].wis_plus || ch->perm_wis >= 25 )
+            if( mob->perm_per <= ch->perm_per || ch->perm_per >= 20 + race_table[ch->race].wis_plus || ch->perm_per >= 25 )
             {
                act( AT_TELL, "$n tells you 'I cannot help you... you are already far wiser than I.'",
                     mob, NULL, ch, TO_VICT );
@@ -2548,7 +2548,7 @@ void do_train( CHAR_DATA * ch, char *argument )
          }
          if( !str_cmp( arg, "con" ) || !str_cmp( arg, "constitution" ) )
          {
-            if( mob->perm_con <= ch->perm_con || ch->perm_con >= 20 + race_table[ch->race].con_plus || ch->perm_con >= 25 )
+            if( mob->perm_end <= ch->perm_end || ch->perm_end >= 20 + race_table[ch->race].con_plus || ch->perm_end >= 25 )
             {
                act( AT_TELL, "$n tells you 'I cannot help you... you are already healthier than I.'",
                     mob, NULL, ch, TO_VICT );
@@ -2611,7 +2611,7 @@ void do_train( CHAR_DATA * ch, char *argument )
          return;
       }
       send_to_char( "&GAfter working hard at many challenging tasks you feel a bit more coordinated.\n\r", ch );
-      ch->perm_dex++;
+      ch->perm_agi++;
       return;
    }
 
@@ -2637,7 +2637,7 @@ void do_train( CHAR_DATA * ch, char *argument )
       send_to_char
          ( "&GAfter contemplating several seemingly meaningless events you suddenly \n\rreceive a flash of insight into the workings of the universe.\n\r",
            ch );
-      ch->perm_wis++;
+      ch->perm_per++;
       return;
    }
 
@@ -2651,7 +2651,7 @@ void do_train( CHAR_DATA * ch, char *argument )
          return;
       }
       send_to_char( "&GAfter a long tiring excersise session you feel much healthier than before.\n\r", ch );
-      ch->perm_con++;
+      ch->perm_end++;
       return;
    }
 

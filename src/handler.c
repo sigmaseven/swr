@@ -243,9 +243,13 @@ int exp_level( short level )
 
    lvl = UMAX( 0, level - 1 );
 
-   return ( lvl * lvl * 500 );
+   return ( lvl * (lvl * 1000 ));
 }
 
+short level_from_exp( CHAR_DATA *ch)
+{
+	return (short)(ch->character_experience / 1000) / ch->character_level;
+}
 /*
  * Get what level ch is based on exp
  */
@@ -348,7 +352,7 @@ short get_curr_wis( CHAR_DATA * ch )
    max = 20 + race_table[ch->race].wis_plus;
    max = UMIN( max, 25 );
 
-   return URANGE( 3, ch->perm_wis + ch->mod_wis, max );
+   return URANGE( 3, ch->perm_per + ch->mod_wis, max );
 }
 
 
@@ -363,7 +367,7 @@ short get_curr_dex( CHAR_DATA * ch )
 
    max = 20 + race_table[ch->race].dex_plus;
 
-   return URANGE( 3, ch->perm_dex + ch->mod_dex, max );
+   return URANGE( 3, ch->perm_agi + ch->mod_dex, max );
 }
 
 
@@ -378,7 +382,7 @@ short get_curr_con( CHAR_DATA * ch )
 
    max = 20 + race_table[ch->race].con_plus;
 
-   return URANGE( 3, ch->perm_con + ch->mod_con, max );
+   return URANGE( 3, ch->perm_end + ch->mod_con, max );
 }
 
 /*
@@ -2286,6 +2290,10 @@ OBJ_DATA *find_obj( CHAR_DATA * ch, char *argument, bool carryonly )
 
 int get_obj_number( OBJ_DATA * obj )
 {
+   if(!obj)
+   {
+      printf("get_obj_number: NULL OBJ_DATA struct.\n");
+   }
    return obj->count;
 }
 

@@ -1404,7 +1404,7 @@ void do_cast( CHAR_DATA * ch, char *argument )
                  ( exp_level( ch->top_level + 1 ) - exp_level( ch->top_level ) ) / 35 );
       if( !ch->fighting )
          ch_printf( ch, "You gain %d force experience.\n\r", force_exp );
-      gain_exp( ch, force_exp, ch->top_level );
+      gain_exp( ch, force_exp);
       learn_from_success( ch, sn );
    }
    else

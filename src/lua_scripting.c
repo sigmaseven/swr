@@ -579,9 +579,9 @@ static int L_character_info (lua_State *L)
   CH_NUM_ITEM (deaf);
   CH_NUM_ITEM (perm_str);
   CH_NUM_ITEM (perm_int);
-  CH_NUM_ITEM (perm_wis);
-  CH_NUM_ITEM (perm_dex);
-  CH_NUM_ITEM (perm_con);
+  CH_NUM_ITEM (perm_per);
+  CH_NUM_ITEM (perm_agi);
+  CH_NUM_ITEM (perm_end);
   CH_NUM_ITEM (perm_cha);
   CH_NUM_ITEM (perm_lck);
   CH_NUM_ITEM (perm_frc);
@@ -983,9 +983,9 @@ static int L_mob_info (lua_State *L)
   MOB_NUM_ITEM (damroll);
   MOB_NUM_ITEM (perm_str);
   MOB_NUM_ITEM (perm_int);
-  MOB_NUM_ITEM (perm_wis);
-  MOB_NUM_ITEM (perm_dex);
-  MOB_NUM_ITEM (perm_con);
+  MOB_NUM_ITEM (perm_per);
+  MOB_NUM_ITEM (perm_agi);
+  MOB_NUM_ITEM (perm_end);
   MOB_NUM_ITEM (perm_cha);
   MOB_NUM_ITEM (perm_lck);
   MOB_NUM_ITEM (perm_frc);
@@ -1415,7 +1415,7 @@ static int L_gain_exp (lua_State *L)
          break;
       }
    }  
-  gain_exp (ch, luaL_checknumber (L, 1), ability);
+  gain_exp (ch, luaL_checknumber (L, 1));
   lua_pushnumber (L, ch->experience[ability]);
   return 1;  /* return new amount */
 }  /* end of L_gain_exp */
