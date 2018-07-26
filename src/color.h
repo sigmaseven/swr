@@ -26,7 +26,7 @@
 
 #define SAMSONCOLOR  /* To interact with other snippets */
 
-#define COLOR_DIR "../color/"
+#define COLOR_DIR "./color/"
 
 DECLARE_DO_FUN( do_color );
 

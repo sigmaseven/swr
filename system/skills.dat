@@ -99,67 +99,6 @@ Minlevel     5
 End
 
 #SKILL
-Name         beauty~
-Type         Spell
-Flags        0
-Target       2
-Minpos       8
-Slot         226
-Mana         14
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      You stop enhancing yourself.~
-Hitchar      $N seems more jovial.~
-Hitvict      Drawing the Force, you change yourself to be more likeable.~
-Hitroom      $N suddenly seems like a much nicer person.~
-Teachers     50 605~
-Affect       'l*24' 25 '1+(l/17)' 0
-Alignment   1001
-Minlevel     6
-End
-
-#SKILL
-Name         blindness~
-Type         Spell
-Flags        0
-Target       1
-Minpos       7
-Slot         4
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_blindness
-Dammsg       ~
-Wearoff      You can see again.~
-Teachers     605~
-Alignment   -1001
-Minlevel     10
-End
-
-#SKILL
-Name         choke~
-Type         Spell
-Flags        4
-Target       1
-Minpos       7
-Slot         63
-Mana         20
-Rounds       12
-Guild        7
-Code         spell_cause_critical
-Dammsg       spell~
-Wearoff      !Cause Critical!~
-Hitchar      Stretching out with the force you slowly choke your victim.~
-Hitvict      You feel a tight pressure around your throat.~
-Hitroom      $N begins to claw at $S throat.~
-Teachers     605~
-Alignment   -1001
-Minlevel     20
-End
-
-#SKILL
 Name         create fire~
 Type         Spell
 Flags        33554953
@@ -167,7 +106,7 @@ Minpos       8
 Slot         85
 Mana         10
 Rounds       12
-Guild        7
+Guild        17
 Code         spell_smaug
 Dammsg       ~
 Wearoff      !Create Fire!~
@@ -279,64 +218,6 @@ Minlevel     10
 End
 
 #SKILL
-Name         detect darkness~
-Type         Spell
-Flags        0
-Target       3
-Minpos       8
-Slot         18
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      You stop focusing on the Dark Side.~
-Hitvict      Traces of red outline all those who abuse the Force.~
-Hitroom      A tint of red appears in $N's eyes, mirroring his own vision.~
-Teachers     50~
-Affect       'l*24' 26 'detect evil' 4
-Alignment   1001
-Minlevel     5
-End
-
-#SKILL
-Name         detect force~
-Type         Spell
-Flags        0
-Target       3
-Minpos       8
-Slot         20
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      The blue outlines disappear from your vision.~
-Hitvict      Traces of blue outline objects touched by the Force.~
-Hitroom      A tint of blue in $N's eyes mirrors $S own perception.~
-Teachers     50 605~
-Affect       'l*24' 26 'detect magic' 16
-Minlevel     5
-End
-
-#SKILL
-Name         detect intent~
-Type         Spell
-Flags        0
-Target       2
-Minpos       7
-Slot         58
-Mana         9
-Rounds       12
-Guild        7
-Code         spell_know_alignment
-Dammsg       ~
-Wearoff      !Know Alignment!~
-Teachers     50 605~
-Minlevel     8
-End
-
-#SKILL
 Name         detect poison~
 Type         Spell
 Flags        0
@@ -374,108 +255,6 @@ Minlevel     13
 End
 
 #SKILL
-Name         dispel dark~
-Type         Spell
-Flags        0
-Target       1
-Minpos       7
-Slot         22
-Mana         15
-Rounds       12
-Guild        7
-Code         spell_dispel_evil
-Dammsg       dispel evil~
-Wearoff      !Dispel Evil!~
-Teachers     50~
-Alignment   1001
-Minlevel     21
-End
-
-#SKILL
-Name         dispel force~
-Type         Spell
-Flags        0
-Target       1
-Minpos       7
-Slot         59
-Mana         15
-Rounds       12
-Guild        7
-Code         spell_dispel_magic
-Dammsg       ~
-Wearoff      !Dispel Magic!~
-Teachers     50 605~
-Minlevel     22
-End
-
-#SKILL
-Name         drain essence~
-Type         Spell
-Flags        4
-Target       1
-Minpos       7
-Slot         25
-Mana         35
-Rounds       12
-Guild        7
-Code         spell_energy_drain
-Dammsg       energy drain~
-Wearoff      !Energy Drain!~
-Teachers     50 605~
-Alignment   -1001
-Minlevel     27
-End
-
-#SKILL
-Name         dream~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         233
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_dream
-Dammsg       ~
-Wearoff      !Dream!~
-Teachers     50 605~
-Minlevel     35
-End
-
-#SKILL
-Name         earthquake~
-Type         Spell
-Flags        0
-Minpos       7
-Slot         23
-Mana         15
-Rounds       12
-Guild        7
-Code         spell_earthquake
-Dammsg       earthquake~
-Wearoff      !Earthquake!~
-Teachers     605~
-Alignment   -1001
-Minlevel     15
-End
-
-#SKILL
-Name         farsight~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         222
-Mana         15
-Rounds       12
-Guild        7
-Code         spell_farsight
-Dammsg       ~
-Wearoff      !Farsight!~
-Teachers     50 605~
-Minlevel     33
-End
-
-#SKILL
 Name         fatigue~
 Type         Spell
 Flags        0
@@ -484,7 +263,7 @@ Minpos       7
 Slot         103
 Mana         60
 Rounds       15
-Guild        7
+Guild        12
 Code         spell_smaug
 Dammsg       ~
 Wearoff      You no longer feel so sleepy.~
@@ -496,108 +275,6 @@ Teachers     605~
 Affect       'l*15' 29 '1024' 0
 Alignment   -1001
 Minlevel     46
-End
-
-#SKILL
-Name         force sight~
-Type         Spell
-Flags        0
-Target       2
-Minpos       8
-Slot         77
-Mana         5
-Rounds       18
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      You no longer see in the dark.~
-Hitchar      $N's eyes dart about as they grow accustomed to Force sight.~
-Hitvict      Heat appears red through your eyes.~
-Hitroom      $N's eyes dart about as they grow accustomed to Force sight.~
-Teachers     50 605~
-Affect       'l*24' 26 'infravision' 512
-Minlevel     4
-End
-
-#SKILL
-Name         forethought~
-Type         Spell
-Flags        0
-Target       2
-Minpos       8
-Slot         228
-Mana         12
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      Furrowing your brow, you sense the weight of wisdom leave you.~
-Hitchar      $N grows serious as wisdom takes root within $M.~
-Hitvict      The wisdom of the Force blossoms within you.~
-Hitroom      $N grows serious as wisdom takes root within $M.~
-Teachers     50~
-Affect       'l*24' 4 '1+(l/17)' 0
-Alignment   1001
-Minlevel     28
-End
-
-#SKILL
-Name         good fortune~
-Type         Spell
-Flags        0
-Target       2
-Minpos       8
-Slot         3
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      The protection of the Force fades away.~
-Hitchar      You lay the blessing of the Force upon $N.~
-Hitvict      A powerful blessing is laid upon you.~
-Hitroom      $N beams as a powerful blessing is laid upon $M.~
-Teachers     50~
-Affect       'l*23' 18 'l/8' 0
-Affect       'l*23' 24 '-(l/8)' 0
-Alignment   999
-Minlevel     11
-End
-
-#SKILL
-Name         hand of Darkness~
-Type         Spell
-Flags        908
-Target       1
-Minpos       7
-Slot         307
-Mana         15
-Rounds       8
-Guild        7
-Code         spell_hand_of_chaos
-Dammsg       Hand of Chaos~
-Wearoff      !WEAROFF!~
-Teachers     605~
-Alignment   -1001
-Minlevel     56
-End
-
-#SKILL
-Name         harm~
-Type         Spell
-Flags        4
-Target       1
-Minpos       7
-Slot         27
-Mana         35
-Rounds       12
-Guild        7
-Code         spell_harm
-Dammsg       harm spell~
-Wearoff      !Harm!~
-Teachers     605~
-Alignment   -1001
-Minlevel     26
 End
 
 #SKILL
@@ -642,102 +319,6 @@ Minlevel     15
 End
 
 #SKILL
-Name         illuminate~
-Type         Spell
-Flags        33554952
-Minpos       8
-Slot         57
-Mana         7
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      !Continual Light!~
-Hitchar      Shards of iridescent light collide to form a dazzling ball...~
-Hitroom      Shards of iridescent light collide to form a dazzling ball...~
-Dice         0~
-Value        21
-Teachers     50 605~
-Minlevel     4
-End
-
-#SKILL
-Name         inner fortress~
-Type         Spell
-Flags        0
-Target       3
-Minpos       8
-Slot         66
-Mana         12
-Rounds       18
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      You soften.~
-Hitvict      You steel yourself against pain.~
-Hitroom      $N's face hardens.~
-Teachers     50~
-Affect       'l*20' 13 'l*5' 0
-Affect       'l*20' 5 '5' 0
-Alignment   1001
-Minlevel     34
-End
-
-#SKILL
-Name         invade essence~
-Type         Spell
-Flags        4
-Target       1
-Minpos       7
-Slot         64
-Mana         17
-Rounds       12
-Guild        7
-Code         spell_cause_serious
-Dammsg       spell~
-Wearoff      !Cause Serious!~
-Teachers     605~
-Alignment   -1001
-Minlevel     10
-End
-
-#SKILL
-Name         know essence~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         53
-Mana         12
-Rounds       24
-Guild        7
-Code         spell_identify
-Dammsg       ~
-Wearoff      !Identify!~
-Teachers     50 605~
-Minlevel     20
-End
-
-#SKILL
-Name         mask~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         29
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_invis
-Dammsg       ~
-Wearoff      You are no longer invisible.~
-Hitchar      $N fades from existence.~
-Hitvict      You fade from existence.~
-Hitroom      $N fades from existence.~
-Teachers     50 605~
-Affect       'l*11' 26 'invis' 2
-Minlevel     5
-End
-
-#SKILL
 Name         poison~
 Type         Spell
 Flags        268435456
@@ -746,51 +327,13 @@ Minpos       8
 Slot         33
 Mana         10
 Rounds       20
-Guild        7
+Guild        12
 Code         spell_poison
 Dammsg       poison~
 Wearoff      You feel less sick.~
 Teachers     605~
 Alignment   -1001
-Minlevel     13
-End
-
-#SKILL
-Name         possess~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         232
-Mana         120
-Rounds       12
-Guild        7
-Code         spell_possess
-Dammsg       possess~
-Wearoff      You return to your body.~
-Teachers     605~
-Alignment   -1001
-Minlevel     100
-End
-
-#SKILL
-Name         protection from darkness~
-Type         Spell
-Flags        0
-Target       3
-Minpos       8
-Slot         34
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      You feel less protected from the Dark Side.~
-Hitvict      You are blessed with a protection from the Dark Side.~
-Hitroom      $N is blessed with a protection from the Dark Side.~
-Teachers     50~
-Affect       'l*10' 26 'protection' 8192
-Alignment   1001
-Minlevel     12
+Minlevel     10
 End
 
 #SKILL
@@ -802,7 +345,7 @@ Minpos       8
 Slot         81
 Mana         12
 Rounds       18
-Guild        7
+Guild        6
 Code         spell_smaug
 Dammsg       refresh~
 Wearoff      !Refresh!~
@@ -812,22 +355,6 @@ Teachers     50~
 Affect       '' 14 'l' 0
 Alignment   1001
 Minlevel     6
-End
-
-#SKILL
-Name         remove masking~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         230
-Mana         10
-Rounds       12
-Guild        7
-Code         spell_remove_invis
-Dammsg       ~
-Wearoff      !Remove Invis!~
-Teachers     50 605~
-Minlevel     8
 End
 
 #SKILL
@@ -868,107 +395,6 @@ Minlevel     60
 End
 
 #SKILL
-Name         sanctuary~
-Type         Spell
-Flags        0
-Target       2
-Minpos       8
-Slot         36
-Mana         75
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      The luminous aura about your body fades away.~
-Hitchar      A luminous aura spreads slowly over $N's body.~
-Hitvict      A luminous aura spreads slowly over your body.~
-Hitroom      A luminous aura spreads slowly over $N's body.~
-Teachers     50~
-Affect       '(l*4)+30' 26 'sanctuary' 128
-Alignment   1001
-Minlevel     27
-End
-
-#SKILL
-Name         scorching surge~
-Type         Spell
-Flags        1
-Target       1
-Minpos       7
-Slot         296
-Mana         25
-Rounds       12
-Guild        7
-Code         spell_scorching_surge
-Dammsg       scorching surge~
-Wearoff      !Scorching Surge!~
-Teachers     605~
-Alignment   -1001
-Minlevel     73
-End
-
-#SKILL
-Name         shield~
-Type         Spell
-Flags        0
-Target       2
-Minpos       8
-Slot         67
-Mana         12
-Rounds       18
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      Your force shield shimmers then fades away.~
-Hitchar      A force shield of shimmering blue surrounds $N.~
-Hitvict      A force shield of shimmering blue surrounds you.~
-Hitroom      A force shield of shimmering blue surrounds $N.~
-Teachers     50~
-Affect       'l*20' 17 '-50' 0
-Alignment   1001
-Minlevel     26
-End
-
-#SKILL
-Name         shocking grasp~
-Type         Spell
-Flags        3
-Target       1
-Minpos       7
-Slot         51
-Mana         15
-Rounds       12
-Guild        7
-Code         spell_shocking_grasp
-Dammsg       shocking grasp~
-Wearoff      !Shocking Grasp!~
-Teachers     605~
-Alignment   -1001
-Minlevel     14
-End
-
-#SKILL
-Name         shockshield~
-Type         Spell
-Flags        0
-Target       3
-Minpos       8
-Slot         89
-Mana         95
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      The torrents of cascading energy suddenly fade away.~
-Hitvict      Torrents of cascading energy form around you.~
-Hitroom      Torrents of cascading energy form around $N.~
-Teachers     605~
-Affect       '(l*3)+14' 26 'shockshield' 67108864
-Alignment   -1001
-Minlevel     72
-End
-
-#SKILL
 Name         sleep~
 Type         Spell
 Flags        268435456
@@ -1004,65 +430,6 @@ Teachers     50~
 Affect       'l*24' 2 '1+(l/17)' 0
 Alignment   1001
 Minlevel     18
-End
-
-#SKILL
-Name         true sight~
-Type         Spell
-Flags        0
-Target       3
-Minpos       8
-Slot         235
-Mana         70
-Rounds       12
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      Your vision descends to the material plane.~
-Hitvict      Your vision is elevated to the highest plane.~
-Hitroom      $N's eyes begin to glow a soft white.~
-Teachers     50 605~
-Affect       'l-10' 26 'truesight' 4194304
-Minlevel     77
-End
-
-#SKILL
-Name         unravel defense~
-Type         Spell
-Flags        12582912
-Target       1
-Minpos       7
-Slot         110
-Mana         70
-Rounds       15
-Guild        7
-Code         spell_smaug
-Dammsg       ~
-Wearoff      Your intricate defenses are restored to their original quality.~
-Hitchar      $N's eyes widen in fear as $S defenses are unravelled.~
-Hitvict      Your defenses are unravelled before your very eyes.~
-Hitroom      $N's eyes widen in fear as $S defenses are unravelled.~
-Immchar      Your spell has no effect upon $N.~
-Teachers     50 605~
-Affect       '(l*3)+25' 29 '8192' 0
-Affect       '(l*3)+25' 29 '1048576' 0
-Minlevel     66
-End
-
-#SKILL
-Name         ventriloquate~
-Type         Spell
-Flags        0
-Minpos       8
-Slot         41
-Mana         5
-Rounds       12
-Guild        7
-Code         spell_ventriloquate
-Dammsg       ~
-Wearoff      !Ventriloquate!~
-Teachers     50 605~
-Minlevel     9
 End
 
 #SKILL
@@ -1120,7 +487,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        6
+Guild        14
 Code         do_add_patrol
 Dammsg       ~
 Wearoff      !!~
@@ -1133,7 +500,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        5
+Guild        6
 Code         do_aid
 Dammsg       ~
 Wearoff      !Aid!~
@@ -1162,7 +529,7 @@ Flags        0
 Target       1
 Minpos       7
 Rounds       8
-Guild        0
+Guild        3
 Code         do_bash
 Dammsg       bash~
 Wearoff      !Bash!~
@@ -1191,7 +558,7 @@ Flags        0
 Target       1
 Minpos       7
 Rounds       4
-Guild        0
+Guild        4
 Code         do_berserk
 Dammsg       ~
 Wearoff      ???~
@@ -1205,7 +572,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        5
+Guild        14
 Code         do_bribe
 Dammsg       ~
 Wearoff      !!~
@@ -1234,12 +601,11 @@ Flags        0
 Target       1
 Minpos       8
 Rounds       10
-Guild        4
 Code         do_climb
 Dammsg       climb~
 Wearoff      !climb!~
 Teachers     32009 410~
-Minlevel     7
+Minlevel     1
 End
 
 #SKILL
@@ -1262,7 +628,6 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       20
-Guild        4
 Code         do_dig
 Dammsg       ~
 Teachers     6805 6819~
@@ -1275,7 +640,7 @@ Type         Skill
 Flags        0
 Minpos       7
 Rounds       24
-Guild        0
+Guild        4
 Code         do_disarm
 Dammsg       ~
 Wearoff      !Disarm!~
@@ -1302,7 +667,7 @@ Name         dodge~
 Type         Skill
 Flags        0
 Minpos       7
-Guild        0
+Guild        3
 Code         spell_null
 Dammsg       ~
 Wearoff      !Dodge!~
@@ -1317,7 +682,7 @@ Flags        524288
 Target       1
 Minpos       8
 Rounds       12
-Guild        6
+Guild        14
 Code         spell_charm_person
 Dammsg       ~
 Teachers     32011~
@@ -1383,7 +748,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        5
+Guild        6
 Code         do_first_aid
 Dammsg       ~
 Wearoff      !First Aid!~
@@ -1413,7 +778,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        6
+Guild        14
 Code         spell_null
 Dammsg       ~
 Wearoff      !!~
@@ -1425,7 +790,7 @@ Name         gemcutting~
 Type         Skill
 Flags        0
 Minpos       5
-Guild        2
+Guild        13
 Code         do_gemcutting
 Dammsg       ~
 Wearoff      !done!~
@@ -1452,7 +817,7 @@ Name         grenades~
 Type         Skill
 Flags        0
 Minpos       5
-Guild        0
+Guild        1
 Code         spell_null
 Dammsg       ~
 Wearoff      !done!~
@@ -1465,7 +830,7 @@ Name         grip~
 Type         Skill
 Flags        0
 Minpos       7
-Guild        0
+Guild        4
 Code         spell_null
 Dammsg       ~
 Wearoff      !Grip!~
@@ -1496,7 +861,7 @@ Flags        0
 Target       3
 Minpos       5
 Rounds       12
-Guild        4
+Guild        8
 Code         do_hide
 Dammsg       ~
 Wearoff      You are no longer hidden.~
@@ -1513,7 +878,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        4
+Guild        10
 Code         do_hijack
 Dammsg       ~
 Wearoff      !Hijack!~
@@ -1774,7 +1139,6 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       10
-Guild        3
 Code         do_mount
 Dammsg       ~
 Wearoff      !Search!~
@@ -1814,7 +1178,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        4
+Guild        9
 Code         do_pick
 Dammsg       ~
 Wearoff      !Pick!~
@@ -1900,7 +1264,7 @@ Type         Skill
 Flags        0
 Minpos       7
 Rounds       12
-Guild        0
+Guild        4
 Code         do_rescue
 Dammsg       ~
 Wearoff      !Rescue!~
@@ -1914,7 +1278,6 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        0
 Code         do_scan
 Dammsg       ~
 Wearoff      !Scan!~
@@ -1941,7 +1304,6 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       20
-Guild        4
 Code         do_search
 Dammsg       ~
 Wearoff      !Search!~
@@ -1981,7 +1343,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       12
-Guild        5
+Guild        14
 Code         do_smalltalk
 Dammsg       ~
 Wearoff      !!~
@@ -2034,11 +1396,11 @@ Minlevel     85
 End
 
 #SKILL
-Name         spice refining~
+Name         chem refining~
 Type         Skill
 Flags        0
 Minpos       5
-Guild        2
+Guild        13
 Code         spell_null
 Dammsg       ~
 Wearoff      !done!~
@@ -2052,7 +1414,7 @@ Type         Skill
 Flags        0
 Minpos       8
 Rounds       24
-Guild        8
+Guild        10
 Code         do_steal
 Dammsg       ~
 Wearoff      !Steal!~
@@ -2093,7 +1455,7 @@ Type         Skill
 Flags        0
 Minpos       6
 Rounds       12
-Guild        0
+Guild        5
 Code         do_throw
 Dammsg       ~
 Wearoff      !throw!~
@@ -2106,8 +1468,8 @@ Name         torture~
 Type         Skill
 Flags        0
 Minpos       8
-Rounds       12
-Guild        6
+Rounds       14
+Guild        12
 Code         do_torture
 Dammsg       ~
 Wearoff      !torture!~
@@ -2127,19 +1489,6 @@ Dammsg       ~
 Wearoff      !Track!~
 Teachers     32050~
 Minlevel     3
-End
-
-#SKILL
-Name         tractor beams~
-Type         Skill
-Flags        0
-Minpos       5
-Guild        1
-Code         spell_null
-Dammsg       ~
-Wearoff      !done!~
-Teachers     32007 32008 32040~
-Minlevel     35
 End
 
 #SKILL

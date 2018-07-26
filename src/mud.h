@@ -393,7 +393,8 @@ typedef enum
    CON_GET_NEW_PASSWORD, CON_CONFIRM_NEW_PASSWORD,
    CON_GET_NEW_SEX, CON_GET_NEW_CLASS, CON_READ_MOTD,
    CON_GET_NEW_RACE, CON_GET_EMULATION, CON_GET_MSP,
-   CON_ROLL_STATS, CON_STATS_OK,
+   CON_ROLL_STATS, CON_SET_STR, CON_SET_PER, CON_SET_END, 
+   CON_SET_CHA, CON_SET_INT, CON_SET_AGI, CON_SET_LCK, CON_STATS_OK,
    CON_GET_WANT_RIPANSI, CON_TITLE, CON_PRESS_ENTER,
    CON_WAIT_1, CON_WAIT_2, CON_WAIT_3,
    CON_ACCEPTED, CON_GET_PKILL, CON_READ_IMOTD,
@@ -550,7 +551,7 @@ struct frc_app_type
  * Languages -- Altrag
  */
 #define LANG_COMMON      BV00 /* Human base language */
-#define LANG_WOOKIEE     BV01
+#define LANG_NATIVE      BV01
 #define LANG_TWI_LEK     BV02
 #define LANG_RODIAN      BV03
 #define LANG_HUTT        BV04
@@ -576,10 +577,11 @@ struct frc_app_type
 #define LANG_QUARREN     BV24
 #define LANG_DUINUOGWUIN BV25
 #define LANG_UNKNOWN        0 /* Anything that doesnt fit a category */
-#define VALID_LANGS    ( LANG_COMMON | LANG_WOOKIEE | LANG_TWI_LEK | LANG_RODIAN  \
+#define VALID_LANGS    ( LANG_COMMON | LANG_NATIVE )
+/*		       ( LANG_COMMON | LANG_WOOKIEE | LANG_TWI_LEK | LANG_RODIAN  \
 		       | LANG_HUTT | LANG_MON_CALAMARI | LANG_NOGHRI | LANG_GAMORREAN \
 		       | LANG_JAWA | LANG_ADARIAN | LANG_EWOK | LANG_VERPINE | LANG_DEFEL \
-		       | LANG_TRANDOSHAN | LANG_CHADRA_FAN | LANG_QUARREN | LANG_DUINUOGWUIN)
+		       | LANG_TRANDOSHAN | LANG_CHADRA_FAN | LANG_QUARREN | LANG_DUINUOGWUIN)*/
 /*  26 Languages */
 
 /*
@@ -1976,9 +1978,9 @@ struct mob_index_data
    short damroll;
    short perm_str;
    short perm_int;
-   short perm_wis;
-   short perm_dex;
-   short perm_con;
+   short perm_per;
+   short perm_agi;
+   short perm_end;
    short perm_cha;
    short perm_lck;
    short perm_frc;
@@ -2129,9 +2131,9 @@ struct char_data
    int deaf;
    short perm_str;
    short perm_int;
-   short perm_wis;
-   short perm_dex;
-   short perm_con;
+   short perm_per;
+   short perm_agi;
+   short perm_end;
    short perm_cha;
    short perm_lck;
    short perm_frc;
@@ -2158,6 +2160,11 @@ struct char_data
    short colors[MAX_COLORS];
    int home_vnum; /* hotboot tracker */
    lua_State *L;  /* for Lua scripting - NJG  */
+   //Fallout MUD additions
+   short character_level;
+   unsigned int character_experience;
+   short used_stat_points;
+   short unused_stat_points;
 };
 
 struct killed_data
@@ -3738,6 +3745,7 @@ DECLARE_DO_FUN( do_unhell );
 DECLARE_DO_FUN( do_unlock );
 DECLARE_DO_FUN( do_unsilence );
 DECLARE_DO_FUN( do_up );
+DECLARE_DO_FUN( do_upgrade );
 DECLARE_DO_FUN( do_users );
 DECLARE_DO_FUN( do_value );
 DECLARE_DO_FUN( do_visible );
@@ -4504,7 +4512,7 @@ void hunt_victim args( ( CHAR_DATA * ch ) );
 
 /* update.c */
 void advance_level args( ( CHAR_DATA * ch, int ability ) );
-void gain_exp args( ( CHAR_DATA * ch, int gain, int ability ) );
+void gain_exp args( ( CHAR_DATA * ch, int gain) );
 void gain_condition args( ( CHAR_DATA * ch, int iCond, int value ) );
 void update_handler args( ( void ) );
 void reboot_check args( ( time_t reset ) );

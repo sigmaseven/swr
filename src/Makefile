@@ -20,7 +20,7 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c boards.c bounty.c
 	  build.c clans.c color.c comm.c comments.c const.c db.c fight.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c \
 	  md5.c misc.c mud_comm.c mud_prog.c player.c reset.c save.c shops.c \
-	  skills.c space.c special.c swskills.c tables.c track.c update.c \
+	  skills.c space.c special.c swskills.c tables.c track.c update.c util.c \
 	  lua_scripting.c lua_bits.c mt19937ar.c lua_tables.c
 
 ifdef IMC
@@ -34,6 +34,7 @@ H_FILES = $(wildcard *.h)
 
 all:
 	$(MAKE) -s fallout
+	mv fallout ..
 
 ifdef CYGWIN
 fallout: $(O_FILES)
