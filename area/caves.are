@@ -1,0 +1,1188 @@
+#AREA   Heckran Cave~
+
+
+
+#AUTHOR Diablos~
+
+#RANGES
+1 100 1 100
+$
+
+#FLAGS
+2
+
+#ECONOMY 0 24010000
+
+#MOBILES
+#0
+
+
+#OBJECTS
+#0
+
+
+#ROOMS
+#44340
+{DEntrance of the Heckran Cave{w~
+{cThe walls of this cave are an odd mixture of smooth and jagged,
+indicative of years worth of erosion by what once must have been a powerful,
+underground river.  The walls are a light cyan color, with darker hues of
+blue mixed in through the cracks.  The ground has the look and consistency
+of a river bed, although quite dark in color save for the occasional rocky
+build-ups that are a lighter shade of gray.  {w 
+~
+0 12 0
+D0
+~
+~
+0 0 44341
+S
+#44341
+{DWithin the Heckran Cave{w~
+{cThis chamber is the entrance in the Heckran Cave; the remnants of an
+underground river that must have once been very turbulent based on the deep
+and occasionally jagged indentions in the walls.  Most everything in the
+cave is a faded cyan color, the stone of the walls dripping with moisture
+due to the lingering humidity in the cave.  The dark cave floor leads south
+toward the exit of the cave, where a large door and a switch are visible. 
+To the north the cave curves to the northwest and out of sight.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44342
+D2
+~
+~
+0 0 44340
+S
+#44342
+{DWithin the Heckran Cave{w~
+{cThe cave path leads to the northwest around a gradual curve and out of
+sight and straight south toward the exit.  A torch is bolted onto the wall,
+helping provide light to an otherwise dark area.  The walls are a light cyan
+color and bear the signs of several years worth of water erosion, with
+intermittent areas of jagged and smooth stone.  The floor of the cave is
+mostly dark, with occasional areas of build up of smaller piles of stones.  {w
+~
+0 8 0
+D2
+~
+~
+0 0 44341
+D3
+~
+~
+0 0 44343
+S
+#44343
+{DWithin the Heckran Cave{w~
+{cThe cave path curves around to the northwest and southeast.  To the
+southeast it leads past a torch in the wall and toward the entrance to the
+cave while to the northwest past another torch and out of sight.  The
+curving nature of the cave is undoubtedly thanks to its formation as the
+result of a once powerful underground the river, the remnants of which are
+only visible in the bluish colored walls and residual moisture clinging to
+everything.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44344
+D1
+~
+~
+0 0 44342
+S
+#44344
+{DWithin the Heckran Cave{w~
+{cThe cave curves to the southeast here, leading around a curve and out of
+sight.  To the west the path is a straight shot toward a ledge that has a
+rope ladder hanging down leading deeper into the cave.  A torch on the wall
+illuminates the cyan wall that is an odd mixture of smooth areas and jagged,
+almost broken looking areas.  The shape of the walls and the very riverbed
+looking ground is indicative of this cave having once been a powerful,
+underground river.  {w 
+~
+0 8 0
+D2
+~
+~
+0 0 44343
+D3
+~
+~
+0 0 44345
+S
+#44345
+{DWithin the Heckran Cave{w~
+{cTo the east the path curves gradually to the south, around a bend and out
+of sight.  To both the east and west are torches bolted to the wall,
+illuminating the cave and providing enough light for easy navigation.  The
+walls are a pale cyan color, giving the cave a very aquatic look that is
+befitting it as a former underground river.  To the west the southern wall
+gives way to a steep ledge that has a rope ladder extending down to a lower
+level.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44344
+D3
+~
+~
+0 0 44346
+S
+#44346
+{DBefore a Ladder in the Heckran Cave{w~
+{cA steep ledge lies to the south, a rope ladder hanging down from the top
+connecting to the lower levels of the cave, of which there are two.  To the
+east the path curves to the southeast and out of sight, torches visible
+toward that direction matching the one bolted here to the wall helping
+illuminate the darkness.  At the base of the ladder below is a small ledge,
+with another ladder leading down to another lower level.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44345
+D5
+~
+ladder~
+0 0 44347
+S
+#44347
+{DBelow a Ladder in the Heckran Cave{w~
+{cThe northern wall extends several meters upward, a rope ladder hangs from
+the top and is tightly secured to the floor here allowing for a safe climb
+upward.  To the east of the ladder is a torch bolted to the wall,
+illuminating the light cyan walls and dark, riverbed-like cave floor.  The
+path here is a ledge sticking out of the northern wall, the southern edge
+dropping down to the level below.  To the east another, albeit smaller, rope
+ladder is connected down to the level below.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44348
+D4
+~
+ladder~
+0 0 44346
+S
+#44348
+{DBefore a Ladder in the Heckran Cave{w~
+{cThe southern ledge has a rope ladder connected here leading down to the
+level below, while to the west another ladder leads up the northern wall.  A
+torch is bolted to the northern wall, helping illuminate the area and the
+jagged, cyan colored walls.  {w 
+~
+0 8 0
+D3
+~
+~
+0 0 44347
+D5
+~
+ladder~
+0 0 44349
+S
+#44349
+{DBelow a Ladder in the Heckran Cave{w~
+{cA rope ladder is draped over a ledge to the north, leading up to toward a
+mid level area of the cave.  Above the ledge is another ladder leading
+higher, a torch bolted just to the east of it.  Across the path to the west
+is a large staircase carved into the floor leading down and out of sight,
+while a torch is bolted on the wall north of it.  {w 
+~
+0 8 0
+D3
+~
+~
+0 0 44350
+D4
+~
+ladder~
+0 0 44348
+S
+#44350
+{DWithin the Heckran Cave{w~
+{cTo the east the path reaches a dead-end, with a rope ladder hanging down
+from a ledge sticking out of the northern wall.  Above the ledge, at the top
+of the wall, is another level of the cave that is also accessible by another
+ladder.  To the west the path leads toward a large staircase that has been
+carved into the dark, riverbed-like floor.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44349
+D3
+~
+~
+0 0 44351
+S
+#44351
+{DWithin the Heckran Cave{w~
+{cA large clumb of stone has built up on the floor here, coming to a bit of
+a point but not quite a stalagmite, the base of which is smooth and bears
+the signs of years worth of water erosion.  The path leads east where it
+ends at a wall with a rope ladder, while west a large staircase is built
+into the riverbed like floor leading down where the sound of rushing water
+can be heard.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44350
+D3
+~
+~
+0 0 44352
+S
+#44352
+{DWithin the Heckran Cave{w~
+{cThis part of the cave widens a bit, with the northern wall set a bit
+further in with a torch that helps illuminate the area.  The southern part
+of the area has a large staircase set into it, leading quite a ways down
+toward the sound of rushing water.  To the east the riverbed like path
+extends along a ledge running along the north, where a rope ladder extends
+upward.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44351
+D2
+~
+~
+0 0 44353
+S
+#44353
+{DTop of a Staircase in Heckran Cave{w~
+{cA large staircase has been carved into the dark, riverbed-like floor of
+the cave here, leading quite a ways down to a lower part of the cave where
+the sounds of rushing water can be heard.  The walls of the cave are a light
+cyan color and drip heavy with moisture, while much of them, particularly
+leading alongside the staircase, are smooth from years worth of water
+erosion.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44352
+D5
+~
+~
+0 0 44354
+S
+#44354
+{CAt the Base of a Staircase in Heckran Cave{w~
+{cA large staircase has been carved into the northern wall, leading up to a
+higher level that can't be seen from this point.  Along the west of the
+ledge here is a flowing pool of water, a waterfall of sorts rushing out of
+the ceiling and down the wall into the pool.  The southern edge of the ledge
+has another, much smaller staircase leading down to a path that is
+surrounding by rushing water.  {w 
+~
+0 8 0
+D2
+~
+~
+0 0 44355
+D4
+~
+~
+0 0 44353
+S
+#44355
+{CTop of a Staircase in Heckran Cave{w~
+{cA small staircase has been carved into the southern edge of the ledge
+here, leading down toward a path surrounded by rushing water.  A large flow
+of water is coming down from the cave ceiling to the west, contributing to
+the strong flow of the water that seems to be slowly eating away at the
+stone cave floor.  A bit to the north another, much larger staircase leads
+up to another part of the cave.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44354
+D5
+~
+~
+0 0 44356
+S
+#44356
+{CAt the Base of a Staircase in Heckran Cave{w~
+{cThis chamber of the cave has several pools of rushing water flowing
+below, the floor of the cave even passing over some like a bridge.  To the
+north here there is a staircase carved into the wall leading up to a small
+ledge, which in turn has a much larger staircase leading up to another part
+of the cave.  To the west of the northernmost staircase is a large flow of
+water rushing down from above and creating a bit of a waterfall that flows
+down into the rushing water.  {w 
+~
+0 8 0
+D3
+~
+~
+0 0 44357
+D4
+~
+~
+0 0 44355
+S
+#44357
+{CWithin the Heckran Cave{W~
+{cThe path expands outward here, the edges of which drop down into rushing
+water.  This area appears to be one of the lower levels of the cave, housing
+the remnants of what was once a powerful, underground river.  The ground
+here is quite dark, despite the walls being a light cyan color, and has the
+appearance of a riverbed.  Much of the area has been smoothed out by water
+erosion, although jagged cracks are common along the edge of the path and in
+places in the walls.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44356
+D2
+~
+~
+0 0 44358
+D3
+~
+~
+0 0 44366
+S
+#44358
+{CWithin the Heckran Cave{W~
+{cThis large path rests in the eastern side of this large chamber in the
+Heckran Cave.  To the north the path leads toward a two tiered staircase
+leading up to another part of the cave, while south a large opening rests in
+the southern wall.  To the west the path is much thinner and bridges over
+the flowing water that covers the lowest level of the cave floor, connecting
+to an even larger portion of the path leading through the area.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44357
+D2
+~
+~
+0 0 44359
+S
+#44359
+{CBefore an Opening in the Heckran Cave{W~
+{cA large opening rests in the southern wall, itself having the appearance
+of a mixture of being natural and man-made.  Through the opening a ledge can
+be seen, while north the path leads toward a staircase carved into the stone
+of the floor and walls.  The path ahead leads to the west, bridging over the
+water below and toward a larger area of cave floor that sticks up out of the
+water.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44358
+D2
+~
+~
+0 0 44360
+S
+#44360
+{DWithin the Heckran Cave{w~
+{cA small chamber extends to the west, a large opening in the northern wall
+here leading out and toward a larger area of the cave where rushing water
+can be heard.  The ledge here has a small staircase carved into it leading
+down where navigation of the rest of the chamber west is possible, the
+western side of which has another ledge with a staircase.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44359
+D5
+~
+~
+0 0 44361
+S
+#44361
+{DWithin the Heckran Cave{w~
+{cThis chamber is small, yet wide, with the east and west sides each with a
+ledge built up higher and a staircase carved into their southern faces.  The
+eastern staircase lies here to the north, the ledge it leads to just south
+of a large opening leading out of the chamber and toward the sound of
+rushing water.  The dark cave floor, very much with the appearance of a
+river bed, extends west.  {w 
+~
+0 8 0
+D3
+~
+~
+0 0 44362
+D4
+~
+~
+0 0 44360
+S
+#44362
+{DWithin the Heckran Cave{w~
+{cThe northern wall here, resting between two ledges on the eastern and
+western ends of this chamber, indents to a point northward, the light cyan
+walls illuminated by a torch bolted into the apex of the point.  The eastern
+ledge has a large opening in the northern wall leading out of the chamber,
+while a chest is visible atop the ledge to the west.  {W 
+~
+0 8 0
+D1
+~
+~
+0 0 44361
+D3
+~
+~
+0 0 44363
+S
+#44363
+{DWithin the Heckran Cave{w~
+{cThe northern wall indents to a point where a lone torch is bolted onto
+the wall providing ample light for this relatively small, yet wide, chamber
+in the Heckran Cave.  The wall around the torch especially is well lit, the
+light cyan color very vibrant, a stark contrast to the {rred{c plaque bolted on
+the wall.  The walls themselves are a mixture of very smooth and very jagged
+spots, an indicator of how much of this cave was created by the erosion of a
+once powerful river that flowed through here.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44362
+D3
+~
+~
+0 0 44364
+S
+#44364
+{DWithin the Heckran Cave{w~
+{cA ledge rests to the north, the southern end of which has a staircase
+carved into it leading upwards where a wooden chests is visible.  To the
+east, the dark, riverbed-like cave floor leads toward another such ledge and
+staircase where a large opening in the northern wall leads out of this
+chamber.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44363
+D4
+~
+~
+0 0 44365
+S
+#44365
+{DWithin the Heckran Cave{w~
+{cThis small ledge rests at the western edge of this small chamber.  A
+wooden chest sits on the floor against the northern wall, while the southern
+end of the ledge has a staircase carved into the dark floor and light cyan
+walls.  To the east a torch is bolted onto the wall, providing ample light
+to the area.  Across the other end of the chamber, another ledge with a
+staircase can be seen along a large opening resting in the northern wall
+leading out.  {w 
+~
+0 8 0
+D5
+~
+~
+0 0 44364
+S
+#44366
+{CWithin the Heckran Cave{w~
+{cThe path here bridges between two large sections of cave floor to the
+east and west, while a large hole in the floor provides a window to the
+watery floor below, with a powerful rush of shallow water that flows around
+and occasionally under the paths of this chamber.  Throughout the area,
+heavy flows of water rain down from the ceiling, running down the walls and
+creating waterfalls that seem to feed the water below.  Across the water to
+the north there is a ledge with an opening against the wall, a staircase
+built from the ledge itself leading down into the water.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44357
+D3
+~
+~
+0 0 44367
+S
+#44367
+{CWithin the Heckran Cave{w~
+{cThe path here bridges two large sections of cave floor on the eastern and
+western sides of the chamber.  To the east a large, cracked hole rests in
+the center of the path, the rushing water below easily visible through it. 
+North of the path and past the water, a ledge can be seen sticking out of
+the northern wall with a staircase on its southern face going down into the
+water below.  The path here leads north and upward alongside an elevated
+part of the floor, where it connects to the rest to the west.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44368
+D1
+~
+~
+0 0 44366
+S
+#44368
+{CWithin the Heckran Cave{w~
+{cThe floor to the west is at a slightly higher elevation, a large break in
+the floor leading south and downward and creating a bit of a border for the
+path in that direction.  To the north there is a gap between this part of
+the path and a ledge coming out of the northern wall, where a large opening
+is visible leading into another part of the cave and a staircase leads down
+into the water, neither of which seem to be accessible from here.  To the
+west the path expands outward, it too surrounded by rushing water like most
+everything in this chamber.  {w 
+~
+0 8 0
+D2
+~
+~
+0 0 44367
+D3
+~
+~
+0 0 44369
+S
+#44369
+{CWithin the Heckran Cave{w~
+{cThe path expands outward here, to the east is leads around a crack in the
+floor and southward, while south is leads toward a thinner part of the path
+that bridges toward an opening in the southern wall.  Rushing water
+surrounds all the paths in the area, the last remnants of a powerful river
+that used to flow through this cave and is likekly responsible for its
+formation in the first place.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44368
+D2
+~
+~
+0 0 44372
+D3
+~
+~
+0 0 44370
+S
+#44370
+{CWithin the Heckran Cave{w~
+{cThe western edge of the path is cracked and brittle, leading down into
+the shallow yet rushing water that covers the entirety of the lower level of
+the cave.  Past the water and along the western wall is a ledge sticking out
+with a staircase that leads down into the water, while a large opening has
+been carved into the wall connecting to the ledge.  To the north a narrow
+bridge of path leads to the northern wall, while east and south leads toward
+another opening in the southern wall.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44371
+D1
+~
+~
+0 0 44369
+S
+#44371
+{CWithin the Heckran Cave{w~
+{cThe path dead ends at the northern wall, each side of which has large
+flows of water coming down from the ceiling creating a bit of a waterfall as
+it rushes down the wall into the shallow pool of water that covers the
+lowest parts of the floor in this chamber.  The path is thin here, leading
+south toward a much larger section of the cave floor, it too surrounded on
+nearly all sides by the water below.  {w 
+~
+0 8 0
+D2
+~
+~
+0 0 44370
+S
+#44372
+{CWithin the Heckran Cave{w~
+{cThe path begins to thin here to the south, where it bridges over the
+water rushing below and toward an opening in the southern wall.  To the
+north it leads to the center of the western section of the cave, where a
+large crack has formed in the ground creating two separation elevations on
+this part.  To the east of the crack another path bridges toward the eastern
+section of the cave.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44369
+D2
+~
+~
+0 0 44373
+S
+#44373
+{CWithin the Heckran Cave{w~
+{cThe path thins and bridges over the water below, itself quite shallow but
+still rushing by at incredible speeds.  To the north the cave floor is much
+wider, but like everywhere it is dark and very riverbed like.  To the south
+a ledge sticks out of the southern wall where a large opening rests leading
+into another part of the cave.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44372
+D2
+~
+~
+0 0 44374
+S
+#44374
+{CBefore an Opening in the Heckran Cave{w~
+{cThe ledge here sticks out of the southern wall where a large opening
+leads into another part of the cave.  The wall is light cyan and has various
+areas of smoothness and cracked jaggedness.  To the the north the path
+bridges toward much larger, sturdier parts of the cave floor, where rushing,
+shallow water flows around and occasionally under.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44373
+D2
+~
+~
+0 0 44375
+S
+#44375
+{DWithin the Heckran Cave{w~
+{cA large opening rests in the northern wall, a combination of smooth and
+jagged edges indicative of a once natural opening expanded by tools.  The
+floor is very dark, parts of which brittle and sandy, very much like a
+riverbed.  The walls of the area are light cyan in color, smooth and brittle
+at points from years worth of water erosion.  Moisture clings to everything,
+and the torch bolted to the northern wall causes light to bounce off the
+occasionally glistening walls.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44374
+D2
+~
+~
+0 0 44376
+S
+#44376
+{DWithin the Heckran Cave{w~
+{cThe eastern side of this chamber widens from the center to the west,
+where the wall extends southward and creates a relatively narrow passage
+where a staircase can be seen leading up.  To the north there is a torch
+bolted onto the wall just west of a large opening that leads out of the
+cave.  Moisture clings to everything in the cave, which would provide for a
+dangerous, slick travel over the floor if it weren't for the loose rocks
+akin to the bottom of a riverbed.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44375
+D3
+~
+~
+0 0 44377
+S
+#44377
+{DWithin the Heckran Cave{w~
+{cThe cave narrows to the west where the wall extends southward creating a
+narrow passage between the eastern side of the chamber and the west.  A
+staircase is visible on the otherside of the passage, carved into the dark
+floor and leading up to another level.  To the northeast there is an opening
+in the northern wall that leads to another part of the cave, where a torch
+is bolted onto the wall providing light for the entire chamber.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44376
+D3
+~
+~
+0 0 44378
+S
+#44378
+{DWithin the Heckran Cave{w~
+{cA staircase has been carved to the north, where an elevated part of the
+chamber is visible leading to the west.  To the east the path narrows as the
+northern cave wall branches southward, the otherside of which a torch can be
+seen providing light to the chamber.  The floors here are dark, with broken,
+jagged rocks and sand making up the majority of the floor.  Moisture clings
+to everything, and the faint sound of running water can be heard echoing
+from other parts of the cave.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44377
+D4
+~
+~
+0 0 44379
+S
+#44379
+{DWithin the Heckran Cave{w~
+{cA staircase has been carved into the floor to the south, leading down to
+a lower part of this chamber.  The path at the bottom of the stairs is quite
+narrow, leading east and out of site, while to the west it widens toward a
+large opening in the northern wall.  Moisture clings to everything in the
+cave, the humidity making everything look as though it is sweating.  {w 
+~
+0 8 0
+D3
+~
+~
+0 0 44380
+D5
+~
+~
+0 0 44378
+S
+#44380
+{DBefore an Opening in the Heckran Cave{w~
+{cThe path is wide here, expanding southward toward a point and north
+toward a large opening in the northern wall.  The humidity is intense here,
+moisture clinging to everything and giving it all a glistening, almost
+unnatural look.  To the east there is a staircase carved into the floor,
+leading down toward a narrow passage leading east into the otherside of this
+chamber.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44381
+D1
+~
+~
+0 0 44379
+S
+#44381
+{DBefore an Opening in the Heckran Cave{w~
+{cThis chamber is a straight shot north, both ends having large openings
+leading out of the chamber.  Moisture clings to everything, the torches to
+the north providing dancing light that makes everything glisten.  The floor
+of the cave looks like a river bed, with a mixture of broken, jagged rocks
+and smooth pebbles, between which has the consistency of sand.  The walls
+are light cyan, also a mixture of smooth and jagged indicative of years
+worth of water erosion.  A large opening leads south into another chamber of
+the cave.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44382
+D2
+~
+~
+0 0 44380
+S
+#44382
+{DWithin the Heckran Cave{w~
+{cThe eastern wall has a large torch bolted to the wall, providing enough
+light for the southern half of the cave to be well lit.  Another torch is
+visible a bit to the north just to the west of an opening that leads east. 
+This chamber is somewhat narrow but extends a ways to the north and south.  {w
+~
+0 8 0
+D0
+~
+~
+0 0 44383
+D2
+~
+~
+0 0 44381
+S
+#44383
+{DWithin the Heckran Cave{w~
+{cThe ground looks like a dark riverbed, with broken pieces of jagged rock,
+smooth pebbles, sand, and larger chunks of solid rock that matches the light
+cyan of the walls.  Just a bit to the north the chamber reaches its northern
+point, where a torch is bolted on the the wall just to the west of a large
+opening that leads east and out of the chamber.  The sounds of rushing water
+can be heard coming from that direction, while moisture clings to everything
+here.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44384
+D2
+~
+~
+0 0 44382
+S
+#44384
+{DBefore an Opening in the Heckran Cave{w~
+{cThis is the northern end of a chamber in the Heckran Cave that runs a
+straight shot north and south.  The eastern part of the wall here has a
+large opening leading east, where a ledge is visible sticking out into a
+pool of rushing water.  A torch is bolted to the west of the opening,
+providing ample light for the northern end of the chamber.  To the south the
+dark floor leads to the opposite end where another opening is visible
+leading out of this chamber.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44385
+D2
+~
+~
+0 0 44383
+S
+#44385
+{CBefore an Opening in the Heckran Cave{w~
+{cThis ledge sticks out of the western wall of this large chamber, where an
+opening leads into another part of the cave.  A staircase has been carved
+out of the ledge leading down into the rushing, shallow water that flows
+around and even under some parts of the floor of the area.  Across the water
+to the east, a large section of dark path is visible, with a bridge along
+its southern end passing over the water and toward an opening in the
+southern wall.  {w 
+~
+0 8 0
+D3
+~
+~
+0 0 44384
+D5
+~
+~
+0 0 44386
+S
+#44386
+{AIn the Water of Heckran Cave{w~
+{cThe shallow water here rushes strongly around the elevated paths of the
+Heckran Cave.  To the north there is a staircase built into a ledge sticking
+out of the western wall of the chamber, while east the watery path leads
+under a bridge connecting a ledge in the southern wall with a much larger,
+western area of cave floor.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44387
+D4
+~
+~
+0 0 44385
+S
+#44387
+{AIn the Water of Heckran Cave{w~
+{cThe water here covers the entirety of the lower part of this large
+chamber in Heckran Cave.  Despite being relatively shallow, the force of the
+water is surprisingly strong.  Quite a ways to the north, a waterfall is
+visible flowing down through the ceiling and along the northern wall of the
+cave, causing the water in this particular spot to flow heavily to the east.
+Eastward, this watery path leads under one of the higher elevated parts of
+the cave, the bridge connecting an opening in the southern wall with the
+center structure of the chamber.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44388
+D3
+~
+~
+0 0 44386
+S
+#44388
+{AIn the Water of Heckran Cave{w~
+{cThe watery path passes under part of the elevated paths of the chamber,
+the underside of which is sharply jagged and brittle.  The walls of the area
+here have been worn down smooth, while the floor under the shallow water is
+a mix of slick, smooth ground and broken pieces of rock.  To the east the
+path leads out from under the bridge here and curves north under other parts
+of the paths, while west it leads toward a small staircase leading out of
+the water and to a ledge built into the western wall.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44389
+D3
+~
+~
+0 0 44387
+S
+#44389
+{AIn the Water of Heckran Cave{w~
+{cThe water flows strongly from the west from under one of the elevated
+paths of the chamber.  To the east the water path curves northward where it
+passes under a large section of the floor that serves as a bridge between
+the eastern and western parts of the chamber.  The riverbed here is a
+mixture of slick, smooth ground and jagged, broken rocks.  {w 
+~
+0 8 0
+D1
+~
+~
+0 0 44390
+D3
+~
+~
+0 0 44388
+S
+#44390
+{AIn the Water of Heckran Cave{w~
+{cThe path here curves toward the north where it passes under parts of the
+higher elevation of this chamber and west where it leads another yet another
+part of the path.  On the otherside of the underpass to the north there is a
+staircase carved into a ledge in the northern wall, while far to the west
+another such staircase is visible.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44391
+D3
+~
+~
+0 0 44389
+S
+#44391
+{AIn the Water of Heckran Cave{w~
+{cOverhead is the underside of a path that bridges the eastern and west
+sides of this large chamber in the Heckran Cave.  The path here has clearly
+been carved out by years worth of water erosion, the walls having been worn
+mostly smooth with the occasional jagged, brittle rock jutting out.  Just to
+the north there is a large hole in the path overhead, while past there a
+staircase is visible carved into the floor leading up and out of the water. 
+~
+0 8 0
+D0
+~
+~
+0 0 44392
+D2
+~
+~
+0 0 44390
+S
+#44392
+{AIn the Water of Heckran Cave{w~
+{cThe watery path passes under a part of the higher elevated path of the
+chamber, a large, broken hole in the path rests directly overhead.  The
+walls here are mostly worn smooth, although the underside of the path
+overhead is mostly jagged, broken, and brittle.  To the north there is a
+staircase carved into the ledge that sticks out of the northern wall, the
+top of which has a large opening leading into another part of the cave.  The
+path south leads out from under the path and curves to the west.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44393
+D2
+~
+~
+0 0 44391
+S
+#44393
+{AIn the Water of Heckran Cave{w~
+{cA staircase has been carved into the southern face of the ledge to the
+north, leading out of the water and toward a large opening in the northern
+wall.  To the east and west of the ledge there are waterfalls flowing out of
+the ceiling and down the northern walls, feeding the shallow flow of water
+that surrounds the paths.  To the south the water leads under one of the
+upper paths of the chamber.  {w 
+~
+0 8 0
+D2
+~
+~
+0 0 44392
+D4
+~
+~
+0 0 44394
+S
+#44394
+{CWithin the Heckran Cave{w~
+{cThis large ledge sticks out from the northern wall of this chamber in
+Heckran Cave.  A powerful flow of shallow water snakes throughout the entire
+chamber, passing around and in some places under the paths.  To the south
+this ledge has a staircase carved into it leading down into the water, while
+a little to the north there is a large opening in the wall leading into
+another part of the cave.  A bit to the east and west waterfalls flow down
+from through the ceiling of the cave and along the wall down into the water.
+~
+0 8 0
+D0
+~
+~
+0 0 44395
+D5
+~
+~
+0 0 44393
+S
+#44395
+{CBefore an Opening in the Heckran Cave{w~
+{cA large opening rests in the northern wall, some parts of it jagged but
+much of it smooth and clearly hand tooled to widen and shape it.  A small
+set of steps have been carved into the bottom of the opening, leading up and
+into another chamber.  To the south this ledge leads down into the water
+that flows around and under many parts of the chamber, while to the east and
+west waterfalls flow down from the ceiling and along the walls down into the
+water.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44396
+D2
+~
+~
+0 0 44394
+S
+#44396
+{DBefore an Opening in the Heckran Cave{w~
+{cThe chamber here is at its widest point, narrowing to the north as it
+curves slightly around a bend and toward a staircase carved into the
+northern wall.  A torch a little to the north illuminates the cave, the
+walls glistening from a combination of the light from the torch and the
+moisture that clings to everything.  A large opening rests in the southern
+wall, leading down slightly at an angle toward a ledge where the sounds of
+rushing water can be heard.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44397
+D2
+~
+~
+0 0 44395
+S
+#44397
+{DWithin the Heckran Cave{w~
+{cJust to the north the path narrows a bit, the eastern wall jutting out
+sharply west and partly obscuring a staircase carved into the northern wall.
+A torch is bolted onto the wall here, providing ample light for this
+relatively small chamber.  A bit to the south there is a large opening in
+the wall that leads into another part of the chamber where the sounds of
+rushing water can be heard.  A similar but far fainter sound of water can be
+heard coming from the north.  {w 
+~
+0 8 0
+D0
+~
+~
+0 0 44398
+D2
+~
+~
+0 0 44396
+S
+#44398
+{DWithin the Heckran Cave{w~
+{cA large staircase is carved into the northern wall, leading up to a ledge
+where the sound of water can be heard.  A torch is bolted on the northern
+wall above the ledge, helping provide light for the area.  To the south the
+path curves around a part of the eastern wall that juts out sharply to the
+west, around which more light can be seen and the sound of rushing water can
+be heard.  {w 
+~
+0 8 0
+D2
+~
+~
+0 0 44397
+D4
+~
+~
+0 0 44399
+S
+#44399
+{CBefore a Pool in the Heckran Cave{w~
+{cThe ground has a large, jagged hole in the ledge here, through which
+there is a very strong flow of powerfully rushing water.  Unlike the
+shallows elsewhere in this cave, the clear water has a depth not able to be
+determine.  A torch has been bolted on the northern wall high above the
+ground here, while a staircase has been carved to the south that leads down
+and into this chamber.  {w 
+~
+0 0 0
+D5
+~
+~
+0 0 44398
+S
+#0
+
+
+#SHOPS
+0
+
+
+#REPAIRS
+0
+
+
+#SPECIALS
+S
+
+
+#$
